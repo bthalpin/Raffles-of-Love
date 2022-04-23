@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 const bcrypt = require('bcrypt')
 const Ticket = require('./Ticket')
+const Charity = require('./Charity')
 
 const userSchema = new Schema({
     userName: {
@@ -20,8 +21,11 @@ const userSchema = new Schema({
         required: true,
         minlength: 5
     },
-    tickets: [Ticket.schema]
+    tickets: [Ticket.schema],
+    favoriteCharity: [Charity.schema],
 });
+
+// Could add isCharityUser here to allow posting of productss
 
 
 userSchema.pre('save', async function(next) {
