@@ -14,11 +14,11 @@ const productSchema = new Schema({
     image: {
         type: String
     },
-    donation: {
-        type: Number,
-        required: true,
-        min: 1.00
-    },
+    // donation: {
+    //     type: Number,
+    //     required: true,
+    //     min: 1.00
+    // },
     ticketCount: {
         type: Number,
         min:0,
