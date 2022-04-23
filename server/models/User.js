@@ -9,6 +9,7 @@ const userSchema = new Schema({
     userName: {
         type: String,
         required: true,
+        unique: true,
         trim: true
     },
     email: {
@@ -21,13 +22,13 @@ const userSchema = new Schema({
         required: true,
         minlength: 5
     },
-    charityadmin: {
+    charityAdmin: [{
         type: Boolean,
         default: false,
-        charity: [Charity.schema],
-    },
+        charity: [Charity.schema]},
+    ],
     tickets: [Ticket.schema],
-    favcharitys: [Charity.schema],
+    favCharitys: [Charity.schema],
 });
 
 

@@ -19,7 +19,7 @@ const productSchema = new Schema({
         required: true,
         min: 1.00
     },
-    ticketcount: {
+    ticketCount: {
         type: Number,
         min:0,
         default: 0

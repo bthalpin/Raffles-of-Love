@@ -7,7 +7,7 @@ const ticketSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    ticketnumber: {
+    ticketNumber: {
         type: Number,
         required: true,
         unique: true
