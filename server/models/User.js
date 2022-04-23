@@ -21,12 +21,13 @@ const userSchema = new Schema({
         required: true,
         minlength: 5
     },
-    charityAdmin: {
+    charityadmin: {
         type: Boolean,
-        default: false
+        default: false,
+        charity: [Charity.schema],
     },
     tickets: [Ticket.schema],
-    favCharitys: [Charity.schema],
+    favcharitys: [Charity.schema],
 });
 
 
