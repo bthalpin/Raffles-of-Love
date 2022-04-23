@@ -26,7 +26,7 @@ const userSchema = new Schema({
         default: false
     },
     tickets: [Ticket.schema],
-    favoriteCharitys: [Charity.schema],
+    favCharitys: [Charity.schema],
 });
 
 
