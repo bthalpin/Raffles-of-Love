@@ -21,11 +21,14 @@ const userSchema = new Schema({
         required: true,
         minlength: 5
     },
+    charityAdmin: {
+        type: Boolean,
+        default: false
+    },
     tickets: [Ticket.schema],
-    favoriteCharity: [Charity.schema],
+    favoriteCharitys: [Charity.schema],
 });
 
-// Could add isCharityUser here to allow posting of productss
 
 
 userSchema.pre('save', async function(next) {
