@@ -19,7 +19,6 @@ const typeDefs = gql`
         name: String!
         description: String
         image: String
-        donation: Float!
         ticketCount: Number
         charity: Charity!
     }
@@ -28,9 +27,8 @@ const typeDefs = gql`
         userName: String!
         email: String!
         password: String!
-        charityAdmin: [CharityAdmin]
         tickets: [Ticket]
-        favCharitys: [Charity]
+
     }
 
     type Checkout {
