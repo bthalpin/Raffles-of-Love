@@ -1,4 +1,21 @@
-.navContainer{
+.brandName{
+    font-size: 3rem !important;
+}
+.navLink{
+    padding:1.5rem 2rem;
+    text-decoration: none;
+    /* font-size:1.5rem; */
+    color:white;
+}
+.navLink:hover{
+    color:rgb(241, 241, 241);
+    text-shadow: 0 0 1rem white;
+    transform: scale(1.03);
+}
+/* .navRight{
+    width:100px;
+} */
+/* .navContainer{
     display:flex;
     justify-content: space-between;
     background-color: #828282;
@@ -39,4 +56,4 @@
         padding:1.4rem 0.5rem;
         font-size: 0.89rem;;
     }
-}
+} */

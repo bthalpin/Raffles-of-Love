@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Product () {
+function Register () {
 
     return (
             <div>
@@ -9,4 +9,4 @@ function Product () {
     )
 }
 
-export default Product;
+export default Register;

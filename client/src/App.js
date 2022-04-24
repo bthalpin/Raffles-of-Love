@@ -1,12 +1,12 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Nav from './components/Nav';
+import {Navigation} from './components/';
 import {Charity,Product,Profile} from './pages';
 
 function App() {
   return (
     <Router>
-      <Nav />
+      <Navigation />
       <Routes>
         <Route
           path='/'
@@ -14,7 +14,7 @@ function App() {
           />
 
         <Route
-          path='/Products'
+          path='/Product'
           element={<Product />}>
 
         </Route>
