@@ -1,6 +1,6 @@
 import Charity from './Charity';
-import Product from './Product';
+import SingleCharity from './SingleCharity';
 import Profile from './Profile';
 
 
-export {Charity,Product,Profile}
+export {Charity,SingleCharity,Profile}

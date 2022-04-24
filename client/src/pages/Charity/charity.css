@@ -1,3 +1,10 @@
+.charityLink{
+    text-decoration: none;
+    color:black;
+}
+.charityLink:hover{
+    color:rgb(98, 98, 98);
+}
 .charityCard{
     width:25rem;
     height:30rem;
