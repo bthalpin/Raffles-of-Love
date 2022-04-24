@@ -14,7 +14,7 @@ function App() {
           />
 
         <Route
-          path='/Products'
+          path='/Product'
           element={<Product />}>
 
         </Route>
