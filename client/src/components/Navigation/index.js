@@ -1,18 +1,22 @@
 // import NavLink from './NavLink';
 import React,{useState} from 'react';
 import { Link } from "react-router-dom";
-import {Navbar, Modal,Nav,Button} from 'react-bootstrap';
+import {Navbar, Modal,Nav,Button,Tab,Tabs} from 'react-bootstrap';
 import {Login,Register} from '../'
 import './nav.css';
 
 function Navigation() {
   const navigationLinks = ['Charity','Products','Profile','Logout']
   const [show, setShow] = useState(false);
-
+  const [key, setKey] = useState('login');
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleShow = () => {
+    setKey('login')
+    setShow(true)
+  };
 
   return (
+    <>
     <Navbar className="navigation p-4 d-flex justify-content-between" bg="secondary" variant="dark" expand="lg">
         <div>
 
@@ -28,16 +32,42 @@ function Navigation() {
               <Nav onClick={handleShow} className="navLink fs-3" as={Link} to='#'> Login</Nav>
             </Nav>
           </Navbar.Collapse>
+          </div>
+          </Navbar>
 
-
-        <Modal show={show} onHide={handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>Login</Modal.Title>
+        <Modal show={show} onHide={handleClose} size="lg">
+          <Modal.Header closeButton >
+            CHARITY
           </Modal.Header>
-          <Login handleModalClose={()=>setShow(false)} />
+          <Modal.Body>
+
+          {/* <Tab.Container> */}
+
+          <Tabs
+              id="login-tab"
+              activeKey={key}
+              onSelect={(k) => setKey(k)}
+              className="mb-3 d-flex"
+            > 
+            {/* <Tab.Content> */}
+
+              <Tab.Pane eventKey="login" title="Login">
+                <Login handleModalClose={()=>setShow(false)} />
+              </Tab.Pane>
+              <Tab.Pane eventKey="Register" title="Register">
+                <Register handleModalClose={()=>setShow(false)} />
+              </Tab.Pane>
+            {/* </Tab.Content> */}
+            
+            </Tabs>
+          {/* </Tab.Container> */}
+          </Modal.Body>
+            {/* <Modal.Title>Login</Modal.Title>
+          <Login handleModalClose={()=>setShow(false)} /> */}
         </Modal>
-        </div>
-    </Navbar>
+        
+    </>
+    
 
 
 
