@@ -24,6 +24,8 @@ module.exports = {
 
         return req;
     },
+    
+    // can add userName to signToken function and payload if needed
     signToken: function ({ email, _id }) {
         const payload = { email, _id };
 
