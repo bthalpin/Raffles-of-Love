@@ -10,7 +10,6 @@ const ticketSchema = new Schema({
     ticketNumber: {
         type: Number,
         required: true,
-        unique: true
     },
     // product: [
     //     {
