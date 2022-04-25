@@ -12,7 +12,7 @@ function Profile () {
         address:'City, State'
     }
     return (
-            <div>
+            <div className="profilePage">
                 <Container className="my-4 profileInfoContainer" sm={9}>
 
                     <Card>
@@ -36,8 +36,8 @@ function Profile () {
                         </Card.Body>
                     </Card>
                 </Container>
-                <h2>My raffles</h2>
-                <ProductCard productData={tempProductData} />
+                <h2 className="text-center">My raffles</h2>
+                <ProductCard productData={tempProductData}/>
             </div>
     )
 }

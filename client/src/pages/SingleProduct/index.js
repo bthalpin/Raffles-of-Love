@@ -11,7 +11,7 @@ function SingleProduct () {
     let {productId} = useParams()
     return (
         <>
-            <Container className="d-flex flex-wrap justify-content-around my-5 mx-auto">
+            <Container className="singleProductPage d-flex flex-wrap justify-content-around mt-5 mx-auto">
                 
                 
                         <Card className="singleProductCard m-2 p-3 text-center">

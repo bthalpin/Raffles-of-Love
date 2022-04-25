@@ -1,6 +1,9 @@
+.singleProductPage{
+    margin-bottom:8rem;
+}
 .singleProductCard{
     width:40rem;
-    height:30rem;
+    /* height:30rem; */
     box-shadow:0.5rem 0.5rem 1rem rgb(178, 178, 178);
   }
   .singleProductImage{
