@@ -1,6 +1,8 @@
 import React from 'react';
-import {Product} from '../../components/';
+import {ProductCard} from '../../components/';
 import {Card,Container} from 'react-bootstrap';
+import { tempProductData } from '../../tempProductData';
+
 import './single.css';
 
 function Charity () {
@@ -22,7 +24,7 @@ function Charity () {
                             <Card.Body>{tempCharity.description}</Card.Body>
                         </Card>
             </Container>
-            <Product />
+            <ProductCard productData={tempProductData} />
         
         </>
 

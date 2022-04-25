@@ -26,8 +26,8 @@ function Navigation() {
           <Navbar.Toggle aria-controls="navbar" />
           <Navbar.Collapse id="navbar">
             <Nav className="navRight">
-              <Nav className="navLink fs-3" as={Link} to='/'>Charity</Nav>
-              <Nav className="navLink fs-3" as={Link} to='/Product'>Products</Nav>
+              <Nav className="navLink fs-3" as={Link} to='/'>Home</Nav>
+              <Nav className="navLink fs-3" as={Link} to='/Product'>Raffles</Nav>
               <Nav className="navLink fs-3" as={Link} to='/Profile'>My Profile</Nav>
               <Nav onClick={handleShow} className="navLink fs-3" as={Link} to='#'> Login</Nav>
             </Nav>

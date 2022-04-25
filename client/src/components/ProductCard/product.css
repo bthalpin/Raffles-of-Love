@@ -1,6 +1,12 @@
+.productLink,.productLink:hover{
+    text-decoration: none;
+    color:black;
+
+}
+
 .productCard{
     width:20rem;
-    height:30rem;
+    height:20rem;
     box-shadow:0.5rem 0.5rem 1rem rgb(178, 178, 178);
     transition:all 0.2s ease-in-out;
     cursor: pointer;
