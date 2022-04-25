@@ -2,8 +2,6 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 const bcrypt = require('bcrypt')
-const Ticket = require('./Ticket')
-const Charity = require('./Charity')
 
 const userSchema = new Schema({
     userName: {
@@ -22,21 +20,31 @@ const userSchema = new Schema({
         required: true,
         minlength: 5
     },
-    charityAdmin: [
-        // linked to charity ID
-        // if not admin null otherwise would be linked to charity ID
-        // type: Boolean,
-        // default: false,
-        // charity: [Charity.schema]},
-    ],
+    // charityAdmin: [
+    //     linked to charity ID
+    //     if not admin null otherwise would be linked to charity ID
+    //     type: Boolean,
+    //     default: false,
+    //     charity: [Charity.schema]},
+    // ],
     location: {
         address: { type: String, required: true },
         city: { type: String, required: true },
         state: { type: String, required: true },
         required: true,
     },
-    tickets: [Ticket.schema],
-    favCharitys: [Charity.schema],
+    tickets: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Ticket'
+        }    
+    ],
+    favCharities: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Charity'
+        }
+    ]
 });
 
 
