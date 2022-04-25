@@ -6,7 +6,7 @@ db.once('open', async () => {
 
     const charities = await Charity.insertMany([
         {
-            name: "St Jude Children's Rearch Hospital",
+            name: "St Jude Children's Research Hospital",
             website: "https://www.stjude.org/promotion/hello/charitable-gifts-for-kids.html?sc_dcm=58700007222382216&sc_cid=kwp&sc_cat=nb&ds_rl=1290693&gclid=CjwKCAjwx46TBhBhEiwArA_DjAmeqnouXYwYBxLbKN82OpoM4LFo-0norJlIqlYTWI0zY5vjJFX3ihoCK_AQAvD_BwE&gclsrc=aw.ds",
             image: "https://www.stjude.org/content/sites/www/en_US/home/promotion/hello/charitable-gifts-for-kids/jcr:content/par-2/cnt_row_copy_copy_co/par-1/cnt_column_109669490/par-1/cnt_image.img.1200.high.jpg/1639513375113.jpg",
             description: "There are great research institutions, great hospitals and great charities — St. Jude Children's Research Hospital is all three. "
@@ -27,7 +27,7 @@ db.once('open', async () => {
             name: 'Save the Children',
             website: 'https://www.savethechildren.org/',
             image: 'https://www.savethechildren.org/content/dam/usa/images/global-programs/emergency/ukraine-conflict-children-in-crisis-ch1494283-sq.jpg/_jcr_content/renditions/cq5dam.thumbnail.768.768.jpg',
-            description: 'We work in the hardest-to-reach places, where it’s toughest to be a child.'
+            description: "We work in the hardest-to-reach places, where it’s toughest to be a child."
         },
         {
             name: 'World Vision',
@@ -42,7 +42,7 @@ db.once('open', async () => {
             description: 'People are facing desperate, life-threatening situations around the world along with the impact of COVID-19. Help us send CARE Packages to meet their needs.'
         },
         {
-            name: 'The Marine Mammel Center',
+            name: 'The Marine Mammal Center',
             website: 'https://www.marinemammalcenter.org/',
             image: 'https://www.marinemammalcenter.org/storage/app/uploads/public/6ce/836/80e/thumb__407_318_0_0_crop.jpg',
             description: 'The Marine Mammal Center advances global ocean conservation through rescue and rehabilitation, scientific research, and education.'
@@ -69,7 +69,7 @@ db.once('open', async () => {
 
     await Product.deleteMany();
 
-    const products = await Product.insternMany([
+    const products = await Product.insertMany([
         {
             name: "Baseball",
             description: "Signed Baseball from Casey Jones",
@@ -233,7 +233,7 @@ db.once('open', async () => {
         },
         {
             name: 'Custom Street Sign Art',
-            description: "Custom street sign art personilized for you.",
+            description: "Custom street sign art personalized for you.",
             image: 'https://www.boredpanda.com/blog/wp-content/uploads/2021/10/funny-street-signs-cletabraham-fb-png__700.jpg',
             ticketCount: 100,
             charity: charities[7]._id
@@ -253,8 +253,8 @@ db.once('open', async () => {
             charity: charities[8]._id
         },
         {
-            name: 'Moto Cross',
-            description: 'Largest moto cross race of the year.  Tickets in the pit.',
+            name: 'MotoCross',
+            description: 'Largest Motocross race of the year.  Tickets in the pit.',
             image: 'https://img.redbull.com/images/c_crop,w_4433,h_2217,x_0,y_81,f_auto,q_auto/c_scale,w_1200/redbullcom/2019/04/12/a77d096b-7b1b-447e-acb0-9f6db95f2ddd/ben-watson-motocross',
             ticketCount: 100,
             charity: charities[8]._id
@@ -267,8 +267,8 @@ db.once('open', async () => {
             charity: charities[9]._id
         },
         {
-            name: 'Viking Jewlery',
-            description: 'Replica viking jewlery lot.',
+            name: 'Viking Jewelry',
+            description: 'Replica viking jewelry lot.',
             image: 'https://cdn.shopify.com/s/files/1/0078/0530/4890/files/viking-pendants-1_480x480.jpg?v=1548870401',
             ticketCount: 100,
             charity: charities[9]._id

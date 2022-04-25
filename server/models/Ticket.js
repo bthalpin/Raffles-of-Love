@@ -12,12 +12,12 @@ const ticketSchema = new Schema({
         required: true,
         unique: true
     },
-    product: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'Product'
-        }
-    ]
+    // product: [
+    //     {
+    //         type: Schema.Types.ObjectId,
+    //         ref: 'Product'
+    //     }
+    // ]
 });
 
 const Ticket = mongoose.model('Ticket', ticketSchema);
