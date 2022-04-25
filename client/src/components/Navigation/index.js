@@ -6,6 +6,8 @@ import {Login,Register} from '../'
 import './nav.css';
 
 function Navigation() {
+  const loggedIn = false;
+
   const navigationLinks = ['Charity','Products','Profile','Logout']
   const [show, setShow] = useState(false);
   const [key, setKey] = useState('login');
@@ -29,7 +31,11 @@ function Navigation() {
               <Nav className="navLink fs-3" as={Link} to='/'>Home</Nav>
               <Nav className="navLink fs-3" as={Link} to='/Product'>Raffles</Nav>
               <Nav className="navLink fs-3" as={Link} to='/Profile'>My Profile</Nav>
+              {loggedIn?
+              <Nav className="navLink fs-3" as={Link} to='#'> Logout</Nav>
+              :
               <Nav onClick={handleShow} className="navLink fs-3" as={Link} to='#'> Login</Nav>
+              }
             </Nav>
           </Navbar.Collapse>
           </div>
