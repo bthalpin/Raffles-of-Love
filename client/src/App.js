@@ -2,8 +2,8 @@ import React from 'react';
 
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import {Navigation,Product} from './components/';
-import {Charity,SingleCharity,Profile} from './pages';
+import {Navigation} from './components/';
+import {Charity,SingleCharity,Profile,SingleProduct,Raffles} from './pages';
 import { useEffect } from 'react';
 
 function App() {
@@ -23,19 +23,23 @@ function App() {
 
         <Route
           path='/Product'
-          element={<Product />}>
+          element={<Raffles />}
+          />
 
-        </Route>
+        <Route
+          path='/Product/:productId'
+          element={<SingleProduct />}
+          />
         <Route
           path='/Profile'
-          element={<Profile />}>
+          element={<Profile />}
+          />
 
-        </Route>
         <Route
           path='/Logout'
-          element={<Profile />}>
+          element={<Profile />}
+          />
 
-        </Route>
       </Routes>
     </ Router>
   );

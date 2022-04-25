@@ -1,5 +1,8 @@
 import React from 'react';
-import Product from '../../components';
+import {ProductCard} from '../../components';
+import { tempProductData } from '../../tempProductData';
+
+import {Card} from 'react-bootstrap';
 
 function Profile () {
     const tempUserData = {
@@ -10,8 +13,13 @@ function Profile () {
     }
     return (
             <div>
+                <Card>
+                    <Card.Header>
+
+                    </Card.Header>
+                </Card>
                 <h2>My raffles</h2>
-                <Product />
+                <ProductCard productData={tempProductData} />
             </div>
     )
 }

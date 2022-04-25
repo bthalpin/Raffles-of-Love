@@ -1,5 +1,6 @@
 import React from 'react';
-import {Product} from '../../components';
+import {ProductCard} from '../../components';
+import { tempProductData } from '../../tempProductData';
 import {Card,Container,Button} from 'react-bootstrap';
 import './profile.css';
 
@@ -36,7 +37,7 @@ function Profile () {
                     </Card>
                 </Container>
                 <h2>My raffles</h2>
-                <Product />
+                <ProductCard productData={tempProductData} />
             </div>
     )
 }
