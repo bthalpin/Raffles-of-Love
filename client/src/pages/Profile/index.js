@@ -36,7 +36,7 @@ function Profile () {
                         </Card.Body>
                     </Card>
                 </Container>
-                <h2>My raffles</h2>
+                <h2 className="text-center">My raffles</h2>
                 <ProductCard productData={tempProductData}/>
             </div>
     )
