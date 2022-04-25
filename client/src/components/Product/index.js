@@ -41,8 +41,8 @@ function Product () {
                         <Card className="productCard m-2 p-3 text-center" key={index}>
                             <Card.Title>{product.name}</Card.Title>
                             <img className="productImage" src='/logo192.png' alt='logo'></img>
-                            <Card.Body>{product.description}</Card.Body>
-                            <Button>Buy Ticket</Button>
+                            {/* <Card.Body>{product.description}</Card.Body>
+                            <Button>Buy Ticket</Button> */}
                         </Card>
 
                     )
