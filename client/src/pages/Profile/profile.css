@@ -1,0 +1,14 @@
+.profileInfoContainer{
+    width:42rem;
+}
+.profileInfo{
+    /* border:1px solid rgb(217, 217, 217); */
+    
+}
+@media screen and (max-width:43rem) {
+    .profileInfoContainer{
+        width:100vw;
+        padding:0 !important;
+    }
+    
+}
