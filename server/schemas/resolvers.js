@@ -9,11 +9,11 @@ const resolvers = {
     charities: async () => {
       return await Charity.find();
     },
-    charity: {
-
+    charity: async (parent, { _id }) => {
+      return Charity.findOne({ _id: _id });
     },
     products: {
-
+      
     },
     product: {
 
