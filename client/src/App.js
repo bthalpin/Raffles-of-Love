@@ -2,14 +2,14 @@ import React from 'react';
 
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import {Navigation} from './components/';
+import {Navigation,Footer} from './components/';
 import {Charity,SingleCharity,Profile,SingleProduct,Raffles} from './pages';
 import { useEffect } from 'react';
 
 function App() {
  
   return (
-    <Router>
+    <Router className="router">
       <Navigation />
       <Routes>
         <Route
@@ -41,6 +41,7 @@ function App() {
           />
 
       </Routes>
+      <Footer />
     </ Router>
   );
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import {ProductCard} from '../../components';
 import { tempProductData } from '../../tempProductData';
 
-import {Card} from 'react-bootstrap';
+import {Container} from 'react-bootstrap';
 
 function Profile () {
     const tempUserData = {
@@ -12,15 +12,11 @@ function Profile () {
         address:'City, State'
     }
     return (
-            <div>
-                <Card>
-                    <Card.Header>
-
-                    </Card.Header>
-                </Card>
-                <h2>My raffles</h2>
+            <Container className="mt-5" >
+                
+                <h2 className="text-center">All Raffles</h2>
                 <ProductCard productData={tempProductData} />
-            </div>
+            </Container>
     )
 }
 
