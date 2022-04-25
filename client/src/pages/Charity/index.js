@@ -1,5 +1,7 @@
 import React from 'react';
 import {Card,Container} from 'react-bootstrap';
+import { Link } from "react-router-dom";
+
 import './charity.css';
 
 function Charity () {
@@ -41,10 +43,12 @@ function Charity () {
                 </p>
                 {tempCharities.map((charity,index)=>{
                     return (
-                        <Card className="charityCard m-2 p-3 text-center" key={index}>
-                            <Card.Title>{charity.name}</Card.Title>
-                            <Card.Body>{charity.description}</Card.Body>
-                        </Card>
+                        <Link className="charityLink" to={`/Charity/${index}`} key={index}>
+                            <Card className="charityCard m-2 p-3 text-center">
+                                <Card.Title>{charity.name}</Card.Title>
+                                <Card.Body>{charity.description}</Card.Body>
+                            </Card>
+                        </Link>
 
                     )
                 })}

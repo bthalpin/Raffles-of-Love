@@ -13,7 +13,7 @@ function Login () {
             <Form className="p-4" onSubmit={handleSubmit}>
                 <Form.Group className="py-2" controlId="formEmail">
                     <Form.Label>Email</Form.Label>
-                    <Form.Control onChange={(e)=>setEmail(e.target.value)} type="email" placeholder="Enter Email" value={email} />
+                    <Form.Control onChange={(e)=>setEmail(e.target.value)} type="email" placeholder="Enter Email" value={email} autoFocus />
                     <Form.Text className="text-muted">
                         We won't share your email
                     </Form.Text>
