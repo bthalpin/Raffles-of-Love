@@ -15,7 +15,7 @@ const productSchema = new Schema({
     image: {
         type: String
     },
-    donation: {
+    price: {
         type: Number,
         required: true,
         min: 1.00

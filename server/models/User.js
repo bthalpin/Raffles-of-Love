@@ -29,9 +29,14 @@ const userSchema = new Schema({
         // default: false,
         // charity: [Charity.schema]},
     ],
+    location: {
+        address: { type: String, required: true },
+        city: { type: String, required: true },
+        state: { type: String, required: true },
+        required: true,
+    },
     tickets: [Ticket.schema],
-    // favCharitys: [Charity.schema],
-    // street addres // city // state
+    favCharitys: [Charity.schema],
 });
 
 
