@@ -1,3 +1,9 @@
+.productLink,.productLink:hover{
+    text-decoration: none;
+    color:black;
+
+}
+
 .productCard{
     width:20rem;
     height:20rem;
