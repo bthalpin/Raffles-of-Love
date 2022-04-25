@@ -3,6 +3,7 @@ import {ProductCard} from '../../components';
 import { tempProductData } from '../../tempProductData';
 
 import {Container} from 'react-bootstrap';
+import './raffle.css';
 
 function Profile () {
     const tempUserData = {
@@ -12,7 +13,7 @@ function Profile () {
         address:'City, State'
     }
     return (
-            <Container className="mt-5" >
+            <Container className="mt-5 rafflePage" >
                 
                 <h2 className="text-center">All Raffles</h2>
                 <ProductCard productData={tempProductData} />

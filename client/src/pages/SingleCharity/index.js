@@ -14,7 +14,7 @@ function Charity () {
         }
     
     return (
-        <>
+        <div className="singleCharityPage ">
             <Container className="d-flex flex-wrap justify-content-around my-5 mx-auto">
                 
                 
@@ -26,7 +26,7 @@ function Charity () {
             </Container>
             <ProductCard productData={tempProductData} />
         
-        </>
+        </div>
 
                     
                 
