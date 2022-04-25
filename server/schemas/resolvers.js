@@ -9,7 +9,7 @@ const resolvers = {
     charities: async () => {
       return await Charity.find();                                                // Get and return all documents from the charity collection.
     },
-    charity: async (parent, { _id }) => {
+    charity: async (parent, { _id }) => {                                         // Get and return one document from the charity collection.
       return Charity.findOne({ _id: _id });
     },
     products: async (parent, { charity, name }) => {
@@ -32,25 +32,39 @@ const resolvers = {
     },
     user: async (parent, args, context) => {                                      // Context will retrieve the logged-in user without specifically searching for them.
       if (context.user) {
-        return User.findOne({ _id: context.user._id }).populate({
+        return User.findOne({ _id: context.user._id })
+        .populate('tickets')
+        .populate({
             path: 'tickets.product',
             populate: 'charity'
         });
       }
       throw new AuthenticationError('You need to be logged in!');                 // If user attempts to execute this mutation and isn't logged in, throw an error.
     },
-    tickets: {
-
-    },
-    ticket: {
-
+    tickets: async (parent, { user, name }) => {
+        const params = {};
+  
+        if (user) {
+          params.user = user;
+        }
+  
+        if (name) {
+          params.name = {
+            $regex: name
+          };
+        }
+  
+        return await Ticket.find(params).populate('product');                     // Populate the product subdocuments when querying for Ticket. 
+      },
+    ticket: async (parent, { _id }) => {                                          // Defining a resolver to retrieve individual tickets.
+      return await Ticket.findById(_id).populate('product');                      // Using the parameter to find the matching ticket in the collection.
     },
     checkout: async (parent, args, context) => {
         const url = new URL(context.headers.referer).origin;
-        const order = new Order({ products: args.products });
+        const ticket = new Ticket({ products: args.products });
         const line_items = [];
   
-        const { products } = await order.populate('products');
+        const { products } = await ticket.populate('products');
   
         for (let i = 0; i < products.length; i++) {
           const product = await stripe.products.create({
@@ -82,7 +96,6 @@ const resolvers = {
         return { session: session.id };
       }
     },
-  },
 
   // Define the functions that will fulfill the mutations.
   Mutation: {
