@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
+const Ticket = require('./Ticket')
 
 const productSchema = new Schema({
     name: {
@@ -14,11 +15,11 @@ const productSchema = new Schema({
     image: {
         type: String
     },
-    // donation: {
-    //     type: Number,
-    //     required: true,
-    //     min: 1.00
-    // },
+    price: {
+        type: Number,
+        required: true,
+        min: 1.00
+    },
     ticketCount: {
         type: Number,
         min:0,
@@ -28,7 +29,8 @@ const productSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Charity',
         required: true
-    }
+    },
+    tickets: [Ticket.schema]
 });
 
 const Product = mongoose.model('Product', productSchema);
