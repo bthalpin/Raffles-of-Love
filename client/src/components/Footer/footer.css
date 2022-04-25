@@ -4,3 +4,12 @@
     left:0;
     width:100vw;
 }
+.footerLink{
+    color:white !important;
+    transition:all 0.2s ease-in-out;
+}
+.footerLink:hover{
+    color:rgb(241, 241, 241);
+    text-shadow: 0 0 1rem white;
+    transform: scale(1.03);
+}

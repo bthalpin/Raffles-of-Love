@@ -8,15 +8,15 @@ function Navigation() {
 
   return (
     <>
-    <Navbar className="footer mt-5 p-2 d-flex justify-content-center" bg="secondary" variant="dark" expand="lg">
+    <div className="footer mt-5 p-2 d-flex justify-content-center bg-secondary text-dark" bg="secondary" variant="dark" expand="lg">
        
             <Nav>
-                <Nav.Link href="https://github.com/jsnyder159">Jason Snyder</Nav.Link>
-                <Nav.Link href="https://github.com/danchanyoungkim">Dan Kim</Nav.Link>
-                <Nav.Link href="https://github.com/bthalpin">Brian Halpin</Nav.Link>
+                <Nav.Link className="footerLink" href="https://github.com/jsnyder159">Jason Snyder</Nav.Link>
+                <Nav.Link className="footerLink" href="https://github.com/danchanyoungkim">Dan Kim</Nav.Link>
+                <Nav.Link className="footerLink" href="https://github.com/bthalpin">Brian Halpin</Nav.Link>
             </Nav>
          
-          </Navbar>
+          </div>
 
         
         
