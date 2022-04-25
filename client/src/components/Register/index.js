@@ -1,16 +1,19 @@
 import React,{useState} from 'react';
 import {Form,Button} from 'react-bootstrap';
+import './register.css';
 
 function Register () {
     const [name,setName] = useState('')
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
     const [street,setStreet] = useState('')
-    const [address,setAddress] = useState('')
+    const [city,setCity] = useState('')
+    const [state,setState] = useState('')
+    const [zip,setZip] = useState('')
 
     const handleSubmit=(e)=>{
         e.preventDefault()
-        console.log(name,email,password,street,address)
+        console.log(name,email,password,street,city,state,zip)
         setEmail('')
         setPassword('')
     }
@@ -45,13 +48,29 @@ function Register () {
                     We won't share your name
                 </Form.Text> */}
             </Form.Group>
-            <Form.Group className="py-2" controlId="registerFormAddress">
-                <Form.Label>Address</Form.Label>
-                <Form.Control onChange={(e)=>setAddress(e.target.value)} type="text" placeholder="Enter City, State" value={address} />
-                {/* <Form.Text className="text-muted">
-                    We won't share your name
-                </Form.Text> */}
-            </Form.Group>
+            <div className="d-flex justify-content-between">
+                <Form.Group className="py-2 address" controlId="registerFormCity">
+                    <Form.Label>City</Form.Label>
+                    <Form.Control onChange={(e)=>setCity(e.target.value)} type="text" placeholder="Enter City" value={city} />
+                    {/* <Form.Text className="text-muted">
+                        We won't share your name
+                    </Form.Text> */}
+                </Form.Group>
+                <Form.Group className="py-2 address" controlId="registerFormState">
+                    <Form.Label>State</Form.Label>
+                    <Form.Control onChange={(e)=>setState(e.target.value)} type="text" placeholder="Enter State" value={state} />
+                    {/* <Form.Text className="text-muted">
+                        We won't share your name
+                    </Form.Text> */}
+                </Form.Group>
+                <Form.Group className="py-2 zip" controlId="registerFormState">
+                    <Form.Label>Zip Code</Form.Label>
+                    <Form.Control onChange={(e)=>setZip(e.target.value)} type="text" placeholder="Enter Zip Code" value={zip} />
+                    {/* <Form.Text className="text-muted">
+                        We won't share your name
+                    </Form.Text> */}
+                </Form.Group>
+            </div>
             <Button className="mt-4" variant="primary" type="submit">
                 Submit
             </Button>
