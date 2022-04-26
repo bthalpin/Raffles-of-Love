@@ -17,6 +17,18 @@
 .navigation{
 
 }
+.navCheckout{
+    position: relative;
+}
+.cartCount{
+    position:absolute;
+    bottom:1rem;
+    right:1rem;
+    font-size: 0.8rem;
+    background-color: rgb(7, 56, 125);
+    border-radius: 50%;
+    padding:0 0.4rem;
+}
 /* .navRight{
     width:100px;
 } */

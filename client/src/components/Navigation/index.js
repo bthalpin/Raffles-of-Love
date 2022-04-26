@@ -3,12 +3,13 @@ import React,{useState} from 'react';
 import { Link } from "react-router-dom";
 import {Navbar, Modal,Nav,Button,Tab,Tabs} from 'react-bootstrap';
 import {Login,Register} from '../'
+import { useStoreContext } from "../../utils/GlobalState";
 import './nav.css';
 
 function Navigation() {
-  const loggedIn = false;
-
-  const navigationLinks = ['Charity','Products','Profile','Logout']
+  const loggedIn = true;
+  const [state, dispatch] = useStoreContext();
+  // const navigationLinks = ['Charity','Products','Profile','Checkout','Logout']
   const [show, setShow] = useState(false);
   const [key, setKey] = useState('login');
   const handleClose = () => setShow(false);
@@ -22,15 +23,16 @@ function Navigation() {
     <Navbar className="navigation p-4 d-flex justify-content-between" bg="secondary" variant="dark" expand="lg">
         <div>
 
-          <Navbar.Brand className="brandName display-1" href="#home">Charity</Navbar.Brand>
+          <Navbar.Brand className="brandName display-1" href="#home"as={Link} to='/'>Charity</Navbar.Brand>
         </div>
         <div>
           <Navbar.Toggle aria-controls="navbar" />
           <Navbar.Collapse id="navbar">
             <Nav className="navRight">
-              <Nav className="navLink fs-3" as={Link} to='/'>Home</Nav>
+              {/* <Nav className="navLink fs-3" as={Link} to='/'>Home</Nav> */}
               <Nav className="navLink fs-3" as={Link} to='/Product'>Raffles</Nav>
               <Nav className="navLink fs-3" as={Link} to='/Profile'>My Profile</Nav>
+              <Nav className="navLink fs-3 navCheckout" as={Link} to='/Checkout'>Checkout<span className="cartCount">{state.cart.length?state.cart.length:<></>}</span></Nav>
               {loggedIn?
               <Nav className="navLink fs-3" as={Link} to='#'> Logout</Nav>
               :
