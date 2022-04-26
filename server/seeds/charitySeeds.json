@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Charity",
+        "description": "Lorem Ipsum",
+        "image": "/assets",
+        "website": "www.yahoo.com"
+    },
+    {
+        "name": "Charity1",
+        "description": "Lorem Ipsum1",
+        "image": "/assets1",
+        "website": "www.yahoo1.com"
+    }
+]

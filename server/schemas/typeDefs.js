@@ -9,6 +9,7 @@ const typeDefs = gql`
     }
 
     type Charity {
+        _id: ID
         name: String!
         website: String
         image: String
@@ -16,6 +17,7 @@ const typeDefs = gql`
     }
     
     type Product {
+        _id: ID
         name: String!
         description: String
         image: String
@@ -26,6 +28,7 @@ const typeDefs = gql`
     }
 
     type User {
+        _id: ID
         userName: String!
         email: String!
         password: String!

@@ -54,10 +54,10 @@ const resolvers = {
           };
         }
   
-        return await Ticket.find(params).populate('product');                     // Populate the product subdocuments when querying for Ticket. 
+        // return await Ticket.find(params).populate('product');                     // Populate the product subdocuments when querying for Ticket. 
       },
     ticket: async (parent, { _id }) => {                                          // Defining a resolver to retrieve individual tickets.
-      return await Ticket.findById(_id).populate('product');                      // Using the parameter to find the matching ticket in the collection.
+      return await Ticket.findById(_id) //.populate('product');                      // Using the parameter to find the matching ticket in the collection.
     },
     checkout: async (parent, args, context) => {
         const url = new URL(context.headers.referer).origin;
