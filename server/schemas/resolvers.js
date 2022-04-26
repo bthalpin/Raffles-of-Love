@@ -15,11 +15,10 @@ const resolvers = {
     },
 
     products: async () => {
-      return await Product.find().populate('charity');                                                // Get and return all documents from the product collection.
+      return await Product.find().populate('charity').populate('tickets');                                                // Get and return all documents from the product collection.
     },
 
     productsByCharity: async (parent, { charityId }) => {
-
       return await Product.find({ charity: charityId }).populate('charity');                      // Populate the charity sub documents when querying for Product. 
     },
 
@@ -39,25 +38,13 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');                 // If user attempts to execute this mutation and isn't logged in, throw an error.
     },
 
-    // tickets: async (parent, { user, name }) => {
-    //     const params = {};
-  
-    //     if (user) {
-    //       params.user = user;
-    //     }
-  
-    //     if (name) {
-    //       params.name = {
-    //         $regex: name
-    //       };
-    //     }
-  
-    //     // return await Ticket.find(params).populate('product');                     // Populate the product subdocuments when querying for Ticket. 
-    //   },
+    tickets: async () => {
+      return await Ticket.find().populate('product');                                                // Get and return all documents from the product collection.
+    },
 
-    // ticket: async (parent, { _id }) => {                                          // Defining a resolver to retrieve individual tickets.
-    //   return await Ticket.findById(_id) //.populate('product');                      // Using the parameter to find the matching ticket in the collection.
-    // },
+    ticket: async (parent, { _id }) => {                                          // Defining a resolver to retrieve individual tickets.
+      return await Ticket.findById(_id).populate('product');                      // Using the parameter to find the matching ticket in the collection.
+    },
 
     // checkout: async (parent, args, context) => {
     //     const url = new URL(context.headers.referer).origin;
@@ -120,17 +107,23 @@ const resolvers = {
         throw new AuthenticationError('Not logged in');                           // If user attempts to execute this mutation and isn't logged in, throw an error.
       },
 
-    addProduct: async (parent, { name, description, image, price, ticketCount, charity}) => {
-      const product = await Product.create({ name, description, image, price, ticketCount, charity});
+    addProduct: async (parent, { name, description, image, price, ticketCount, charity_id}) => {
+      const product = await Product.create({ name, description, image, price, ticketCount, charity_id});
       return product;
     },
 
-  //   updateProductInfo: async( parent, args, context) => {
-  //     if (context.product) {
-  //       return await Product.findByIdAndUpdate(context.product._id, args,
-  //         {new: true});
-  //     }
-  //   },
+    updateProductInfo: async( parent, args, context) => {
+      if (context.user) {
+        return await Product.findByIdAndUpdate(args.productId,
+          { name: args.name,
+          description: args.description,
+          image: args.image,
+          price: args.price,
+          ticketCount: args.ticketCount
+        },
+        {new: true});
+      }
+    },
     
   //   // updateProduct: async (parent, { _id, ticketCount }) => {
   //   //   const decrement = Math.abs(ticketCount) * -1;
@@ -140,28 +133,29 @@ const resolvers = {
   //   //     { new: true });                                                           // Return the newly updated object instead of the original.
   //   // },
 
-    removeProduct: async (parent, args, context) => {
-      if (context.product) {
-        return Product.findOneAndDelete({ _id: context.product._id });
-      }
-    },
+    removeProduct: async (parent, { productId }) => {
+        return Product.findOneAndDelete({ _id: productId });
+      },
 
     addCharity: async (parent, { name, website, image, description }) => {
       const charity = await Charity.create({ name, website, image, description });
       return charity;
     },
 
-  //   updateCharity: async (parent, args, context ) => {
-  //     if(context.charity) {
-  //       return await Charity.findByIdAndUpdate(context.charity._id, args, { new: true });
-  //     }
-  //   },
+    updateCharity: async (parent, args ) => {
+        return await Charity.findByIdAndUpdate(args.charityId, {
+          name: args.name,
+          website: args.website,
+          image: args.image,
+          description: args.description
+        }, 
+        { new: true }
+        );
+    },
 
-  //   removeCharity: async (parent, args, context) => {
-  //     if (context.charity) {
-  //       return Charity.findOneAndDelete({ _id: context.charity._id });
-  //     }
-  //   },
+    removeCharity: async (parent, { charityId }) => {
+        return Charity.findOneAndDelete({ _id: charityId });
+    },
 
   //   // need add ticket logic
 

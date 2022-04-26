@@ -10,7 +10,7 @@ const typeDefs = gql`
 
     type Charity {
         _id: ID
-        name: String!
+        name: String
         website: String
         image: String
         description: String
@@ -23,7 +23,7 @@ const typeDefs = gql`
         image: String
         price: Int!
         ticketCount: Int
-        charity: Charity!
+        charity: Charity
         tickets: [Ticket]
     }
 
@@ -54,6 +54,8 @@ const typeDefs = gql`
         products: [Product]
         productsByCharity(charityId: ID!): [Product]
         product(_id: ID!): Product
+        tickets: [Ticket]
+        ticket(_id: ID!): Ticket
     }
 
     type Mutation {
@@ -61,8 +63,11 @@ const typeDefs = gql`
         updateUser(userName: String!, email: String!, password: String!, location: String!): User
         removeUser: User
         addProduct(name: String!, description: String, image: String!, price: Int!, ticketCount: Int, charity_id: ID!): Product
+        updateProductInfo(productId: ID!, name: String!, description: String, image: String, price: Int!, ticketCount: Int!): Product
         removeProduct(productId: ID!): Product
         addCharity(name: String!, website: String, image: String, description: String): Charity
+        updateCharity(charityId: ID!, name: String!, website: String, image: String, description: String): Charity
+        removeCharity(charityId: ID!): Charity
         login(email: String!, password: String!): Auth
         
     }
@@ -72,13 +77,13 @@ module.exports = typeDefs;
 
 // type Mutation {
 //     
-//     updateCharity(name: String!, website: String, image: String, description: String): Charity
-//     removeCharity: Charity
+//     
+//     
 //     addTicket(_id: ID!, product_id: ID!): Ticket
-//updateProductInfo(name: String!, description: String, image: String, price: Int!, ticketCount: Int!, charity_id: ID!): Product
+//
 // }
 
 //query
-//         tickets(user: ID, name: String): [Ticket]
-//         ticket(_id: ID!): Ticket
+//         
+//     
 //         checkout(products: [ID]!): Checkout
