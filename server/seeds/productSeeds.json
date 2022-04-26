@@ -1,0 +1,8 @@
+[
+    {
+        "name": "Product",
+        "description": "Lorem Ipsum",
+        "image": "/assets",
+        "ticketCount": "2"
+    }
+]
