@@ -284,75 +284,78 @@ db.once('open', async () => {
 
     await User.deleteMany();
 
-    await User.create({
+    const users = await User.insertMany([
+    {
         userName: 'threeBrothers',
         email: '3brothers@gmail.com',
         password: 'password1234',
+        location: '123 Buc Drive Tampa Bay Florida',
         tickets: []
-    });
-
-    await User.create({
+    },
+    {
         userName: 'ducks4sale',
         email: 'sellingDucks@gmail.com',
         password: 'password1234',
+        location: '123 Buc Drive Tampa Bay Florida',
         tickets: []
-    });
-
-    await User.create({
+    },
+    {
         userName: 'JohnD',
         email: 'jdoe123@gmail.com',
         password: 'password1234',
+        location: '123 Buc Drive Tampa Bay Florida',
         tickets: []
-    });
-
-    await User.create({
+    },
+    {
         userName: 'jDoe',
         email: 'janeDoe@gmail.com',
         password: 'password1234',
+        location: '123 Buc Drive Tampa Bay Florida',
         tickets: []
-    });
-
-    await User.create({
+    },
+    {
         userName: 'tigerBalm',
         email: 'orangestripes@gmail.com',
         password: 'password1234',
+        location: '123 Buc Drive Tampa Bay Florida',
         tickets: []
-    });
-
-    await User.create({
+    },
+    {
         userName: 'hammerHead',
         email: 'sharks4life@gmail.com',
         password: 'password1234',
+        location: '123 Buc Drive Tampa Bay Florida',
         tickets: []
-    });
-
-    await User.create({
+    },
+    {
         userName: 'tinCanAllstar',
         email: 'collectKickCans@gmail.com',
         password: 'password1234',
+        location: '123 Buc Drive Tampa Bay Florida',
         tickets: []
-    });
-
-    await User.create({
+    },
+    {
         userName: 'general',
         email: 'fourstarG@gmail.com',
         password: 'password1234',
+        location: '123 Buc Drive Tampa Bay Florida',
         tickets: []
-    });
-
-    await User.create({
+    },
+    {
         userName: 'preacher',
         email: 'ofaafo@gmail.com',
         password: 'password1234',
+        location: '123 Buc Drive Tampa Bay Florida',
         tickets: []
-    });
-
-    await User.create({
+    },
+    {
         userName: 'savetheseals',
         email: 'ilikeseals@gmail.com',
         password: 'password1234',
+        location: '123 Buc Drive Tampa Bay Florida',
         tickets: []
-    });
+    },
+    ]);
 
     process.exit();
 });
