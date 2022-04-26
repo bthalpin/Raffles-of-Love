@@ -320,14 +320,15 @@ db.once('open', async () => {
         }
     ]);
 
-    // await User.deleteMany();
+    await User.deleteMany();
 
-    // await User.create({
-    //     userName: 'threeBrothers',
-    //     email: '3brothers@gmail.com',
-    //     password: 'password1234',
-    //     tickets: []
-    // });
+    await User.create({
+        userName: 'threeBrothers',
+        email: '3brothers@gmail.com',
+        password: 'password1234',
+        location: "Nowhere, NJ",
+        tickets: []
+    });
 
     // await User.create({
     //     userName: 'ducks4sale',
