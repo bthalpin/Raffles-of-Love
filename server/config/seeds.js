@@ -312,14 +312,6 @@ db.once('open', async () => {
         },
     ]);
 
-    await Ticket.deleteMany();
-
-    const tickets = await Ticket.insertMany([
-        {
-            ticketNumber: "1"
-        }
-    ]);
-
     await User.deleteMany();
 
     await User.create({
