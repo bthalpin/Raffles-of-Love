@@ -27,7 +27,7 @@ const productSchema = new Schema({
     charity: {
         type: Schema.Types.ObjectId,
         ref: 'Charity',
-        required: true
+        // required: true
     },
     tickets: [
         {

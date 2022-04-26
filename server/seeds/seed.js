@@ -1,6 +1,8 @@
 const db = require('../config/connection');
 const { User, Ticket, Product, Charity } = require('../models');
+
 const productSeeds = require('./productSeeds.json');
+const ticketSeeds = require('./ticketSeeds.json')
 
 db.once('open', async () => {
     try {
@@ -13,3 +15,15 @@ db.once('open', async () => {
       throw err;
     }
   });
+
+db.once('open', async () => {
+  try {
+    await Ticket.deleteMany({});
+    await Ticket.create(ticketSeeds);
+
+    console.log('all done!');
+    process.exit(0);
+  } catch (err) {
+    throw err;
+  }
+});

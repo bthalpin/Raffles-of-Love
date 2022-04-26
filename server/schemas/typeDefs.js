@@ -19,8 +19,10 @@ const typeDefs = gql`
         name: String!
         description: String
         image: String
+        price: Int!
         ticketCount: Int
         charity: Charity!
+        tickets: [Ticket]
     }
 
     type User {
