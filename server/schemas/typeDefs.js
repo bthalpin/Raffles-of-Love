@@ -3,8 +3,8 @@ const { gql } = require('apollo-server-express');
 const typeDefs = gql`
     type Ticket {
         _id: ID
-        puchaseDate: Date
-        ticketBumber: Number!
+        purchaseDate: Date
+        ticketNumber: Number!
         product: [Product]
     }
 
@@ -19,15 +19,25 @@ const typeDefs = gql`
         name: String!
         description: String
         image: String
+        price: Number!
         ticketCount: Number
         charity: Charity!
+        tickets: [Ticket]
+    }
+    
+    type Location {
+        address: String!
+        city: String!
+        state: String!
     }
 
     type User {
         userName: String!
         email: String!
         password: String!
+        location: Location!
         tickets: [Ticket]
+        favCharities: [Charity]
 
     }
 
