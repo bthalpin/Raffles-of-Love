@@ -1,11 +1,14 @@
 import React from 'react';
 import {ProductCard} from '../../components/';
 import {Card,Container} from 'react-bootstrap';
-import { tempProductData } from '../../tempProductData';
-
+// import { tempProductData } from '../../tempProductData';
+import { useStoreContext } from "../../utils/GlobalState";
 import './single.css';
 
 function Charity () {
+    const [state, dispatch] = useStoreContext();
+    const tempProductData = state.products
+    
     const tempCharity = 
         {
             name:"Temp Name",

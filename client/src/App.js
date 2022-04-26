@@ -4,13 +4,40 @@ import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {Navigation,Footer} from './components/';
 import {Charity,SingleCharity,Profile,SingleProduct,Raffles} from './pages';
-import { useEffect } from 'react';
+import { StoreProvider } from './utils/GlobalState';
+
+
+// const httpLink = createHttpLink({
+//   uri: '/graphql',
+// });
+
+// Gets token from localStorage if it exists and checks for expiration before sending
+// const authLink = setContext((_, { headers }) => {
+//   let token = localStorage.getItem('id_token');
+//   if (token&&decode(token).exp<Date.now()/1000) {
+//     token = ''
+//   }
+//   return {
+//     headers: {
+//       ...headers,
+//       authorization: token ? `Bearer ${token}` : '',
+//     },
+//   };
+// });
+
+// const client = new ApolloClient({
+//   link: authLink.concat(httpLink),
+//   cache: new InMemoryCache(),
+// });
 
 function App() {
  
   return (
+    // <ApolloProvider client={client}>
     <Router className="router">
+          <StoreProvider>
       <Navigation />
+
       <Routes>
         <Route
           path='/'
@@ -42,7 +69,9 @@ function App() {
 
       </Routes>
       <Footer />
+                </StoreProvider>
     </ Router>
+// </ApolloProvider>
   );
 }
 

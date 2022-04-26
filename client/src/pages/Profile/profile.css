@@ -3,7 +3,7 @@
     position: relative;
 }
 .profileInfoContainer{
-    width:42rem;
+    width:35rem !important; 
 }
 .charityButton{
     position:absolute;

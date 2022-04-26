@@ -1,10 +1,12 @@
 import React, {useState} from 'react';
 import {ProductCard,EditCharity,EditProduct} from '../../components';
-import { tempProductData } from '../../tempProductData';
+// import { tempProductData } from '../../tempProductData';
+import { useStoreContext } from "../../utils/GlobalState";
 import {Card,Container,Button,Modal,Tabs,Tab} from 'react-bootstrap';
 import './profile.css';
 
 function Profile () {
+    const [state, dispatch] = useStoreContext();
     const [showEdit, setShowEdit] = useState(false);
     const [editKey, setEditKey] = useState('charity');
     const handleEditClose = () => setShowEdit(false);
@@ -12,25 +14,29 @@ function Profile () {
         setEditKey('charity')
         setShowEdit(true)
     };
-    const tempUserData = {
-        name:'Brian',
-        email:'user@gmail.com',
-        street:'101 Some st',
-        address:'City, State',
-        website:'www.google.com',
-        charityId:1
-    }
-    const tempCharityData = {
-        _id:1,
-        name:'Charity Name',
-        description:'Some charity information',
-        image:'/logo192.png',
-        website:'www.google.com',
 
-    }
+    const tempUserData = state.user;
+    const tempCharityData = state.charities[0]
+    const tempProductData = state.products
+    // const tempUserData = {
+    //     name:'Brian',
+    //     email:'user@gmail.com',
+    //     street:'101 Some st',
+    //     address:'City, State',
+    //     website:'www.google.com',
+    //     charityId:1
+    // }
+    // const tempCharityData = {
+    //     _id:1,
+    //     name:'Charity Name',
+    //     description:'Some charity information',
+    //     image:'/logo192.png',
+    //     website:'www.google.com',
+
+    // }
     return (
             <div className="profilePage">
-                <Container className="my-4 profileInfoContainer" sm={9}>
+                <Container className="my-4 profileInfoContainer" >
 
                     <Card>
                         <Card.Header>
