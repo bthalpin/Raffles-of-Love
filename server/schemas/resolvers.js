@@ -104,26 +104,26 @@ const resolvers = {
       return { token, user };                                                     // Return an `Auth` object that consists of the signed token and user's information.
     },
 
-  //   updateUser: async (parent, args, context) => {                                // Add a third argument to the resolver to access data in our `context`.
-  //     if (context.user) {                                                         // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in.
-  //       return await User.findByIdAndUpdate(context.user._id, args,               // Find and update the matching User using args.
-  //           { new: true });                                                       // Return the newly updated object instead of the original.
-  //     }
+    updateUser: async (parent, args, context) => {                                // Add a third argument to the resolver to access data in our `context`.
+      if (context.user) {                                                         // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in.
+        return await User.findByIdAndUpdate(context.user._id, args,               // Find and update the matching User using args.
+          { new: true });                                                       // Return the newly updated object instead of the original.
+      }
 
-  //     throw new AuthenticationError('Not logged in');                             // If user attempts to execute this mutation and isn't logged in, throw an error.
-  //   },
+      throw new AuthenticationError('Not logged in');                             // If user attempts to execute this mutation and isn't logged in, throw an error.
+    },
 
-  //   removeUser: async (parent, args, context) => {                                // Set up mutation so a logged in user can only remove their profile and no one else's.
-  //       if (context.user) {
-  //         return User.findOneAndDelete({ _id: context.user._id });
-  //       }
-  //       throw new AuthenticationError('Not logged in');                           // If user attempts to execute this mutation and isn't logged in, throw an error.
-  //     },
+    removeUser: async (parent, args, context) => {                                // Set up mutation so a logged in user can only remove their profile and no one else's.
+        if (context.user) {
+          return User.findOneAndDelete({ _id: context.user._id });
+        }
+        throw new AuthenticationError('Not logged in');                           // If user attempts to execute this mutation and isn't logged in, throw an error.
+      },
 
-  //   addProduct: async (parent, { name, description, image, price, ticketCount, charity}) => {
-  //     const product = await Product.create({ name, description, image, price, ticketCount, charity});
-  //     return product;
-  //   },
+    addProduct: async (parent, { name, description, image, price, ticketCount, charity}) => {
+      const product = await Product.create({ name, description, image, price, ticketCount, charity});
+      return product;
+    },
 
   //   updateProductInfo: async( parent, args, context) => {
   //     if (context.product) {
@@ -140,16 +140,16 @@ const resolvers = {
   //   //     { new: true });                                                           // Return the newly updated object instead of the original.
   //   // },
 
-  //   removeProduct: async (parent, args, context) => {
-  //     if (context.product) {
-  //       return Product.findOneAndDelete({ _id: context.product._id });
-  //     }
-  //   },
+    removeProduct: async (parent, args, context) => {
+      if (context.product) {
+        return Product.findOneAndDelete({ _id: context.product._id });
+      }
+    },
 
-  //   addCharity: async (parent, { name, website, image, description }) => {
-  //     const charity = await Charity.create({ name, website, image, description });
-  //     return charity;
-  //   },
+    addCharity: async (parent, { name, website, image, description }) => {
+      const charity = await Charity.create({ name, website, image, description });
+      return charity;
+    },
 
   //   updateCharity: async (parent, args, context ) => {
   //     if(context.charity) {
