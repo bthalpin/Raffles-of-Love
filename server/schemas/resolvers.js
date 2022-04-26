@@ -15,7 +15,7 @@ const resolvers = {
     },
 
     products: async () => {
-      return await Product.find().populate('charity').populate('tickets');                                                // Get and return all documents from the product collection.
+      return await Product.find().populate('charity');                                               // Get and return all documents from the product collection.
     },
 
     productsByCharity: async (parent, { charityId }) => {
@@ -124,14 +124,6 @@ const resolvers = {
         {new: true});
       }
     },
-    
-  //   // updateProduct: async (parent, { _id, ticketCount }) => {
-  //   //   const decrement = Math.abs(ticketCount) * -1;
-
-  //   //   return await Product.findByIdAndUpdate(_id, 
-  //   //     { $inc: { ticketCount: decrement } }, 
-  //   //     { new: true });                                                           // Return the newly updated object instead of the original.
-  //   // },
 
     removeProduct: async (parent, { productId }) => {
         return Product.findOneAndDelete({ _id: productId });
@@ -157,7 +149,20 @@ const resolvers = {
         return Charity.findOneAndDelete({ _id: charityId });
     },
 
-  //   // need add ticket logic
+    //TODO: NEED TO RECONFIGURE
+    addTicket: async(parent, { products }, context) => {
+      if (context.user) {
+        const ticket = Ticket.create(products.tickets.length +1);
+
+        await User.findByIdAndUpdate(context.user._id, { $push: { tickets: ticket } });
+
+        await Product.findByIdAndUpdate(products._id, { $push: { tickets: ticket } });
+
+        return ticket;
+      }
+
+      throw new AuthenticationError('Not Logged in');
+    },
 
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });                                 // Look up the user by the provided unique email address. One email per user.

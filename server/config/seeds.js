@@ -67,14 +67,6 @@ db.once('open', async () => {
         },
     ]);
 
-    await Ticket.deleteMany();
-
-    const tickets = await Ticket.insertMany([
-        {
-            ticketNumber: "1"
-        },
-    ]);
-
     await Product.deleteMany();
 
     const products = await Product.insertMany([
@@ -320,13 +312,23 @@ db.once('open', async () => {
         },
     ]);
 
+    await Ticket.deleteMany();
+
+    const tickets = await Ticket.create([
+        {
+            ticketNumber: "1",
+            product: products[0]._id
+        },
+    ]);
+
     await User.deleteMany();
 
     await User.create({
         userName: 'threeBrothers',
         email: '3brothers@gmail.com',
         password: 'password1234',
-        location: "Nowhere, NJ"
+        location: "Nowhere, NJ",
+        ticket: tickets[0]._id
     });
 
     // await User.create({

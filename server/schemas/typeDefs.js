@@ -24,7 +24,6 @@ const typeDefs = gql`
         price: Int!
         ticketCount: Int
         charity: Charity
-        tickets: [Ticket]
     }
 
     type User {
@@ -68,6 +67,7 @@ const typeDefs = gql`
         addCharity(name: String!, website: String, image: String, description: String): Charity
         updateCharity(charityId: ID!, name: String!, website: String, image: String, description: String): Charity
         removeCharity(charityId: ID!): Charity
+        addTicket(ticketNumber: Int!): Ticket
         login(email: String!, password: String!): Auth
         
     }

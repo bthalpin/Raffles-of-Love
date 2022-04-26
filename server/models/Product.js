@@ -26,15 +26,14 @@ const productSchema = new Schema({
     },
     charity: {
         type: Schema.Types.ObjectId,
-        ref: 'Charity',
-        // required: true
+        ref: 'Charity'
     },
-    tickets: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'Ticket'
-        }
-    ]
+    // tickets: [
+    //     {
+    //         type: Schema.Types.ObjectId,
+    //         ref: 'Ticket'
+    //     }
+    // ]
 });
 
 const Product = mongoose.model('Product', productSchema);
