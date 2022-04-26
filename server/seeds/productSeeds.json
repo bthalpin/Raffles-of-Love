@@ -1,9 +1,0 @@
-[
-    {
-        "name": "Product",
-        "description": "Lorem Ipsum",
-        "image": "/assets",
-        "price": "100",
-        "ticketCount": "2"
-    }
-]
