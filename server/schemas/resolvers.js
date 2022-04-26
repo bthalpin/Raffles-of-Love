@@ -9,9 +9,11 @@ const resolvers = {
     charities: async () => {
       return await Charity.find();                                                // Get and return all documents from the charity collection.
     },
+
     charity: async (parent, { _id }) => {                                         // Get and return one document from the charity collection.
       return Charity.findOne({ _id: _id });
     },
+
     products: async (parent, { charity, name }) => {
       const params = {};
 
@@ -25,11 +27,13 @@ const resolvers = {
         };
       }
 
-      return await Product.find(params).populate('charity');                      // Populate the charity subdocuments when querying for Product. 
+      return await Product.find(params).populate('charity');                      // Populate the charity sub documents when querying for Product. 
     },
+
     product: async (parent, { _id }) => {                                         // Defining a resolver to retrieve individual products.
       return await Product.findById(_id).populate('charity');                     // Using the parameter to find the matching product in the collection.
     },
+
     user: async (parent, args, context) => {                                      // Context will retrieve the logged-in user without specifically searching for them.
       if (context.user) {
         return User.findOne({ _id: context.user._id })
@@ -41,6 +45,7 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');                 // If user attempts to execute this mutation and isn't logged in, throw an error.
     },
+
     tickets: async (parent, { user, name }) => {
         const params = {};
   
@@ -56,9 +61,11 @@ const resolvers = {
   
         return await Ticket.find(params).populate('product');                     // Populate the product subdocuments when querying for Ticket. 
       },
+
     ticket: async (parent, { _id }) => {                                          // Defining a resolver to retrieve individual tickets.
       return await Ticket.findById(_id).populate('product');                      // Using the parameter to find the matching ticket in the collection.
     },
+
     checkout: async (parent, args, context) => {
         const url = new URL(context.headers.referer).origin;
         const ticket = new Ticket({ products: args.products });
@@ -99,11 +106,12 @@ const resolvers = {
 
   // Define the functions that will fulfill the mutations.
   Mutation: {
-    addUser: async (parent, { username, email, password }) => {
-      const user = await User.create({ username, email, password });              // Create and return the new User object.
+    addUser: async (parent, { username, email, password, location }) => {
+      const user = await User.create({ username, email, password, location });              // Create and return the new User object.
       const token = signToken(user);                                              // To reduce friction for the user, we immediately sign a JSON Web Token and log the user in after they are created.
       return { token, user };                                                     // Return an `Auth` object that consists of the signed token and user's information.
     },
+
     updateUser: async (parent, args, context) => {                                // Add a third argument to the resolver to access data in our `context`.
       if (context.user) {                                                         // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in.
         return await User.findByIdAndUpdate(context.user._id, args,               // Find and update the matching User using args.
@@ -112,6 +120,26 @@ const resolvers = {
 
       throw new AuthenticationError('Not logged in');                             // If user attempts to execute this mutation and isn't logged in, throw an error.
     },
+
+    removeUser: async (parent, args, context) => {                                // Set up mutation so a logged in user can only remove their profile and no one else's.
+        if (context.user) {
+          return User.findOneAndDelete({ _id: context.user._id });
+        }
+        throw new AuthenticationError('Not logged in');                           // If user attempts to execute this mutation and isn't logged in, throw an error.
+      },
+
+    addProduct: async (parent, { name, description, image, price, ticketCount, charity}) => {
+      const product = await Product.create({ name, description, image, price, ticketCount, charity});
+      return product;
+    },
+
+    updateProductInfo: async( parent, args, context) => {
+      if (context.product) {
+        return await Product.findByIdAndUpdate(context.product._id, args,
+          {new: true});
+      }
+    },
+    
     updateProduct: async (parent, { _id, ticketCount }) => {
       const decrement = Math.abs(ticketCount) * -1;
 
@@ -119,12 +147,32 @@ const resolvers = {
         { $inc: { ticketCount: decrement } }, 
         { new: true });                                                           // Return the newly updated object instead of the original.
     },
-    removeUser: async (parent, args, context) => {                                // Set up mutation so a logged in user can only remove their profile and no one else's.
-        if (context.user) {
-          return User.findOneAndDelete({ _id: context.user._id });
-        }
-        throw new AuthenticationError('Not logged in');                           // If user attempts to execute this mutation and isn't logged in, throw an error.
-      },
+
+    removeProduct: async (parent, args, context) => {
+      if (context.product) {
+        return Product.findOneAndDelete({ _id: context.product._id });
+      }
+    },
+
+    addCharity: async (parent, { name, website, image, description }) => {
+      const charity = await Charity.create({ name, website, image, description });
+      return charity;
+    },
+
+    updateCharity: async (parent, args, context ) => {
+      if(context.charity) {
+        return await Charity.findByIdAndUpdate(context.charity._id, args, { new: true });
+      }
+    },
+
+    removeCharity: async (parent, args, context) => {
+      if (context.charity) {
+        return Charity.findOneAndDelete({ _id: context.charity._id });
+      }
+    },
+
+    // need add ticket logic
+
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });                                 // Look up the user by the provided unique email address. One email per user.
 
