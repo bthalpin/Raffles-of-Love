@@ -52,7 +52,7 @@ function Profile () {
                 <>
                 <Container className="my-4">
 
-                <Card>
+                    <Card>
                         <Card.Header>
                             <Card.Title>
                                 {tempCharityData.name}
