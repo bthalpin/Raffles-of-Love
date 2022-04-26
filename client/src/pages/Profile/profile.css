@@ -1,12 +1,14 @@
 .profilePage{
     margin-bottom:8rem;
+    position: relative;
 }
 .profileInfoContainer{
     width:42rem;
 }
-.profileInfo{
-    /* border:1px solid rgb(217, 217, 217); */
-    
+.charityButton{
+    position:absolute;
+    top:0;
+    right:1rem;
 }
 @media screen and (max-width:43rem) {
     .profileInfoContainer{
