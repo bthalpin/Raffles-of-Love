@@ -3,8 +3,8 @@ const { gql } = require('apollo-server-express');
 const typeDefs = gql`
     type Ticket {
         _id: ID
-        puchaseDate: Date
-        ticketBumber: Number!
+        puchaseDate: String
+        ticketNumber: Int!
         product: [Product]
     }
 
@@ -19,7 +19,7 @@ const typeDefs = gql`
         name: String!
         description: String
         image: String
-        ticketCount: Number
+        ticketCount: Int
         charity: Charity!
     }
 

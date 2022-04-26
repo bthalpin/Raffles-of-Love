@@ -1,5 +1,5 @@
 const { User, Ticket, Product, Charity } = require('../models');                  // Require models folder.
-const { signToken } = require('../utils/auth');                                   // Require signToken (JWT) from auth.js folder to verify integrity of claims.
+const { signToken } = require('../utils/auths');                                   // Require signToken (JWT) from auth.js folder to verify integrity of claims.
 const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');             // Require stripe for payment functions.
 const { AuthenticationError } = require('apollo-server-express');                 // Require AuthenticationError to perceive if server fails to authenticate required data.
 
