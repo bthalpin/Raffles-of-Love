@@ -110,7 +110,7 @@ query tickets {
   }
 `;
 
-export const TICKET = gql`
+export const SINGLE_TICKET = gql`
 query ticket($id: ID!) {
     ticket(_id: $id) {
       _id
