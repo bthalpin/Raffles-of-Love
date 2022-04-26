@@ -3,7 +3,7 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {Navigation,Footer} from './components/';
-import {Charity,SingleCharity,Profile,SingleProduct,Raffles,Checkout} from './pages';
+import {Charity,SingleCharity,Profile,SingleProduct,Raffles} from './pages';
 import { StoreProvider } from './utils/GlobalState';
 
 
@@ -61,10 +61,10 @@ function App() {
           path='/Profile'
           element={<Profile />}
           />
-        <Route
+        {/* <Route
           path='/Checkout'
           element={<Checkout />}
-          />
+          /> */}
 
         <Route
           path='/Logout'

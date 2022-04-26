@@ -2,7 +2,7 @@
 import React,{useState} from 'react';
 import { Link } from "react-router-dom";
 import {Navbar, Modal,Nav,Button,Tab,Tabs} from 'react-bootstrap';
-import {Login,Register} from '../'
+import {Login,Register,Checkout} from '../'
 import { useStoreContext } from "../../utils/GlobalState";
 import './nav.css';
 
@@ -12,6 +12,10 @@ function Navigation() {
   // const navigationLinks = ['Charity','Products','Profile','Checkout','Logout']
   const [show, setShow] = useState(false);
   const [key, setKey] = useState('login');
+  const [showCart, setShowCart] = useState(false);
+
+  const handleCartClose = () => setShowCart(false);
+  const handleCartShow = () => setShowCart(true);
   const handleClose = () => setShow(false);
   const handleShow = () => {
     setKey('login')
@@ -32,7 +36,7 @@ function Navigation() {
               {/* <Nav className="navLink fs-3" as={Link} to='/'>Home</Nav> */}
               <Nav className="navLink fs-3" as={Link} to='/Product'>Raffles</Nav>
               <Nav className="navLink fs-3" as={Link} to='/Profile'>My Profile</Nav>
-              <Nav className="navLink fs-3 navCheckout" as={Link} to='/Checkout'>Checkout<span className="cartCount">{state.cart.length?state.cart.length:<></>}</span></Nav>
+              <Nav onClick={handleCartShow} className="navLink fs-3 navCheckout" >Cart<span className="cartCount">{state.cart.length?state.cart.length:<></>}</span></Nav>
               {loggedIn?
               <Nav className="navLink fs-3" as={Link} to='#'> Logout</Nav>
               :
@@ -72,6 +76,17 @@ function Navigation() {
           </Modal.Body>
             {/* <Modal.Title>Login</Modal.Title>
           <Login handleModalClose={()=>setShow(false)} /> */}
+        </Modal>
+
+        <Modal show={showCart} onHide={handleCartClose} size="lg">
+          <Modal.Header closeButton >
+            CHARITY Cart
+          </Modal.Header>
+          <Modal.Body>
+            <Checkout handleModalClose={()=>setShowCart(false)}/>
+          
+          </Modal.Body>
+            
         </Modal>
         
     </>
