@@ -51,7 +51,8 @@ function SingleProduct () {
                             <Card.Title>{data.product.name}</Card.Title>
                             <img className="singleProductImage" src={data.product.image}/>
                             <Card.Body>{data.product.description}</Card.Body>
-                            {Auth.loggedIn()?
+                            {Auth.loggedIn()?data.product.winningNumber?
+                            'RAFFLEOVER':
                             <Button onClick={()=>addToCart(data.product)}>Buy Ticket</Button>
                             :
                             <Button disabled>Must Log In to Buy A Ticket</Button>
