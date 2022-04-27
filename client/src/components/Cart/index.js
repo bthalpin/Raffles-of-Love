@@ -22,17 +22,16 @@ function Checkout () {
                         <Card key={index}>
                             <div className="d-flex justify-content-between">                       
                                 <p>{item.name}</p>
-                                <p>{item.price}</p>             
+                                <p>${item.price}.00</p>             
                             </div>
                                 <CartItem key={item._id} item={item} />
-                        </Card>
-                        
+                        </Card>   
                     )
                 })}
             </div>
             <div className="d-flex justify-content-between" >
                 <p>Total</p>
-                <p>{getTotal()}</p>
+                <p>${getTotal()}.00</p>
             </div>
             <Button>Checkout</Button>
             </>
