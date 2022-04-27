@@ -330,7 +330,7 @@ db.once('open', async () => {
         password: 'password1234',
         location: "Nowhere, NJ",
         ticket: tickets[0]._id
-    });
+    }]);
 
     // await User.create({
     //     userName: 'ducks4sale',

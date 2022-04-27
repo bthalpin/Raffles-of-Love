@@ -1,5 +1,8 @@
 import React,{useState} from 'react';
 import {Form,Button} from 'react-bootstrap';
+import {useMutation} from '@apollo/client';
+import { ADD_USER } from '../../utils/mutations';
+import Auth from '../../utils/auth';
 import './register.css';
 
 function Register () {
@@ -11,8 +14,21 @@ function Register () {
     const [state,setState] = useState('')
     const [zip,setZip] = useState('')
 
-    const handleSubmit=(e)=>{
+    const [addUser,{error,data}] = useMutation(ADD_USER);
+
+    const handleSubmit= async (e)=>{
         e.preventDefault()
+
+        try {
+            const {data} = await addUser({
+                variables:{
+                    userName:name,email,password,location:`${street}|${city}|${state}|${zip}`
+                }
+            });
+            Auth.login(data.addUser.token)
+        } catch (error) {
+            console.error(error)
+        }
         console.log(name,email,password,street,city,state,zip)
         setEmail('')
         setPassword('')
