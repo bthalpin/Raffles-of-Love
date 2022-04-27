@@ -10,8 +10,9 @@ const resolvers = {
       return await Charity.find();                                                // Get and return all documents from the charity collection.
     },
 
-    charity: async (parent, { _id }) => {                                         // Get and return one document from the charity collection.
-      return Charity.findOne({ _id: _id });
+    charity: async (parent, { charityId }) => {  
+      console.log(charityId)                                       // Get and return one document from the charity collection.
+      return Charity.findOne({ _id: charityId });
     },
 
     products: async () => {
@@ -22,8 +23,8 @@ const resolvers = {
       return await Product.find({ charity: charityId }).populate('charity');                      // Populate the charity sub documents when querying for Product. 
     },
 
-    product: async (parent, { _id }) => {                                         // Defining a resolver to retrieve individual products.
-      return await Product.findById(_id).populate('charity');                     // Using the parameter to find the matching product in the collection.
+    product: async (parent, { productId }) => {                                         // Defining a resolver to retrieve individual products.
+      return await Product.findById(productId).populate('charity');                     // Using the parameter to find the matching product in the collection.
     },
     
     user: async (parent, args, context) => {                                      // Context will retrieve the logged-in user without specifically searching for them.
