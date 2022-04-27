@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {ProductCard,EditCharity,EditProduct,EditUser} from '../../components';
 import {USER} from '../../utils/queries';
 // import { tempProductData } from '../../tempProductData';
-import { UPDATE_USER } from '../../utils/mutations';
+import { UPDATE_USER,REMOVE_USER } from '../../utils/mutations';
 import { useQuery,useMutation } from '@apollo/client';
 import { useStoreContext } from "../../utils/GlobalState";
 import {Card,Container,Button,Modal,Tabs,Tab} from 'react-bootstrap';
@@ -22,6 +22,7 @@ function Profile () {
 
     const {loading,data} = useQuery(USER)
     const [updateUser, results] = useMutation(UPDATE_USER)
+    const [removeUser, result] = useMutation(REMOVE_USER)
 
     useEffect(()=>{
       if (data) {
@@ -54,6 +55,7 @@ function Profile () {
     const [street,city,states,zip] = state.user.location.split('|')
     return (
             <div className="profilePage">
+              <Button onClick={removeUser}>DELETE USER</Button>
                 <Container className="my-4 profileInfoContainer" >
                     {editUser?
                     <EditUser setEditUser={setEditUser} updateUser={updateUser}/>
