@@ -6,7 +6,7 @@ import { SINGLE_PRODUCT } from '../../utils/queries';
 import { useQuery } from '@apollo/client';
 import {useParams} from 'react-router-dom';
 import { useStoreContext } from "../../utils/GlobalState";
-import { ADD_TO_CART } from "../../utils/actions";
+import { ADD_TO_CART,UPDATE_CART_QUANTITY } from "../../utils/actions";
 import Auth from '../../utils/auth';
 
 import './singleProduct.css';
@@ -28,9 +28,17 @@ function SingleProduct () {
     // },[data])
 
     const addToCart = (product) => {
+        const itemInCart = state.cart.find(item=>item._id === productId)
+        if (itemInCart){
+            dispatch({
+                type: UPDATE_CART_QUANTITY,
+                _id: productId,
+                quantity: parseInt(itemInCart.quantity) + 1
+              });
+        }
         dispatch({
             type: ADD_TO_CART,
-            product: { ...product }
+            product: { ...product,quantity:1 }
           });
     }
     console.log(state,productId)
