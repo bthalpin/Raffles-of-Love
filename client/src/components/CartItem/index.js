@@ -37,7 +37,7 @@ const CartItem = ({ item }) => {
   }
 
   return (
-    <div className="flex-row">
+    <div className="d-flex justify-content-between">
       <div>
         <img
           src={`/images/${item.image}`}
@@ -45,14 +45,13 @@ const CartItem = ({ item }) => {
         />
       </div>
       <div>
-        <div>{item.name}, ${item.price}</div>
         <div>
           <button
             role="img"
             aria-label="trash"
             onClick={() => removeFromCart(item)}
           >
-            🗑️
+            Remove Ticket
           </button>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStoreContext } from "../../utils/GlobalState";
-import {Button} from 'react-bootstrap';
+import {Button,Card,Container} from 'react-bootstrap';
 import CartItem from '../CartItem';
 function Checkout () {
     const [state, dispatch] = useStoreContext();
@@ -17,19 +17,18 @@ function Checkout () {
     return (
             <>
             <div>
-                {/* {state.cart.map((item,index)=>{
+                {state.cart.map((item,index)=>{
                     return(
-                        <div className="d-flex justify-content-between" key={index}>
-                            <p >{item.name}</p>
-                            <p>{item.price}</p>
-                        </div>
+                        <Card key={index}>
+                            <div className="d-flex justify-content-between">                       
+                                <p>{item.name}</p>
+                                <p>{item.price}</p>             
+                            </div>
+                                <CartItem key={item._id} item={item} />
+                        </Card>
                         
                     )
-                })} */}
-                {state.cart.map((item) => (
-            <CartItem key={item._id} item={item} />
-          ))}
-
+                })}
             </div>
             <div className="d-flex justify-content-between" >
                 <p>Total</p>
