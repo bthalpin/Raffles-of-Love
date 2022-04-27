@@ -7,12 +7,10 @@ const { Provider } = StoreContext;
 const StoreProvider = ({ value = [], ...props }) => {
   const [state, dispatch] = useCharityReducer({
     user:{
-        name:'Brian',
-        email:'user@gmail.com',
-        street:'101 Some st',
-        city:'Some City',
-        states:'Some State',
-        charityId:1
+        name:'',
+        email:'',
+        location:'',
+        charityId:''
     },
     charities: [{
         _id:1,

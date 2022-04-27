@@ -1,9 +1,13 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {ProductCard,EditCharity,EditProduct,EditUser} from '../../components';
+import {USER} from '../../utils/queries';
 // import { tempProductData } from '../../tempProductData';
+import { UPDATE_USER } from '../../utils/mutations';
+import { useQuery,useMutation } from '@apollo/client';
 import { useStoreContext } from "../../utils/GlobalState";
 import {Card,Container,Button,Modal,Tabs,Tab} from 'react-bootstrap';
 import './profile.css';
+import { UPDATE_USER_INFO } from '../../utils/actions';
 
 function Profile () {
     const [state, dispatch] = useStoreContext();
@@ -16,6 +20,18 @@ function Profile () {
         setShowEdit(true)
     };
 
+    const {loading,data} = useQuery(USER)
+    const [updateUser, results] = useMutation(UPDATE_USER)
+
+    useEffect(()=>{
+      if (data) {
+        dispatch({
+          type:UPDATE_USER_INFO,
+          user:data.user
+        })
+      }
+    },[data])
+    console.log(state.user,'STATE')
     const tempUserData = state.user;
     const tempCharityData = state.charities[0]
     const tempProductData = state.products
@@ -35,30 +51,34 @@ function Profile () {
     //     website:'www.google.com',
 
     // }
+    const [street,city,states,zip] = state.user.location.split('|')
     return (
             <div className="profilePage">
                 <Container className="my-4 profileInfoContainer" >
                     {editUser?
-                    <EditUser setEditUser={setEditUser}/>
+                    <EditUser setEditUser={setEditUser} updateUser={updateUser}/>
                     :
                     <Card>
                         <Card.Header>
                             <Card.Title>
-                                {tempUserData.name}
+                                {state.user.userName}
                             </Card.Title>
                         </Card.Header>
                         <Card.Body>
                             <p className="profileInfo p-1 d-flex justify-content-between align-items-center">
-                                {tempUserData.email}
+                                {state.user.email}
                             </p>
                             <p className="profileInfo p-1 d-flex justify-content-between align-items-center">
-                                {tempUserData.street}
+                                {street}
                             </p>
                             <p className="profileInfo p-1 d-flex justify-content-between align-items-center">
-                                {tempUserData.city}
+                                {city}
                             </p>
                             <p className="profileInfo p-1 d-flex justify-content-between align-items-center">
-                                {tempUserData.states}
+                                {states}
+                            </p>
+                            <p className="profileInfo p-1 d-flex justify-content-between align-items-center">
+                                {zip}
                             </p>
                             <Button onClick={()=>setEditUser(true)}>Edit</Button>
                             
