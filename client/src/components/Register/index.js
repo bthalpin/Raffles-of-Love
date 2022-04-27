@@ -63,7 +63,7 @@ function Register () {
                         We won't share your name
                     </Form.Text> */}
                 </Form.Group>
-                <Form.Group className="py-2 zip" controlId="registerFormState">
+                <Form.Group className="py-2 zip" controlId="registerFormZip">
                     <Form.Label>Zip Code</Form.Label>
                     <Form.Control onChange={(e)=>setZip(e.target.value)} type="text" placeholder="Enter Zip Code" value={zip} />
                     {/* <Form.Text className="text-muted">
@@ -71,9 +71,11 @@ function Register () {
                     </Form.Text> */}
                 </Form.Group>
             </div>
+            
             <Button className="mt-4" variant="primary" type="submit">
                 Submit
             </Button>
+            
         </Form>
     )
 }

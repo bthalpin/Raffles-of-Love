@@ -9,6 +9,7 @@ import {
   UPDATE_CURRENT_CATEGORY,
   CLEAR_CART,
   TOGGLE_CART,
+  TOTAL
 } from './actions';
 
 // TODO: To get a better understand of how a reducer works - add comments to the various actions in the reducer
@@ -84,6 +85,11 @@ export const reducer = (state, action) => {
       return {
         ...state,
         currentCategory: action.currentCategory,
+      };
+    case TOTAL:
+      return {
+        ...state,
+        currentTotal: action.currentTotal,
       };
 
     // TODO: Add a comment describing what the default case is for

@@ -2,25 +2,31 @@
 import React,{useState} from 'react';
 import { Link } from "react-router-dom";
 import {Navbar, Modal,Nav,Button,Tab,Tabs} from 'react-bootstrap';
-import {Login,Register,Checkout} from '../'
+import {Login,Register,Cart} from '../'
+import {TOTAL} from '../../utils/actions'
+
 import { useStoreContext } from "../../utils/GlobalState";
 import './nav.css';
 
 function Navigation() {
-  const loggedIn = true;
+  const loggedIn = false;
   const [state, dispatch] = useStoreContext();
   // const navigationLinks = ['Charity','Products','Profile','Checkout','Logout']
   const [show, setShow] = useState(false);
   const [key, setKey] = useState('login');
   const [showCart, setShowCart] = useState(false);
 
-  const handleCartClose = () => setShowCart(false);
+  const handleCartClose = () => {
+    // getTotal()
+    setShowCart(false)};
   const handleCartShow = () => setShowCart(true);
   const handleClose = () => setShow(false);
   const handleShow = () => {
     setKey('login')
     setShow(true)
   };
+  
+
 
   return (
     <>
@@ -83,7 +89,7 @@ function Navigation() {
             CHARITY Cart
           </Modal.Header>
           <Modal.Body>
-            <Checkout handleModalClose={()=>setShowCart(false)}/>
+            <Cart handleModalClose={()=>setShowCart(false)}/>
           
           </Modal.Body>
             

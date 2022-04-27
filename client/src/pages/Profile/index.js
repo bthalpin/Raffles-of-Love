@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {ProductCard,EditCharity,EditProduct} from '../../components';
+import {ProductCard,EditCharity,EditProduct,EditUser} from '../../components';
 // import { tempProductData } from '../../tempProductData';
 import { useStoreContext } from "../../utils/GlobalState";
 import {Card,Container,Button,Modal,Tabs,Tab} from 'react-bootstrap';
@@ -7,6 +7,7 @@ import './profile.css';
 
 function Profile () {
     const [state, dispatch] = useStoreContext();
+    const [editUser,setEditUser] = useState(false);
     const [showEdit, setShowEdit] = useState(false);
     const [editKey, setEditKey] = useState('charity');
     const handleEditClose = () => setShowEdit(false);
@@ -37,7 +38,9 @@ function Profile () {
     return (
             <div className="profilePage">
                 <Container className="my-4 profileInfoContainer" >
-
+                    {editUser?
+                    <EditUser setEditUser={setEditUser}/>
+                    :
                     <Card>
                         <Card.Header>
                             <Card.Title>
@@ -52,12 +55,19 @@ function Profile () {
                                 {tempUserData.street}
                             </p>
                             <p className="profileInfo p-1 d-flex justify-content-between align-items-center">
-                                {tempUserData.address}
+                                {tempUserData.city}
                             </p>
-                            <Button>Edit</Button>
+                            <p className="profileInfo p-1 d-flex justify-content-between align-items-center">
+                                {tempUserData.states}
+                            </p>
+                            <Button onClick={()=>setEditUser(true)}>Edit</Button>
                             
                         </Card.Body>
                     </Card>
+                    
+                    }
+
+                    
                 </Container>
                 <h2 className="text-center">My raffles</h2>
                 <ProductCard productData={tempProductData}/>

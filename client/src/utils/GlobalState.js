@@ -10,8 +10,8 @@ const StoreProvider = ({ value = [], ...props }) => {
         name:'Brian',
         email:'user@gmail.com',
         street:'101 Some st',
-        address:'City, State',
-        website:'www.google.com',
+        city:'Some City',
+        states:'Some State',
         charityId:1
     },
     charities: [{
@@ -49,48 +49,54 @@ const StoreProvider = ({ value = [], ...props }) => {
         _id:1,
         name:"Product Name1",
         description:"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. ",
-        image:"/logo192.png"
+        image:"/logo192.png",
+        price:1
     },
     {
         _id:2,
         name:"Product Name2",
         description:"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. ",
-        image:"/logo192.png"
+        image:"/logo192.png",
+        price:8
 
     },
     {   
         _id:3,
         name:"Product Name3",
         description:"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. ",
-        image:"/logo192.png"
+        image:"/logo192.png",
+        price:2
 
     },
     {
         _id:4,
         name:"Product Name4",
         description:"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. ",
-        image:"/logo192.png"
+        image:"/logo192.png",
+        price:3
 
     },
     {
         _id:5,
         name:"Product Name5",
         description:"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. ",
-        image:"/logo192.png"
+        image:"/logo192.png",
+        price:5
 
     },
     {
         _id:6,
         name:"Product Name6",
         description:"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. ",
-        image:"/logo192.png"
+        image:"/logo192.png",
+        price:11
 
     },],
     cart: [],
     cartOpen: false,
-    
+    total:0,
   });
-
+  
   return <Provider value={[state, dispatch]} {...props} />;
 };
 

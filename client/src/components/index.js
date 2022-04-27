@@ -5,6 +5,7 @@ import ProductCard from './ProductCard';
 import Footer from './Footer';
 import EditProduct from './Edit Product';
 import EditCharity from './EditCharity';
-import Checkout from './Checkout';
+import Cart from './Cart';
+import EditUser from './EditUser';
 
-export {Login,Navigation,Register,ProductCard,Footer,EditProduct,EditCharity,Checkout}
+export {Login,Navigation,Register,ProductCard,Footer,EditProduct,EditCharity,Cart,EditUser}
