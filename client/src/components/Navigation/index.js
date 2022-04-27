@@ -3,19 +3,23 @@ import React,{useState} from 'react';
 import { Link } from "react-router-dom";
 import {Navbar, Modal,Nav,Button,Tab,Tabs} from 'react-bootstrap';
 import {Login,Register,Cart} from '../'
+import Auth from '../../utils/auth';
 import {TOTAL} from '../../utils/actions'
 
 import { useStoreContext } from "../../utils/GlobalState";
 import './nav.css';
 
 function Navigation() {
-  const loggedIn = false;
   const [state, dispatch] = useStoreContext();
   // const navigationLinks = ['Charity','Products','Profile','Checkout','Logout']
   const [show, setShow] = useState(false);
   const [key, setKey] = useState('login');
   const [showCart, setShowCart] = useState(false);
 
+  const logout = (e) => {
+    e.preventDefault()
+    Auth.logout()
+  }
   const handleCartClose = () => {
     // getTotal()
     setShowCart(false)};
@@ -26,7 +30,6 @@ function Navigation() {
     setShow(true)
   };
   
-
 
   return (
     <>
@@ -41,10 +44,13 @@ function Navigation() {
             <Nav className="navRight">
               {/* <Nav className="navLink fs-3" as={Link} to='/'>Home</Nav> */}
               <Nav className="navLink fs-3" as={Link} to='/Product'>Raffles</Nav>
+              {Auth.loggedIn()?
+              <>
               <Nav className="navLink fs-3" as={Link} to='/Profile'>My Profile</Nav>
               <Nav onClick={handleCartShow} className="navLink fs-3 navCheckout" >Cart<span className="cartCount">{state.cart.length?state.cart.length:<></>}</span></Nav>
-              {loggedIn?
-              <Nav className="navLink fs-3" as={Link} to='#'> Logout</Nav>
+              
+              <Nav onClick={logout} className="navLink fs-3" as={Link} to='#'> Logout</Nav>
+              </>
               :
               <Nav onClick={handleShow} className="navLink fs-3" as={Link} to='#'> Login</Nav>
               }

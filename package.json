@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server --ignore client",
+    "develop": "concurrently \"cd server && npm run start\" \"cd client && npm start\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "seed": "cd server && npm run seed",
+    "build": "cd client && npm run build"
   },
   "repository": {
     "type": "git",
@@ -16,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/bthalpin/Project-3/issues"
   },
-  "homepage": "https://github.com/bthalpin/Project-3#readme"
+  "homepage": "https://github.com/bthalpin/Project-3#readme",
+  "devDependencies": {
+    "concurrently": "^7.1.0"
+  }
 }

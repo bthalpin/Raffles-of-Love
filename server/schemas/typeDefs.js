@@ -49,10 +49,10 @@ const typeDefs = gql`
     type Query {
         user: User
         charities: [Charity]
-        charity(_id: ID!): Charity
+        charity(charityId: ID!): Charity
         products: [Product]
         productsByCharity(charityId: ID!): [Product]
-        product(_id: ID!): Product
+        product(productId: ID!): Product
         tickets: [Ticket]
         ticket(_id: ID!): Ticket
     }

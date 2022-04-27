@@ -7,6 +7,7 @@ import { useQuery } from '@apollo/client';
 import {useParams} from 'react-router-dom';
 import { useStoreContext } from "../../utils/GlobalState";
 import { ADD_TO_CART } from "../../utils/actions";
+import Auth from '../../utils/auth';
 
 import './singleProduct.css';
 
@@ -42,7 +43,11 @@ function SingleProduct () {
                             <Card.Title>{data.product.name}</Card.Title>
                             <img className="singleProductImage" src={data.product.image}/>
                             <Card.Body>{data.product.description}</Card.Body>
+                            {Auth.loggedIn()?
                             <Button onClick={()=>addToCart(data.product)}>Buy Ticket</Button>
+                            :
+                            <Button disabled>Must Log In to Buy A Ticket</Button>
+                            }
                         </Card>
             </Container>
             
