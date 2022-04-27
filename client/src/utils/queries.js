@@ -127,3 +127,10 @@ export const QUERY_CHECKOUT = gql`
     }
   }
 `;
+export const QUERY_SUCCESS = gql`
+  query getCheckout($sessionId: ID!) {
+    success(sessionId: $sessionId) {
+      session
+    }
+  }
+`;

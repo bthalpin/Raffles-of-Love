@@ -1,6 +1,8 @@
 const { User, Ticket, Product, Charity, Order } = require('../models');                  // Require models folder.
 const { signToken } = require('../utils/auths');                                  // Require signToken (JWT) from auth.js folder to verify integrity of claims.
 const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');             // Require stripe for payment functions.
+
+
 const { AuthenticationError } = require('apollo-server-express');                 // Require AuthenticationError to perceive if server fails to authenticate required data.
 
 // Functions that fulfill the queries defined in `typeDefs.js`.
@@ -54,7 +56,15 @@ const resolvers = {
 
       throw new AuthenticationError('Not logged in');
     },
-
+    
+    success: async (parent, {sessionId}, context)=>{
+      const session = await stripe.checkout.sessions.retrieve(
+        sessionId, { expand: ['line_items'], }
+      );
+      // ITEMS PURCHASED
+      console.log(session.line_items.data)
+      return session
+    },
     checkout: async (parent, args, context) => {
       const url = new URL(context.headers.referer).origin;
       const order = new Order({ products: args.products });
@@ -85,10 +95,9 @@ const resolvers = {
         payment_method_types: ['card'],
         line_items,
         mode: 'payment',
-        success_url: `${url}/orderConfirmation`,
+        success_url: `${url}/success/{CHECKOUT_SESSION_ID}`,
         cancel_url: `${url}/`
       });
-
       return { session: session.id };
     }
   },

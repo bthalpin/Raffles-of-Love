@@ -19,6 +19,7 @@ function Checkout () {
         if (data) {
           stripePromise.then((res) => {
             res.redirectToCheckout({ sessionId: data.checkout.session });
+            console.log(res)
           });
         }
       }, [data]);

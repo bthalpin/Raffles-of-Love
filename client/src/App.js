@@ -79,7 +79,7 @@ function App() {
           element={<Profile />}
           />
         <Route
-          path='/OrderSuccess'
+          path='/success/:sessionId'
           element={<OrderSuccess />}
           />
 
