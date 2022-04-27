@@ -74,7 +74,7 @@ db.once('open', async () => {
             name: "Baseball",
             description: "Signed Baseball from Casey Jones",
             image: "https://upload.wikimedia.org/wikipedia/en/1/1e/Baseball_%28crop%29.jpg",
-            price: "25",
+            price: "1",
             ticketCount: 100,
             charity: charities[0]._id 
         },
@@ -82,7 +82,7 @@ db.once('open', async () => {
             name: "Basketball",
             description: "Signed Basketball from State Champion High School team.",
             image: 'https://upload.wikimedia.org/wikipedia/commons/7/7a/Basketball.png',
-            price: "35",
+            price: "1",
             ticketCount: 100,
             charity: charities[0]._id 
         },
@@ -90,7 +90,7 @@ db.once('open', async () => {
             name: 'Car',
             description: 'El Camino',
             image: 'https://silodrome.com/wp-content/uploads/2020/11/Chevrolet-El-Camino-SS-396.jpg',
-            price: "300",
+            price: "1",
             ticketCount: 100,
             charity: charities[0]._id 
         },
@@ -98,7 +98,7 @@ db.once('open', async () => {
             name: 'Shoes',
             description: 'Rare signature sneakers',
             image: 'https://cdn.cheapism.com/images/PSX_20201025_151656.max-784x410.jpg',
-            price: "55",
+            price: "1",
             ticketCount: 100,
             charity: charities[1]._id 
         },
@@ -106,7 +106,7 @@ db.once('open', async () => {
             name: 'Cabin get away',
             description: 'Three days four nights at luxury remote cabin.',
             image: 'https://images.ctfassets.net/gxwgulxyxxy1/6n3HlHC8kwrWcL1A7ilwXF/6716baa9c91dd572058d63c4798341d2/c5602606-3746-44b9-94cb-9a1b5d22deca.lg1.jpg',
-            price: "200",
+            price: "1",
             ticketCount: 100,
             charity: charities[1]._id 
         },
@@ -114,7 +114,7 @@ db.once('open', async () => {
             name: 'Concert Tickets',
             description: 'EDM festival Tickets',
             image: 'https://www.palmharborfootball.com/wp-content/uploads/2017/11/tickets.png',
-            price: "100",
+            price: "1",
             ticketCount: 100,
             charity: charities[1]._id 
         },
@@ -122,7 +122,7 @@ db.once('open', async () => {
             name: 'Opera Tickets',
             description: 'Local Opera House tickets for any event, balcony seats.',
             image: 'https://www.palmharborfootball.com/wp-content/uploads/2017/11/tickets.png',
-            price: "100",
+            price: "1",
             ticketCount: 100,
             charity: charities[2]._id 
         },
@@ -130,7 +130,7 @@ db.once('open', async () => {
             name: 'Gift Basket',
             description: 'Country style gift basket with all your favorites.',
             image: 'https://www.adorablegiftbaskets.com/media/ready-country_thing_20201.jpg',
-            price: "35",
+            price: "1",
             ticketCount: 100,
             charity: charities[2]._id 
         },
@@ -138,7 +138,7 @@ db.once('open', async () => {
             name: 'Pocket Watch',
             description: '1895 Pocket Watch',
             image: 'https://www.keepthetime.com/wp-content/uploads/2018/11/elgin-vintage-pocket-watch-55643212-movement.jpg',
-            price: "80",
+            price: "1",
             ticketCount: 100,
             charity: charities[2]._id 
         },
@@ -146,7 +146,7 @@ db.once('open', async () => {
             name: 'Boat Tour',
             description: 'Boat tour going down the Allegheny.',
             image: 'https://upload.wikimedia.org/wikipedia/commons/4/4a/Nile_Tour_Boat_R02.jpg',
-            price: "200",
+            price: "1",
             ticketCount: 100,
             charity: charities[3]._id 
         },
@@ -154,7 +154,7 @@ db.once('open', async () => {
             name: 'Casino Boat',
             description: 'Tickets for a night on a casino boat.',
             image: 'https://media.timeout.com/images/103232470/750/422/image.jpg',
-            price: "300",
+            price: "1",
             ticketCount: 100,
             charity: charities[3]._id 
         },
@@ -162,7 +162,7 @@ db.once('open', async () => {
             name: 'Light Bar',
             description: 'LED Light bar to fit any truck',
             image: 'https://cdn11.bigcommerce.com/s-40fv8/images/stencil/original/uploaded_images/image-1.jpg?t=1524145615',
-            price: "50",
+            price: "1",
             ticketCount: 100,
             charity: charities[3]._id 
         },
@@ -170,7 +170,7 @@ db.once('open', async () => {
             name: 'Guitar',
             description: 'Acoustic Guitar',
             image: 'https://images.squarespace-cdn.com/content/v1/5b7d8ac7697a988b951bdc95/1611728210677-016BGGS79ZRHB96CKQS3/image-9.jpg?format=2500w',
-            price: "125",
+            price: "1",
             ticketCount: 100,
             charity: charities[4]._id 
         },
@@ -178,7 +178,7 @@ db.once('open', async () => {
             name: 'Guitar Lessons',
             description: 'Ten hour long guitar lessons.',
             image: 'https://cdn.schoolofrock.com/img/hero-large/guitar-lessons1527266771.jpg',
-            price: "80",
+            price: "1",
             ticketCount: 100,
             charity: charities[4]._id 
         },
@@ -186,7 +186,7 @@ db.once('open', async () => {
             name: 'Guitar Amp',
             description: 'Marshall Amplifies',
             image: 'https://media.sweetwater.com/api/i/q-82__ha-0d44bbbedefe82fc__hmac-822ce55a891c718898be0561a5385780ece38dc0/images/items/750/MG50GFX-large.jpg',
-            price: "100",
+            price: "1",
             ticketCount: 100,
             charity: charities[4]._id 
         },
@@ -194,7 +194,7 @@ db.once('open', async () => {
             name: 'Cowboy Hat',
             description: 'Cowboy hat made to fit the winner.',
             image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_X2t7JrXjpv2WRaNiA65nbAAiMT1NrgWWeJzVOK_N_gcqOA5HbC6Mdre4HXuIjuMo0yc&usqp=CAU',
-            price: "65",
+            price: "1",
             ticketCount: 100,
             charity: charities[5]._id 
         },
@@ -202,7 +202,7 @@ db.once('open', async () => {
             name: 'Cowboy Boots',
             description: "Cowboy boots in any size.",
             image: 'https://www.ariat.com/dw/image/v2/AAML_PRD/on/demandware.static/-/Sites-ARIAT/default/dw8983c7ea/images/zoom/10040327_3-4_front.jpg',
-            price: "50",
+            price: "1",
             ticketCount: 100,
             charity: charities[5]._id 
         },
@@ -210,7 +210,7 @@ db.once('open', async () => {
             name: 'Cowboy Jacket',
             description: 'Vintage Long Cowboy Jacket',
             image: 'https://canary.contestimg.wish.com/api/webimage/5f6470948ab312086f7f50f0-large.jpg?cache_buster=dac5e8a0101ce2f662a91d9a6da14c52',
-            price: "125",
+            price: "1",
             ticketCount: 100,
             charity: charities[5]._id 
         },
@@ -218,7 +218,7 @@ db.once('open', async () => {
             name: "Mountain Art",
             description: 'Mountain Wall Art',
             image: 'https://i.etsystatic.com/29345702/c/2500/1500/0/0/il/e73f67/3333681583/il_340x270.3333681583_qv2i.jpg',
-            price: "65",
+            price: "1",
             ticketCount: 100,
             charity: charities[6]._id 
         },
@@ -226,7 +226,7 @@ db.once('open', async () => {
             name: 'Wall Art',
             description: 'Modern Wall Art',
             image: 'https://m.media-amazon.com/images/I/71c+zy+x-3L._AC_SL1000_.jpg',
-            price: "75",
+            price: "1",
             ticketCount: 100,
             charity: charities[6]._id 
         },
@@ -234,7 +234,7 @@ db.once('open', async () => {
             name: "Custom Art",
             description: "Custom wall painting done by local artist.",
             image: 'https://images.thdstatic.com/productImages/92ef591d-aaae-5c10-b68e-adb93550eb9b/svn/white-litton-lane-art-paintings-87892-64_400.jpg',
-            price: "100",
+            price: "1",
             ticketCount: 100,
             charity: charities[6]._id 
         },
@@ -242,7 +242,7 @@ db.once('open', async () => {
             name: 'Metal Flowers',
             description: 'Twelve custom metal flowers.',
             image: 'https://images.coplusk.net/project_images/189032/image/109460_2F2015-06-21-145136-FEM5I69IB0MGCON.LARGE.jpg',
-            price: "20",
+            price: "1",
             ticketCount: 100,
             charity: charities[7]._id 
         },
@@ -250,7 +250,7 @@ db.once('open', async () => {
             name: 'Decorative Yard Art',
             description: 'Decorative metal flowers for your yard.',
             image: 'https://www.plowhearth.com/medias/sys_master/images/images/he3/hf6/10819510468638/54779-PHSP19-AF9820.jpg',
-            price: "15",
+            price: "1",
             ticketCount: 100,
             charity: charities[7]._id 
         },
@@ -258,7 +258,7 @@ db.once('open', async () => {
             name: 'Custom Street Sign Art',
             description: "Custom street sign art personalized for you.",
             image: 'https://www.boredpanda.com/blog/wp-content/uploads/2021/10/funny-street-signs-cletabraham-fb-png__700.jpg',
-            price: "65",
+            price: "1",
             ticketCount: 100,
             charity: charities[7]._id 
         },
@@ -266,7 +266,7 @@ db.once('open', async () => {
             name: 'Monster Truck Tickets',
             description: 'Monster Truck tickets for the biggest event of the summer.',
             image: 'https://upload.wikimedia.org/wikipedia/commons/e/ea/Superman_monster_truck.jpg',
-            price: "50",
+            price: "1",
             ticketCount: 100,
             charity: charities[8]._id 
         },
@@ -274,7 +274,7 @@ db.once('open', async () => {
             name: 'Demolition Derby',
             description: 'State Fair main event demolition derby tickets.',
             image: "https://www.gannett-cdn.com/-mm-/aba259da292344ac9a6afadbf035ab231d4f95c3/c=0-147-3643-2205/local/-/media/2018/07/21/OHGroup/Mansfield/636678028376425633-0721-DEMODERBY-001.JPG",
-            price: "25",
+            price: "1",
             ticketCount: 100,
             charity: charities[8]._id 
         },
@@ -282,7 +282,7 @@ db.once('open', async () => {
             name: 'MotoCross',
             description: 'Largest Motocross race of the year.  Tickets in the pit.',
             image: 'https://img.redbull.com/images/c_crop,w_4433,h_2217,x_0,y_81,f_auto,q_auto/c_scale,w_1200/redbullcom/2019/04/12/a77d096b-7b1b-447e-acb0-9f6db95f2ddd/ben-watson-motocross',
-            price: "100",
+            price: "1",
             ticketCount: 100,
             charity: charities[8]._id 
         },
@@ -290,7 +290,7 @@ db.once('open', async () => {
             name: 'Horn Tankard',
             description: 'Custom viking horn tankard.',
             image: 'https://i.pinimg.com/originals/e7/a0/66/e7a0661831d5787031b6214e63496ce0.jpg',
-            price: "25",
+            price: "1",
             ticketCount: 100,
             charity: charities[9]._id 
         },
@@ -298,7 +298,7 @@ db.once('open', async () => {
             name: 'Viking Jewelry',
             description: 'Replica viking jewelry lot.',
             image: 'https://cdn.shopify.com/s/files/1/0078/0530/4890/files/viking-pendants-1_480x480.jpg?v=1548870401',
-            price: "40",
+            price: "1",
             ticketCount: 100,
             charity: charities[9]._id 
         },
@@ -306,7 +306,7 @@ db.once('open', async () => {
             name: 'Mardi Gras Trip',
             description: 'A three day, four night trip to Mardi Gras.',
             image: 'https://www.history.com/.image/ar_4:3%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTU3ODc5MDgwMjU4MDUzNDQ5/mardi-gras-mask-and-beads.jpg',
-            price: "500",
+            price: "1",
             ticketCount: 100,
             charity: charities[9]._id 
         },
