@@ -25,8 +25,8 @@ query Charities {
 `;
 
 export const SINGLE_CHARITY = gql`
-query singleCharity($id: ID!) {
-    charity(_id: $id) {
+query singleCharity($charityId: ID!) {
+    charity(charityId: $charityId) {
       _id
       name
       website
@@ -53,8 +53,8 @@ query Products {
 `;
 
 export const SINGLE_PRODUCT = gql`
-query singleProduct($id: ID!) {
-    product(_id: $id) {
+query singleProduct($productId: ID!) {
+    product(productId: $productId) {
       _id
       name
       description
