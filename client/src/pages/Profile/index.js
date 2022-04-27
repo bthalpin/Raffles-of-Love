@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {ProductCard,EditCharity,EditProduct,EditUser} from '../../components';
 import {USER} from '../../utils/queries';
+import Auth from '../../utils/auth';
 // import { tempProductData } from '../../tempProductData';
 import { UPDATE_USER,REMOVE_USER } from '../../utils/mutations';
 import { useQuery,useMutation } from '@apollo/client';
@@ -32,6 +33,12 @@ function Profile () {
         })
       }
     },[data])
+
+    const deleteUser = () => {
+      removeUser()
+      Auth.logout()
+
+    }
     console.log(state.user,'STATE')
     const tempUserData = state.user;
     const tempCharityData = state.charities[0]
@@ -55,7 +62,7 @@ function Profile () {
     const [street,city,states,zip] = state.user.location.split('|')
     return (
             <div className="profilePage">
-              <Button onClick={removeUser}>DELETE USER</Button>
+              <Button onClick={deleteUser}>DELETE USER</Button>
                 <Container className="my-4 profileInfoContainer" >
                     {editUser?
                     <EditUser setEditUser={setEditUser} updateUser={updateUser}/>
