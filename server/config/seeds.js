@@ -335,54 +335,63 @@ db.once('open', async () => {
         userName: 'ducks4sale',
         email: 'sellingDucks@gmail.com',
         password: 'password1234',
+        location: "Nowhere, NJ",
         tickets: []
     },
     {
         userName: 'JohnD',
         email: 'jdoe123@gmail.com',
         password: 'password1234',
+        location: "Nowhere, NJ",
         tickets: []
     },
     {   
         userName: 'jDoe',
         email: 'janeDoe@gmail.com',
         password: 'password1234',
+        location: "Nowhere, NJ",
         tickets: []
     },
     {
         userName: 'tigerBalm',
         email: 'orangestripes@gmail.com',
         password: 'password1234',
+        location: "Nowhere, NJ",
         tickets: []
     }, 
     {
         userName: 'hammerHead',
         email: 'sharks4life@gmail.com',
         password: 'password1234',
+        location: "Nowhere, NJ",
         tickets: []
     },
     {
         userName: 'tinCanAllstar',
         email: 'collectKickCans@gmail.com',
         password: 'password1234',
+        location: "Nowhere, NJ",
         tickets: []
     },
     {
         userName: 'general',
         email: 'fourstarG@gmail.com',
         password: 'password1234',
+        location: "Nowhere, NJ",
         tickets: []
     },
     {
         userName: 'preacher',
         email: 'ofaafo@gmail.com',
         password: 'password1234',
+        location: "Nowhere, NJ",
         tickets: []
     },
     {
         userName: 'savetheseals',
         email: 'ilikeseals@gmail.com',
         password: 'password1234',
+        location: "Nowhere, NJ",
         tickets: []
     },
 ]);
