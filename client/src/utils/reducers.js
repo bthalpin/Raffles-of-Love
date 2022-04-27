@@ -11,7 +11,8 @@ import {
   TOGGLE_CART,
   TOTAL,
   UPDATE_CHARITIES,
-  UPDATE_CHARITY_PRODUCTS
+  UPDATE_CHARITY_PRODUCTS,
+  UPDATE_USER_INFO
 } from './actions';
 
 
@@ -43,6 +44,12 @@ export const reducer = (state, action) => {
             ...state,
             charityProducts:[...action.charityProducts]
         }
+
+    case UPDATE_USER_INFO:
+      return {
+        ...state,
+        user:{...action.user}
+      }
     case ADD_MULTIPLE_TO_CART:
       return {
         ...state,

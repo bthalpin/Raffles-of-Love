@@ -10,8 +10,8 @@ const resolvers = {
       return await Charity.find();                                                // Get and return all documents from the charity collection.
     },
 
-    charity: async (parent, { charityId }) => {                                        // Get and return one document from the charity collection.
-      return Charity.findOne({ _id: charityId });
+    charity: async (parent, { _id }) => {                                         // Get and return one document from the charity collection.
+      return Charity.findOne({ _id: _id });
     },
 
     products: async () => {
@@ -22,9 +22,8 @@ const resolvers = {
       return await Product.find({ charity: charityId }).populate('charity');                      // Populate the charity sub documents when querying for Product. 
     },
 
-    product: async (parent, { productId }) => {  
-      // console.log(_id,'here')                                       // Defining a resolver to retrieve individual products.
-      return await Product.findById(productId).populate('charity');                     // Using the parameter to find the matching product in the collection.
+    product: async (parent, { _id }) => {                                         // Defining a resolver to retrieve individual products.
+      return await Product.findById(_id).populate('charity');                     // Using the parameter to find the matching product in the collection.
     },
     
     user: async (parent, args, context) => {                                      // Context will retrieve the logged-in user without specifically searching for them.
@@ -47,18 +46,18 @@ const resolvers = {
       return await Ticket.findById(_id).populate('product');                      // Using the parameter to find the matching ticket in the collection.
     },
 
-    checkout: async (parent, args, context) => {
+        checkout: async (parent, args, context) => {
       const url = new URL(context.headers.referer).origin;
       const order = new Order({ products: args.products });
-      const cart = [];
+      const line_items = [];
 
       const { products } = await order.populate('products');
 
       for (let i = 0; i < products.length; i++) {
         const product = await stripe.products.create({
           name: products[i].name,
-          description: products[i].description
-          // images: [`${url}/images/${products[i].image}`]
+          description: products[i].description,
+          images: [`${url}/images/${products[i].image}`]
         });
 
         const price = await stripe.prices.create({
@@ -67,7 +66,7 @@ const resolvers = {
           currency: 'usd',
         });
 
-        cart.push({
+        line_items.push({
           price: price.id,
           quantity: 1
         });
@@ -75,7 +74,7 @@ const resolvers = {
 
       const session = await stripe.checkout.sessions.create({
         payment_method_types: ['card'],
-        cart,
+        line_items,
         mode: 'payment',
         success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
         cancel_url: `${url}/`
@@ -92,9 +91,10 @@ const resolvers = {
       return { token, user };                                                     // Return an `Auth` object that consists of the signed token and user's information.
     },
 
-    updateUser: async (parent, args, context) => {                                // Add a third argument to the resolver to access data in our `context`.
+    updateUser: async (parent, {userName,email,location}, context) => {  
+      console.log(context.user)                              // Add a third argument to the resolver to access data in our `context`.
       if (context.user) {                                                         // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in.
-        return await User.findByIdAndUpdate(context.user._id, args,               // Find and update the matching User using args.
+        return await User.findByIdAndUpdate(context.user._id, {userName,email,location,password:context.user.password},               // Find and update the matching User using args.
           { new: true });                                                       // Return the newly updated object instead of the original.
       }
 
@@ -163,6 +163,19 @@ const resolvers = {
       }
 
       throw new AuthenticationError('Not Logged in');
+    },
+
+    addOrder: async (parent, { products }, context) => {
+      console.log(context);
+      if (context.user) {
+        const order = new Order({ products });
+
+        await User.findByIdAndUpdate(context.user._id, { $push: { orders: order } });
+
+        return order;
+      }
+
+      throw new AuthenticationError('Not logged in');
     },
 
     login: async (parent, { email, password }) => {
