@@ -33,10 +33,10 @@ function Navigation() {
 
   return (
     <>
-    <Navbar className="navigation p-4 d-flex justify-content-between" bg="secondary" variant="dark" expand="lg">
+    <Navbar className="navigation p-4 d-flex justify-content-between"  variant="dark" expand="lg">
         <div>
 
-          <Navbar.Brand className="brandName display-1" href="#home"as={Link} to='/'>Charity</Navbar.Brand>
+          <Navbar.Brand className="brandName display-1" href="#home"as={Link} to='/'>Wagers of Compassion</Navbar.Brand>
         </div>
         <div>
           <Navbar.Toggle aria-controls="navbar" />

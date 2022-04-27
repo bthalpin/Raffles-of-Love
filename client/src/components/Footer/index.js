@@ -8,7 +8,7 @@ function Navigation() {
 
   return (
     <>
-    <div className="footer mt-5 p-2 d-flex justify-content-center bg-secondary text-dark" bg="secondary" variant="dark" expand="lg">
+    <div className="footer mt-5 p-2 d-flex justify-content-center text-dark" bg="secondary" variant="dark" expand="lg">
        
             <Nav>
                 <Nav.Link className="footerLink" href="https://github.com/jsnyder159">Jason Snyder</Nav.Link>
