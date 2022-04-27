@@ -5,7 +5,6 @@ const typeDefs = gql`
         _id: ID
         purchaseDate: String
         ticketNumber: Int!
-        product: [Product]
     }
 
     type Charity {
@@ -76,7 +75,7 @@ const typeDefs = gql`
         addCharity(name: String!, website: String, image: String, description: String): Charity
         updateCharity(charityId: ID!, name: String!, website: String, image: String, description: String): Charity
         removeCharity(charityId: ID!): Charity
-        addTicket(ticketNumber: Int!): Ticket
+        addTicket(_id: ID!, user_id: ID!, product_id: ID!): Ticket
         login(email: String!, password: String!): Auth
         addOrder(products: [ID]!): Order
         
@@ -84,14 +83,6 @@ const typeDefs = gql`
 `;
 
 module.exports = typeDefs;
-
-// type Mutation {
-//     
-//     
-//     
-//     addTicket(_id: ID!, user_id: ID!, product_id: ID!): Ticket
-//
-// }
 
 //query
 //         
