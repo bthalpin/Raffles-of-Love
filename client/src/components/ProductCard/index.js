@@ -10,12 +10,13 @@ function ProductCard ({productData}) {
             <Container className="d-flex flex-wrap justify-content-around m-auto">
                 {productData.map((product,index)=>{
                     return (
-                        <Link className="productLink" to={`/Product/${product._id-1}`} key={index}>
+                        <Link className="productLink" to={`/Product/${product._id}`} key={index}>
                             <Card className="productCard m-2 p-3 text-center">
                                 <Card.Title>{product.name}</Card.Title>
-                                <img className="productImage" src='/logo192.png' alt='logo'></img>
-                                {/* <Card.Body>{product.description}</Card.Body>
-                                <Button>Buy Ticket</Button> */}
+                                <Card.Body>
+                                <img className="productImage" src={product.image} alt='logo'></img>
+                                {product.description}</Card.Body>
+                                {/* <Button>Buy Ticket</Button> */}
                             </Card>
                         </Link>
 

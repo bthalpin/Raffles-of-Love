@@ -1,5 +1,8 @@
 import React,{useState} from 'react';
 import {Form,Button} from 'react-bootstrap';
+import {useMutation} from '@apollo/client';
+import { ADD_USER } from '../../utils/mutations';
+import Auth from '../../utils/auth';
 import './register.css';
 
 function Register () {
@@ -11,8 +14,21 @@ function Register () {
     const [state,setState] = useState('')
     const [zip,setZip] = useState('')
 
-    const handleSubmit=(e)=>{
+    const [addUser,{error,data}] = useMutation(ADD_USER);
+
+    const handleSubmit= async (e)=>{
         e.preventDefault()
+
+        try {
+            const {data} = await addUser({
+                variables:{
+                    userName:name,email,password,location:`${street}|${city}|${state}|${zip}`
+                }
+            });
+            Auth.login(data.addUser.token)
+        } catch (error) {
+            console.error(error)
+        }
         console.log(name,email,password,street,city,state,zip)
         setEmail('')
         setPassword('')
@@ -63,7 +79,7 @@ function Register () {
                         We won't share your name
                     </Form.Text> */}
                 </Form.Group>
-                <Form.Group className="py-2 zip" controlId="registerFormState">
+                <Form.Group className="py-2 zip" controlId="registerFormZip">
                     <Form.Label>Zip Code</Form.Label>
                     <Form.Control onChange={(e)=>setZip(e.target.value)} type="text" placeholder="Enter Zip Code" value={zip} />
                     {/* <Form.Text className="text-muted">
@@ -71,9 +87,11 @@ function Register () {
                     </Form.Text> */}
                 </Form.Group>
             </div>
+            
             <Button className="mt-4" variant="primary" type="submit">
                 Submit
             </Button>
+            
         </Form>
     )
 }

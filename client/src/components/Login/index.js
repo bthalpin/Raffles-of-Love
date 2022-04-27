@@ -1,10 +1,32 @@
 import React,{useState} from 'react';
+import { useMutation } from '@apollo/client';
+import { LOGIN } from '../../utils/mutations';
+import Auth from '../../utils/auth';
 import {Form,Button} from 'react-bootstrap';
 function Login () {
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
-    const handleSubmit=(e)=>{
+
+    const [login, {error,data}] = useMutation(LOGIN);
+
+
+
+
+    // 
+    // 
+    // ADD ERROR FOR FAILED LOGIN
+    // 
+    const handleSubmit= async (e)=>{
         e.preventDefault()
+
+        try {
+            const {data} = await login({
+                variables:{email,password}
+            })
+            Auth.login(data.login.token);
+        } catch (error) {
+            console.error(error)
+        }
         console.log(email,password)
         setEmail('')
         setPassword('')

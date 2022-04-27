@@ -49,12 +49,13 @@ const typeDefs = gql`
     type Query {
         user: User
         charities: [Charity]
-        charity(_id: ID!): Charity
+        charity(charityId: ID!): Charity
         products: [Product]
         productsByCharity(charityId: ID!): [Product]
-        product(_id: ID!): Product
+        product(productId: ID!): Product
         tickets: [Ticket]
         ticket(_id: ID!): Ticket
+        checkout(products: [ID]!): Checkout
     }
 
     type Mutation {
@@ -75,8 +76,17 @@ const typeDefs = gql`
 
 module.exports = typeDefs;
 
-// type Mutation {    
-//     addTicket(_id: ID!, product_id: ID!): Ticket
+// type Mutation {
+//     
+//     
+//     
+//     addTicket(_id: ID!, user_id: ID!, product_id: ID!): Ticket
+//
+// }
 
 //query
+//         
+//     
 //         checkout(products: [ID]!): Checkout
+
+// look up mongoose function to populate ticket into two locations
