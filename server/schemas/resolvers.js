@@ -85,7 +85,7 @@ const resolvers = {
         payment_method_types: ['card'],
         line_items,
         mode: 'payment',
-        success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
+        success_url: `${url}/orderConfirmation`,
         cancel_url: `${url}/`
       });
 
@@ -167,8 +167,12 @@ const resolvers = {
 
         await User.findByIdAndUpdate(context.user._id, { $push: { tickets: ticket } });
 
-        await Product.findByIdAndUpdate(products._id, { $push: { tickets: ticket } });
-
+        const newTicket = await Product.findByIdAndUpdate(products._id, { $push: { tickets: ticket } });
+        if(newTicket.tickets.length === newTicket.ticketCount){
+          const winningTicket = newTicket.tickets[Math.floor(Math.random()*newTicket.tickets.length)]
+          const newTicket = await Product.findByIdAndUpdate(products._id, {winningNumber:winningTicket} );
+          
+        }
         return ticket;
       }
 

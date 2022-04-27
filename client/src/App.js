@@ -10,7 +10,7 @@ import decode from 'jwt-decode';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {Navigation,Footer} from './components/';
-import {Charity,SingleCharity,Profile,SingleProduct,Raffles} from './pages';
+import {Charity,SingleCharity,Profile,SingleProduct,Raffles,OrderSuccess} from './pages';
 import { StoreProvider } from './utils/GlobalState';
 import './App.css';
 
@@ -78,12 +78,16 @@ function App() {
           path='/Logout'
           element={<Profile />}
           />
+        <Route
+          path='/OrderSuccess'
+          element={<OrderSuccess />}
+          />
 
       </Routes>
       <Footer />
                 </StoreProvider>
     </ Router>
-// </ApolloProvider>
+ </ApolloProvider>
   );
 }
 
