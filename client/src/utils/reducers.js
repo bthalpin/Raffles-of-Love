@@ -6,17 +6,19 @@ import {
   REMOVE_FROM_CART,
   ADD_MULTIPLE_TO_CART,
   UPDATE_CATEGORIES,
-  UPDATE_CURRENT_CATEGORY,
+  UPDATE_CURRENT_CHARITY,
   CLEAR_CART,
   TOGGLE_CART,
-  TOTAL
+  TOTAL,
+  UPDATE_CHARITIES,
+  UPDATE_CHARITY_PRODUCTS
 } from './actions';
 
-// TODO: To get a better understand of how a reducer works - add comments to the various actions in the reducer
+
 export const reducer = (state, action) => {
   switch (action.type) {
-    // TODO: Add a comment describing the functionality of the UPDATE_PRODUCTS case
-    // Your comment here
+   
+   
     case UPDATE_PRODUCTS:
       return {
         ...state,
@@ -29,7 +31,18 @@ export const reducer = (state, action) => {
         cartOpen: true,
         cart: [...state.cart, action.product],
       };
-
+    
+    case UPDATE_CHARITIES:
+        return {
+            ...state,
+            charities: [...action.charities]
+        };
+    
+    case UPDATE_CHARITY_PRODUCTS:
+        return {
+            ...state,
+            charityProducts:[...action.charityProducts]
+        }
     case ADD_MULTIPLE_TO_CART:
       return {
         ...state,
@@ -81,10 +94,10 @@ export const reducer = (state, action) => {
         categories: [...action.categories],
       };
 
-    case UPDATE_CURRENT_CATEGORY:
+    case UPDATE_CURRENT_CHARITY:
       return {
         ...state,
-        currentCategory: action.currentCategory,
+        currentCharity: action.currentCharity,
       };
     case TOTAL:
       return {

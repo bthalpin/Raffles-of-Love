@@ -95,6 +95,8 @@ const StoreProvider = ({ value = [], ...props }) => {
     cart: [],
     cartOpen: false,
     total:0,
+    currentCharity:{},
+    charityProducts:[],
   });
   
   return <Provider value={[state, dispatch]} {...props} />;
