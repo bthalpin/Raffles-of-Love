@@ -34,6 +34,7 @@ const typeDefs = gql`
         location: String!
         tickets: [Ticket]
         favCharities: [Charity]
+        order: [Order]
 
     }
 

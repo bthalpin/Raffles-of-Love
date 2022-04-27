@@ -1,6 +1,7 @@
 .charityPage{
     margin-bottom:8rem;
 }
+
 .charityLink{
     text-decoration: none;
     color:black;
@@ -22,4 +23,12 @@
 .charityImage{
     width:20rem;
     margin:auto;
+}
+
+.display-1 {
+    color: var(--royal);
+}
+
+p {
+    color: var(--royal);
 }

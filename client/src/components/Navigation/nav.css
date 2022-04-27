@@ -1,21 +1,34 @@
 
 .brandName{
     font-size: 3rem !important;
+
 }
+
+.navbar-dark .navbar-brand {
+    color: var(--alice);
+}
+
+.navbar-dark .navbar-brand:hover {
+    color: var(--alice);
+    text-shadow: 0 0 2rem var(--alice);
+    transform: scale(1.03);
+}
+
 .navLink{
     padding:1.5rem 2rem;
     text-decoration: none;
     /* font-size:1.5rem; */
-    color:white;
+    color: var(--alice);
 }
 .navLink:hover{
-    color:rgb(241, 241, 241);
-    text-shadow: 0 0 1rem white;
+    color: var(--alice);
+    text-shadow: 0 0 1rem var(--alice);
     transform: scale(1.03);
 }
 
 .navigation{
-
+    background-color: var(--royal);
+    border-bottom: 4px solid var(--orange);
 }
 .navCheckout{
     position: relative;
@@ -29,6 +42,8 @@
     border-radius: 50%;
     padding:0 0.4rem;
 }
+
+
 /* .navRight{
     width:100px;
 } */
