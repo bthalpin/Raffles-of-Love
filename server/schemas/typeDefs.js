@@ -75,15 +75,8 @@ const typeDefs = gql`
 
 module.exports = typeDefs;
 
-// type Mutation {
-//     
-//     
-//     
+// type Mutation {    
 //     addTicket(_id: ID!, product_id: ID!): Ticket
-//
-// }
 
 //query
-//         
-//     
 //         checkout(products: [ID]!): Checkout
