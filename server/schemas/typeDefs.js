@@ -55,6 +55,7 @@ const typeDefs = gql`
         product(_id: ID!): Product
         tickets: [Ticket]
         ticket(_id: ID!): Ticket
+        checkout(products: [ID]!): Checkout
     }
 
     type Mutation {
@@ -79,7 +80,7 @@ module.exports = typeDefs;
 //     
 //     
 //     
-//     addTicket(_id: ID!, product_id: ID!): Ticket
+//     addTicket(_id: ID!, user_id: ID!, product_id: ID!): Ticket
 //
 // }
 
@@ -87,3 +88,5 @@ module.exports = typeDefs;
 //         
 //     
 //         checkout(products: [ID]!): Checkout
+
+// look up mongoose function to populate ticket into two locations
