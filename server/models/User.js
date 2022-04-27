@@ -13,13 +13,13 @@ const userSchema = new Schema({
     email: {
         type: String,
         required: true,
-        unique: true
+        unique: true,
+        match: [/.+@.+\..+/, 'Must match an email address!'] // Match existing e-mail.
     },
     password: {
         type: String,
         required: true,
         minlength: 5,
-        match: [/.+@.+\..+/, 'Must match an email address!'] // Match existing e-mail.
     },
     // charityAdmin: [
     //     linked to charity ID
@@ -29,9 +29,8 @@ const userSchema = new Schema({
     //     charity: [Charity.schema]},
     // ],
     location: {
-        address: { type: String, required: true },
-        city: { type: String, required: true },
-        state: { type: String, required: true }
+        type: String,
+        required: true
     },
     tickets: [
         {
