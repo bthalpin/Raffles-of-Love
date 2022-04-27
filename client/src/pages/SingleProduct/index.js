@@ -7,6 +7,7 @@ import { useQuery } from '@apollo/client';
 import {useParams} from 'react-router-dom';
 import { useStoreContext } from "../../utils/GlobalState";
 import { ADD_TO_CART,UPDATE_CART_QUANTITY } from "../../utils/actions";
+import { ADD_TICKET } from '../../utils/mutations';
 import Auth from '../../utils/auth';
 
 import './singleProduct.css';
