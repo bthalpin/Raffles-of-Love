@@ -91,9 +91,10 @@ const resolvers = {
       return { token, user };                                                     // Return an `Auth` object that consists of the signed token and user's information.
     },
 
-    updateUser: async (parent, args, context) => {                                // Add a third argument to the resolver to access data in our `context`.
+    updateUser: async (parent, {userName,email,location}, context) => {  
+      console.log(context.user)                              // Add a third argument to the resolver to access data in our `context`.
       if (context.user) {                                                         // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in.
-        return await User.findByIdAndUpdate(context.user._id, args,               // Find and update the matching User using args.
+        return await User.findByIdAndUpdate(context.user._id, {userName,email,location,password:context.user.password},               // Find and update the matching User using args.
           { new: true });                                                       // Return the newly updated object instead of the original.
       }
 

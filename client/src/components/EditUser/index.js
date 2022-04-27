@@ -1,21 +1,31 @@
 import React,{useState} from 'react';
 import {Form,Button,Card} from 'react-bootstrap';
 import { useStoreContext } from "../../utils/GlobalState";
+import {UPDATE_USER_INFO} from '../../utils/actions';
 
-function EditUser ({update,setEditUser}) {
+function EditUser ({update,setEditUser,updateUser}) {
     const [state, dispatch] = useStoreContext();
-    const [name,setName] = useState(state.user.name)
+    const [name,setName] = useState(state.user.userName)
     const [email,setEmail] = useState(state.user.email)
-    // const [password,setPassword] = useState(state.user.password)
-    const [street,setStreet] = useState(state.user.street)
-    const [city,setCity] = useState(state.user.city)
-    const [states,setState] = useState(state.user.states)
-    const [zip,setZip] = useState(state.user.zip)
+    const [password,setPassword] = useState('')
+    const splitLocation = state.user.location.split('|')
+    const [street,setStreet] = useState(splitLocation[0])
+    const [city,setCity] = useState(splitLocation[1])
+    const [states,setState] = useState(splitLocation[2])
+    const [zip,setZip] = useState(splitLocation[3])
 
     const handleSubmit=(e)=>{
         e.preventDefault()
         console.log(name,email,street,city,state,zip)
+        updateUser({variables:{userName:name,email,password,location:`${street}|${city}|${states}|${zip}`}})
         setEmail('')
+        
+        dispatch({
+        type:UPDATE_USER_INFO,
+        user:{userName:name,email,location:`${street}|${city}|${states}|${zip}`}
+        })
+           
+        setEditUser(false)
         // setPassword('')
     }
 
@@ -67,7 +77,7 @@ function EditUser ({update,setEditUser}) {
                 </Form.Group>
             </div>
             
-            <Button onClick={()=>setEditUser(false)}className="mt-4" variant="primary" type="submit">
+            <Button className="mt-4" variant="primary" type="submit">
                 Save
             </Button>
             
