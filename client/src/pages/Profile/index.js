@@ -13,6 +13,9 @@ import { UPDATE_USER_INFO } from '../../utils/actions';
 function Profile () {
     const [state, dispatch] = useStoreContext();
     const [editUser,setEditUser] = useState(false);
+    const [confirmDelete,setConfirmDelete] = useState(false)
+    const handleDeleteClose = () => setConfirmDelete(false)
+    const handleDeleteShow = () => setConfirmDelete(true)
     const [showEdit, setShowEdit] = useState(false);
     const [editKey, setEditKey] = useState('charity');
     const handleEditClose = () => setShowEdit(false);
@@ -34,8 +37,8 @@ function Profile () {
       }
     },[data])
 
-    const deleteUser = () => {
-      removeUser()
+    const deleteUser = async () => {
+      await removeUser()
       Auth.logout()
 
     }
@@ -62,7 +65,7 @@ function Profile () {
     const [street,city,states,zip] = state.user.location.split('|')
     return (
             <div className="profilePage">
-              <Button onClick={deleteUser}>DELETE USER</Button>
+              <Button onClick={handleDeleteShow}>DELETE USER</Button>
                 <Container className="my-4 profileInfoContainer" >
                     {editUser?
                     <EditUser setEditUser={setEditUser} updateUser={updateUser}/>
@@ -141,6 +144,21 @@ function Profile () {
                   
                   </Tabs>
                 {/* </Tab.Container> */}
+                </Modal.Body>
+                  {/* <Modal.Title>Login</Modal.Title>
+                <Login handleModalClose={()=>setShow(false)} /> */}
+              </Modal>
+
+
+
+                <Modal show={confirmDelete} onHide={handleDeleteClose} size="sm">
+                <Modal.Header closeButton >
+                  Confirm Delete
+                </Modal.Header>
+                <Modal.Body>
+      
+                <div>Are you sure you want to delete?</div>
+                <Button className="btn-danger" onClick={deleteUser}>Confirm</Button><Button onClick={handleDeleteClose} className="btn-secondary">Cancel</Button>
                 </Modal.Body>
                   {/* <Modal.Title>Login</Modal.Title>
                 <Login handleModalClose={()=>setShow(false)} /> */}
