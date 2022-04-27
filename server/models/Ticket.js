@@ -11,12 +11,7 @@ const ticketSchema = new Schema({
         type: Number,
         required: true,
     },
-    product: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'Product'
-        }
-    ]
+
 });
 
 const Ticket = mongoose.model('Ticket', ticketSchema);
