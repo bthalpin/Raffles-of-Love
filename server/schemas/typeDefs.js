@@ -5,7 +5,7 @@ const typeDefs = gql`
         _id: ID
         purchaseDate: String
         ticketNumber: Int!
-        productId:Product
+        product:Product
     }
 
     type Charity {
