@@ -23,46 +23,27 @@ function SingleProduct () {
             }}
         )
     console.log(data)
-    
-    // useEffect(()=>{
-
-    // },[data])
 
     const addToCart = (product) => {
-        const itemInCart = state.cart.find(item=>item._id === productId)
-        if (itemInCart){
-            dispatch({
-                type: UPDATE_CART_QUANTITY,
-                _id: productId,
-                quantity: parseInt(itemInCart.quantity) + 1
-              });
-        }
-        dispatch({
-            type: ADD_TO_CART,
-            product: { ...product,quantity:1 }
+        const itemInCart = state.cart.find(item => item._id === productId)
+        if (itemInCart) {
+          dispatch({
+            type: UPDATE_CART_QUANTITY,
+            _id: productId,
+            quantity: parseInt(itemInCart.quantity) + 1
           });
-    }
-    console.log(state,productId)
-    // const addToCart = (product) => {
-    //     const itemInCart = state.cart.find(item => item._id === productId)
-    //     if (itemInCart) {
-    //       dispatch({
-    //         type: UPDATE_CART_QUANTITY,
-    //         _id: productId,
-    //         quantity: parseInt(itemInCart.quantity) + 1
-    //       });
-    //       idbPromise('cart', 'put', {
-    //         ...itemInCart,
-    //         quantity: parseInt(itemInCart.quantity) + 1
-    //       });
-    //     } else {
-    //       dispatch({
-    //         type: ADD_TO_CART,
-    //         product: { ...product, quantity: 1 }
-    //       });
-    //       idbPromise('cart', 'put', { ...product, quantity: 1 });
-    //     }
-    //   }
+          idbPromise('cart', 'put', {
+            ...itemInCart,
+            quantity: parseInt(itemInCart.quantity) + 1
+          });
+        } else {
+          dispatch({
+            type: ADD_TO_CART,
+            product: { ...product, quantity: 1 }
+          });
+          idbPromise('cart', 'put', { ...product, quantity: 1 });
+        }
+      }
     
     return (
         <>
