@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import {ProductCard} from '../../components';
+import React from 'react';
+// import {ProductCard} from '../../components';
 import {Card,Container,Button} from 'react-bootstrap';
 // import { tempProductData } from '../../tempProductData';
 import { SINGLE_PRODUCT } from '../../utils/queries';
@@ -15,7 +15,7 @@ import './singleProduct.css';
 function SingleProduct () {
     const {productId} = useParams()
     const [state, dispatch] = useStoreContext();
-    const tempProductData = state.products;
+    // const tempProductData = state.products;
     const { loading,data}  = useQuery(SINGLE_PRODUCT,
         
             {variables:{
@@ -51,7 +51,7 @@ function SingleProduct () {
             <Container className="singleProductPage d-flex flex-wrap justify-content-around mt-5 mx-auto">
                         <Card className="singleProductCard m-2 p-3 text-center">
                             <Card.Title>{data.product.name}</Card.Title>
-                            <img className="singleProductImage" src={data.product.image}/>
+                            <img className="singleProductImage" src={data.product.image} alt=""/>
                             <Card.Body>{data.product.description}</Card.Body>
                             {Auth.loggedIn()?data.product.winningNumber?
                             'RAFFLEOVER':
