@@ -5,6 +5,10 @@ const typeDefs = gql`
         _id: ID
         purchaseDate: String
         ticketNumber: Int!
+<<<<<<< HEAD
+=======
+        productId:Product
+>>>>>>> b55c0a1469dd15a897e129ecc0d4cbd27a40a18e
     }
 
     type Charity {
@@ -23,6 +27,8 @@ const typeDefs = gql`
         price: Int!
         ticketCount: Int
         charity: Charity
+        tickets:[Ticket]
+        winningNumber:ID
     }
 
     type User {
@@ -46,7 +52,10 @@ const typeDefs = gql`
     type Checkout {
         session: ID
     }
-
+    type Success {
+        session:ID
+    }
+    
     type Auth {
         token: ID
         user: User
@@ -59,10 +68,12 @@ const typeDefs = gql`
         products: [Product]
         productsByCharity(charityId: ID!): [Product]
         product(productId: ID!): Product
+        myProducts(productId:[ID]!):[Product]
         tickets: [Ticket]
         ticket(_id: ID!): Ticket
         checkout(products: [ID]!): Checkout
         order(_id: ID!): Order
+        success(sessionId:ID!):Success
     }
 
     type Mutation {

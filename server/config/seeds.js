@@ -7,7 +7,7 @@ db.once('open', async () => {
     const charities = await Charity.insertMany([
         {
             name: "St Jude Children's Research Hospital",
-            website: "https://www.stjude.org/promotion/hello/charitable-gifts-for-kids.html?sc_dcm=58700007222382216&sc_cid=kwp&sc_cat=nb&ds_rl=1290693&gclid=CjwKCAjwx46TBhBhEiwArA_DjAmeqnouXYwYBxLbKN82OpoM4LFo-0norJlIqlYTWI0zY5vjJFX3ihoCK_AQAvD_BwE&gclsrc=aw.ds",
+            website: "https://www.stjude.org",
             image: "https://www.stjude.org/content/sites/www/en_US/home/promotion/hello/charitable-gifts-for-kids/jcr:content/par-2/cnt_row_copy_copy_co/par-1/cnt_column_109669490/par-1/cnt_image.img.1200.high.jpg/1639513375113.jpg",
             description: "There are great research institutions, great hospitals and great charities — St. Jude Children's Research Hospital is all three. "
         },
@@ -76,15 +76,18 @@ db.once('open', async () => {
             image: "https://upload.wikimedia.org/wikipedia/en/1/1e/Baseball_%28crop%29.jpg",
             price: "25",
             ticketCount: 100,
-            charity: charities[0]._id 
+            charity: charities[0]._id,
+            tickets:[] 
         },
         {
             name: "Basketball",
             description: "Signed Basketball from State Champion High School team.",
             image: 'https://upload.wikimedia.org/wikipedia/commons/7/7a/Basketball.png',
             price: "35",
-            ticketCount: 100,
-            charity: charities[0]._id 
+            ticketCount: 3,
+            charity: charities[0]._id ,
+            tickets:[],
+            winningNumber:'000000000000000000000000' 
         },
         {
             name: 'Car',
@@ -92,7 +95,8 @@ db.once('open', async () => {
             image: 'https://silodrome.com/wp-content/uploads/2020/11/Chevrolet-El-Camino-SS-396.jpg',
             price: "300",
             ticketCount: 100,
-            charity: charities[0]._id 
+            charity: charities[0]._id,
+            tickets:[]  
         },
         {
             name: 'Shoes',
@@ -100,7 +104,8 @@ db.once('open', async () => {
             image: 'https://cdn.cheapism.com/images/PSX_20201025_151656.max-784x410.jpg',
             price: "55",
             ticketCount: 100,
-            charity: charities[1]._id 
+            charity: charities[1]._id,
+            tickets:[]  
         },
         {
             name: 'Cabin get away',
@@ -108,7 +113,8 @@ db.once('open', async () => {
             image: 'https://images.ctfassets.net/gxwgulxyxxy1/6n3HlHC8kwrWcL1A7ilwXF/6716baa9c91dd572058d63c4798341d2/c5602606-3746-44b9-94cb-9a1b5d22deca.lg1.jpg',
             price: "200",
             ticketCount: 100,
-            charity: charities[1]._id 
+            charity: charities[1]._id,
+            tickets:[]  
         },
         {
             name: 'Concert Tickets',
@@ -116,7 +122,8 @@ db.once('open', async () => {
             image: 'https://www.palmharborfootball.com/wp-content/uploads/2017/11/tickets.png',
             price: "100",
             ticketCount: 100,
-            charity: charities[1]._id 
+            charity: charities[1]._id,
+            tickets:[]  
         },
         {
             name: 'Opera Tickets',
@@ -124,7 +131,8 @@ db.once('open', async () => {
             image: 'https://www.palmharborfootball.com/wp-content/uploads/2017/11/tickets.png',
             price: "100",
             ticketCount: 100,
-            charity: charities[2]._id 
+            charity: charities[2]._id,
+            tickets:[]  
         },
         {
             name: 'Gift Basket',
@@ -132,7 +140,8 @@ db.once('open', async () => {
             image: 'https://www.adorablegiftbaskets.com/media/ready-country_thing_20201.jpg',
             price: "35",
             ticketCount: 100,
-            charity: charities[2]._id 
+            charity: charities[2]._id,
+            tickets:[]  
         },
         {
             name: 'Pocket Watch',
@@ -140,7 +149,8 @@ db.once('open', async () => {
             image: 'https://www.keepthetime.com/wp-content/uploads/2018/11/elgin-vintage-pocket-watch-55643212-movement.jpg',
             price: "80",
             ticketCount: 100,
-            charity: charities[2]._id 
+            charity: charities[2]._id,
+            tickets:[]  
         },
         {
             name: 'Boat Tour',
@@ -148,7 +158,8 @@ db.once('open', async () => {
             image: 'https://upload.wikimedia.org/wikipedia/commons/4/4a/Nile_Tour_Boat_R02.jpg',
             price: "200",
             ticketCount: 100,
-            charity: charities[3]._id 
+            charity: charities[3]._id,
+            tickets:[]  
         },
         {
             name: 'Casino Boat',
@@ -156,7 +167,8 @@ db.once('open', async () => {
             image: 'https://media.timeout.com/images/103232470/750/422/image.jpg',
             price: "300",
             ticketCount: 100,
-            charity: charities[3]._id 
+            charity: charities[3]._id,
+            tickets:[]  
         },
         {
             name: 'Light Bar',
@@ -164,7 +176,8 @@ db.once('open', async () => {
             image: 'https://cdn11.bigcommerce.com/s-40fv8/images/stencil/original/uploaded_images/image-1.jpg?t=1524145615',
             price: "50",
             ticketCount: 100,
-            charity: charities[3]._id 
+            charity: charities[3]._id,
+            tickets:[]  
         },
         {
             name: 'Guitar',
@@ -172,7 +185,8 @@ db.once('open', async () => {
             image: 'https://images.squarespace-cdn.com/content/v1/5b7d8ac7697a988b951bdc95/1611728210677-016BGGS79ZRHB96CKQS3/image-9.jpg?format=2500w',
             price: "125",
             ticketCount: 100,
-            charity: charities[4]._id 
+            charity: charities[4]._id,
+            tickets:[]  
         },
         {
             name: 'Guitar Lessons',
@@ -180,7 +194,8 @@ db.once('open', async () => {
             image: 'https://cdn.schoolofrock.com/img/hero-large/guitar-lessons1527266771.jpg',
             price: "80",
             ticketCount: 100,
-            charity: charities[4]._id 
+            charity: charities[4]._id,
+            tickets:[]  
         },
         {
             name: 'Guitar Amp',
@@ -188,7 +203,8 @@ db.once('open', async () => {
             image: 'https://media.sweetwater.com/api/i/q-82__ha-0d44bbbedefe82fc__hmac-822ce55a891c718898be0561a5385780ece38dc0/images/items/750/MG50GFX-large.jpg',
             price: "100",
             ticketCount: 100,
-            charity: charities[4]._id 
+            charity: charities[4]._id,
+            tickets:[]  
         },
         {
             name: 'Cowboy Hat',
@@ -196,7 +212,8 @@ db.once('open', async () => {
             image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_X2t7JrXjpv2WRaNiA65nbAAiMT1NrgWWeJzVOK_N_gcqOA5HbC6Mdre4HXuIjuMo0yc&usqp=CAU',
             price: "65",
             ticketCount: 100,
-            charity: charities[5]._id 
+            charity: charities[5]._id,
+            tickets:[]  
         },
         {
             name: 'Cowboy Boots',
@@ -204,7 +221,8 @@ db.once('open', async () => {
             image: 'https://www.ariat.com/dw/image/v2/AAML_PRD/on/demandware.static/-/Sites-ARIAT/default/dw8983c7ea/images/zoom/10040327_3-4_front.jpg',
             price: "50",
             ticketCount: 100,
-            charity: charities[5]._id 
+            charity: charities[5]._id,
+            tickets:[]  
         },
         {
             name: 'Cowboy Jacket',
@@ -212,7 +230,8 @@ db.once('open', async () => {
             image: 'https://canary.contestimg.wish.com/api/webimage/5f6470948ab312086f7f50f0-large.jpg?cache_buster=dac5e8a0101ce2f662a91d9a6da14c52',
             price: "125",
             ticketCount: 100,
-            charity: charities[5]._id 
+            charity: charities[5]._id,
+            tickets:[]  
         },
         {
             name: "Mountain Art",
@@ -220,7 +239,8 @@ db.once('open', async () => {
             image: 'https://i.etsystatic.com/29345702/c/2500/1500/0/0/il/e73f67/3333681583/il_340x270.3333681583_qv2i.jpg',
             price: "65",
             ticketCount: 100,
-            charity: charities[6]._id 
+            charity: charities[6]._id,
+            tickets:[]  
         },
         {
             name: 'Wall Art',
@@ -228,7 +248,8 @@ db.once('open', async () => {
             image: 'https://m.media-amazon.com/images/I/71c+zy+x-3L._AC_SL1000_.jpg',
             price: "75",
             ticketCount: 100,
-            charity: charities[6]._id 
+            charity: charities[6]._id,
+            tickets:[]  
         },
         {
             name: "Custom Art",
@@ -236,7 +257,8 @@ db.once('open', async () => {
             image: 'https://images.thdstatic.com/productImages/92ef591d-aaae-5c10-b68e-adb93550eb9b/svn/white-litton-lane-art-paintings-87892-64_400.jpg',
             price: "100",
             ticketCount: 100,
-            charity: charities[6]._id 
+            charity: charities[6]._id,
+            tickets:[]  
         },
         {
             name: 'Metal Flowers',
@@ -244,7 +266,8 @@ db.once('open', async () => {
             image: 'https://images.coplusk.net/project_images/189032/image/109460_2F2015-06-21-145136-FEM5I69IB0MGCON.LARGE.jpg',
             price: "20",
             ticketCount: 100,
-            charity: charities[7]._id 
+            charity: charities[7]._id,
+            tickets:[]  
         },
         {
             name: 'Decorative Yard Art',
@@ -252,7 +275,8 @@ db.once('open', async () => {
             image: 'https://www.plowhearth.com/medias/sys_master/images/images/he3/hf6/10819510468638/54779-PHSP19-AF9820.jpg',
             price: "15",
             ticketCount: 100,
-            charity: charities[7]._id 
+            charity: charities[7]._id,
+            tickets:[]  
         },
         {
             name: 'Custom Street Sign Art',
@@ -260,7 +284,8 @@ db.once('open', async () => {
             image: 'https://www.boredpanda.com/blog/wp-content/uploads/2021/10/funny-street-signs-cletabraham-fb-png__700.jpg',
             price: "65",
             ticketCount: 100,
-            charity: charities[7]._id 
+            charity: charities[7]._id,
+            tickets:[]  
         },
         {
             name: 'Monster Truck Tickets',
@@ -268,7 +293,8 @@ db.once('open', async () => {
             image: 'https://upload.wikimedia.org/wikipedia/commons/e/ea/Superman_monster_truck.jpg',
             price: "50",
             ticketCount: 100,
-            charity: charities[8]._id 
+            charity: charities[8]._id,
+            tickets:[]  
         },
         {
             name: 'Demolition Derby',
@@ -276,7 +302,8 @@ db.once('open', async () => {
             image: "https://www.gannett-cdn.com/-mm-/aba259da292344ac9a6afadbf035ab231d4f95c3/c=0-147-3643-2205/local/-/media/2018/07/21/OHGroup/Mansfield/636678028376425633-0721-DEMODERBY-001.JPG",
             price: "25",
             ticketCount: 100,
-            charity: charities[8]._id 
+            charity: charities[8]._id,
+            tickets:[]  
         },
         {
             name: 'MotoCross',
@@ -284,7 +311,8 @@ db.once('open', async () => {
             image: 'https://img.redbull.com/images/c_crop,w_4433,h_2217,x_0,y_81,f_auto,q_auto/c_scale,w_1200/redbullcom/2019/04/12/a77d096b-7b1b-447e-acb0-9f6db95f2ddd/ben-watson-motocross',
             price: "100",
             ticketCount: 100,
-            charity: charities[8]._id 
+            charity: charities[8]._id,
+            tickets:[]  
         },
         {
             name: 'Horn Tankard',
@@ -292,7 +320,8 @@ db.once('open', async () => {
             image: 'https://i.pinimg.com/originals/e7/a0/66/e7a0661831d5787031b6214e63496ce0.jpg',
             price: "25",
             ticketCount: 100,
-            charity: charities[9]._id 
+            charity: charities[9]._id,
+            tickets:[]  
         },
         {
             name: 'Viking Jewelry',
@@ -300,7 +329,8 @@ db.once('open', async () => {
             image: 'https://cdn.shopify.com/s/files/1/0078/0530/4890/files/viking-pendants-1_480x480.jpg?v=1548870401',
             price: "40",
             ticketCount: 100,
-            charity: charities[9]._id 
+            charity: charities[9]._id,
+            tickets:[]  
         },
         {
             name: 'Mardi Gras Trip',
@@ -308,7 +338,8 @@ db.once('open', async () => {
             image: 'https://www.history.com/.image/ar_4:3%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTU3ODc5MDgwMjU4MDUzNDQ5/mardi-gras-mask-and-beads.jpg',
             price: "500",
             ticketCount: 100,
-            charity: charities[9]._id 
+            charity: charities[9]._id,
+            tickets:[]  
         },
     ]);
 

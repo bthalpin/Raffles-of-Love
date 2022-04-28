@@ -8,6 +8,14 @@ query user {
       email
       password
       location
+      tickets{
+        _id
+        ticketNumber
+        productId{
+          _id
+      
+          }
+        }
     }
   }
 `;
@@ -45,6 +53,10 @@ query Products {
       image
       price
       ticketCount
+      tickets {
+        _id
+      }
+      winningNumber
       charity {
         name
       }
@@ -61,6 +73,10 @@ query singleProduct($productId: ID!) {
       image
       ticketCount
       price
+      tickets {
+        _id
+      }
+      winningNumber
       charity {
         _id
         name
@@ -81,6 +97,10 @@ query ProductsCharityId($charityId: ID!) {
       image
       price
       ticketCount
+      tickets {
+        _id
+      }
+      winningNumber
       charity {
         _id
         name
@@ -124,6 +144,24 @@ export const QUERY_CHECKOUT = gql`
   query getCheckout($products: [ID]!) {
     checkout(products: $products) {
       session
+    }
+  }
+`;
+export const QUERY_SUCCESS = gql`
+  query getCheckout($sessionId: ID!) {
+    success(sessionId: $sessionId) {
+      session
+    }
+  }
+`;
+export const MY_PRODUCTS = gql`
+  query myProducts($productId: [ID]!) {
+    myProducts(productId: $productId) {
+      
+        name
+        _id
+        description
+      
     }
   }
 `;

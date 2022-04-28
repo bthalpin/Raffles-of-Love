@@ -1,3 +1,11 @@
 .rafflePage{
     margin-bottom:8rem;
 }
+
+.charityCard {
+    background-color: var(--mint) !important;
+}
+
+h2 {
+    color: var(--royal);
+}

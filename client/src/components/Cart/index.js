@@ -18,6 +18,7 @@ function Checkout () {
         if (data) {
           stripePromise.then((res) => {
             res.redirectToCheckout({ sessionId: data.checkout.session });
+            console.log(res)
           });
         }
       }, [data]);
@@ -50,7 +51,7 @@ function Checkout () {
         productIds.push(item._id);
       }
     });
-
+    console.log(state.cart)
     getCheckout({
       variables: { products: productIds },
     });

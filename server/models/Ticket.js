@@ -11,6 +11,10 @@ const ticketSchema = new Schema({
         type: Number,
         required: true,
     },
+    productId:{
+        type: Schema.Types.ObjectId,
+        ref: 'Product'
+    }    
 
 });
 

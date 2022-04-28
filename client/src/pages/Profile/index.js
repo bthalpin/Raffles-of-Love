@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {ProductCard,EditCharity,EditProduct,EditUser} from '../../components';
+import {ProductCard,EditCharity,EditProduct,EditUser,RaffleTicket} from '../../components';
 import {USER} from '../../utils/queries';
 import Auth from '../../utils/auth';
 // import { tempProductData } from '../../tempProductData';
@@ -25,6 +25,7 @@ function Profile () {
     };
 
     const {loading,data} = useQuery(USER)
+    const productInfo = useQuery
     const [updateUser, results] = useMutation(UPDATE_USER)
     const [removeUser, result] = useMutation(REMOVE_USER)
 
@@ -102,7 +103,7 @@ function Profile () {
                     
                 </Container>
                 <h2 className="text-center">My raffles</h2>
-                <ProductCard productData={tempProductData}/>
+                <RaffleTicket tickets={state.user.tickets}/>
                 {tempUserData.charityId===tempCharityData._id?
                 <>
                 <Button className="charityButton" onClick={()=>handleEditShow()}>Edit Charity Info</Button>
