@@ -7,7 +7,7 @@
 .productCard{
     width:20rem;
     height:20rem;
-    box-shadow:0.5rem 0.5rem 1rem rgb(178, 178, 178);
+    box-shadow:0.5rem 0.5rem 1rem #bbc4cf;
     transition:all 0.2s ease-in-out;
     cursor: pointer;
     background-color: var(--mint) !important;
