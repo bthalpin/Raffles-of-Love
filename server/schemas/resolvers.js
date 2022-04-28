@@ -163,8 +163,8 @@ const resolvers = {
       return Product.findOneAndDelete({ _id: productId });
     },
 
-    addCharity: async (parent, { name, website, image, description }) => {
-      const charity = await Charity.create({ name, website, image, description });
+    addCharity: async (parent, { name, website, image, logo, description, mission }) => {
+      const charity = await Charity.create({ name, website, image, logo, description, mission });
       return charity;
     },
 
@@ -173,7 +173,9 @@ const resolvers = {
         name: args.name,
         website: args.website,
         image: args.image,
-        description: args.description
+        logo: args.logo,
+        description: args.description,
+        mission: args.mission
       },
         { new: true }
       );

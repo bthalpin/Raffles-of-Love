@@ -64,9 +64,8 @@ function Charity () {
                                 <Card.Title className="title">{charity.name}</Card.Title>
                                 
                                 <Card.Body>
-                                    <img className="charityImage" src={charity.image} alt="Charity picture"></img>
+                                    <img className="charityImage" src={charity.logo} alt="Charity picture"></img>
                                     <p>{charity.description}</p>
-                                    <p>{charity.website}</p>
                                 </Card.Body>
                             </Card>
                         </Link>

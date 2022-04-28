@@ -9,60 +9,80 @@ db.once('open', async () => {
             name: "St Jude Children's Research Hospital",
             website: "https://www.stjude.org",
             image: "https://www.stjude.org/content/sites/www/en_US/home/promotion/hello/charitable-gifts-for-kids/jcr:content/par-2/cnt_row_copy_copy_co/par-1/cnt_column_109669490/par-1/cnt_image.img.1200.high.jpg/1639513375113.jpg",
-            description: "There are great research institutions, great hospitals and great charities — St. Jude Children's Research Hospital is all three. "
+            logo: "https://1000logos.net/wp-content/uploads/2017/08/St.-Jude-Logo.png",
+            mission: "The mission of St. Jude Children’s Research Hospital is to advance cures, and means of prevention, for pediatric catastrophic diseases through research and treatment. Consistent with the vision of our founder Danny Thomas, no child is denied treatment based on race, religion or a family's ability to pay.",
+            description: "There are great research institutions, great hospitals and great charities — St. Jude Children's Research Hospital is all three."
         },
         {
             name: "Red Cross",
             website: "https://www.redcross.org/",
             image: "https://www.redcross.org/content/dam/redcross/local/holiday-hero/Sound-the-Alarm-Volunteers-2019-960x540.jpg.transform/1288/q82/feature/image.jpeg",
+            logo: "https://logos-world.net/wp-content/uploads/2022/01/American-Red-Cross-Logo.png",
+            mission: "Red Cross volunteers and staff work to deliver vital services – from providing relief and support to those in crisis, to helping you be prepared to respond in emergencies.",
             description: 'Your financial gift helps people affected by disasters big and small.'
         },
         {
             name: 'Doctors without Borders',
             website: "https://www.doctorswithoutborders.org/",
             image: "https://www.doctorswithoutborders.org/sites/default/files/styles/media_besides_text_666_520/public/image_base_media/2018/10/MSF245141.jpg?itok=hKLZxzjN",
+            logo: "https://tukuz.com/wp-content/uploads/2019/09/medecins-sans-frontieres-doctors-without-borders-logo-vector.png",
+            mission: "Doctors Without Borders brings medical humanitarian assistance to victims of conflict, natural disasters, epidemics and healthcare exclusion.",
             description: "We are independent, impartial, and neutral. We are guided by universal medical ethics. We are committed to bearing witness. We are transparent and accountable. We are committed to diversity, equity and inclusion."
         },
         {
             name: 'Save the Children',
             website: 'https://www.savethechildren.org/',
             image: 'https://www.savethechildren.org/content/dam/usa/images/global-programs/emergency/ukraine-conflict-children-in-crisis-ch1494283-sq.jpg/_jcr_content/renditions/cq5dam.thumbnail.768.768.jpg',
+            logo: "https://1000logos.net/wp-content/uploads/2020/09/Save-The-Children-logo.png",
+            mission: "Through the decades, Save the Children has continued to work to save children’s lives, and that’s still what we do today.",
             description: "We work in the hardest-to-reach places, where it’s toughest to be a child."
         },
         {
             name: 'World Vision',
             website: 'https://www.worldvision.org/',
             image: 'https://www.worldvision.org/wp-content/uploads/2022/03/W322-0032-025-640x380.jpg',
+            logo: "https://upload.wikimedia.org/wikipedia/commons/0/03/World_Vision_logo.svg",
+            mission: "We partner with children, families, and their communities to reach their full potential by tackling the causes of poverty and injustice.",
             description: 'Our presence in nearly 100 countries enables us to quickly provide immediate support in all types of disasters and humanitarian crises—and we are committed to long-term support, staying to help children, families, and communities recover and rebuild.'
         },
         {
             name: 'Care',
             website: 'https://www.care.org/',
             image: 'https://static.dw.com/image/52138936_303.jpg',
+            logo: "https://upload.wikimedia.org/wikipedia/commons/b/b5/Care-Logo_%28cropped%29.png",
+            mission: "Women are a vital part of CARE's community-based efforts to improve basic education, increase access to quality health care and expand economic opportunity for all.",
             description: 'People are facing desperate, life-threatening situations around the world along with the impact of COVID-19. Help us send CARE Packages to meet their needs.'
         },
         {
             name: 'The Marine Mammal Center',
             website: 'https://www.marinemammalcenter.org/',
             image: 'https://www.marinemammalcenter.org/storage/app/uploads/public/6ce/836/80e/thumb__407_318_0_0_crop.jpg',
+            logo: "https://upload.wikimedia.org/wikipedia/en/0/06/The_Marine_Mammal_Center_logo.png",
+            mission: "The Marine Mammal Center advances global ocean conservation through rescue and rehabilitation, scientific research, and education.",
             description: 'The Marine Mammal Center advances global ocean conservation through rescue and rehabilitation, scientific research, and education.'
         },
         {
             name: 'Cancer Research Institute',
             website: 'https://www.cancerresearch.org/',
             image: 'https://www.cancerresearch.org/CRI/Files/eb/ebd202b2-e665-47a2-ad59-57441dd7f9ac.jpg',
+            logo: "https://tukuz.com/wp-content/uploads/2020/10/cancer-research-institute-cri-logo-vector.png",
+            mission: "Since 1953, we've led the field with support for immunotherapy research and clinical trials. Together with our donor, patient, and scientist communities, we continue to fund revolutionary breakthroughs to cure all types of cancer.",
             description: 'Together with our donor, patient, and scientist communities, we continue to fund revolutionary breakthroughs to cure all types of cancer.'
         },
         {
-            name: 'The Conservation Fund',
-            website: 'https://www.conservationfund.org/',
+            name: 'World Wide Fund for Nature',
+            website: 'https://www.worldwildlife.org/',
             image: 'https://www.conservationfund.org/images/Blog_Images/4_18_22_Pleasant_River_Headwaters_Forest_Katahdin_ME_Working_Forest_FundJerry_Monkman_065.jpg',
-            description: 'We make conservation work for America by creating solutions that make environmental and economic sense.'
+            logo: "https://logos-world.net/wp-content/uploads/2020/11/World-Wide-Fund-for-Nature-Logo.png",
+            mission: "As the world’s leading conservation organization, WWF works in nearly 100 countries to tackle the most pressing issues at the intersection of nature, people, and climate.",
+            description: 'The World Wide Fund for Nature is an international non-governmental organization founded in 1961 that works in the field of wilderness preservation and the reduction of human impact on the environment. It was formerly named the World Wildlife Fund, which remains its official name in Canada and the United States.'
         },
         {
             name: 'National Alliance to End Homelessness',
             website: 'https://endhomelessness.org/',
             image: 'https://housing.az.gov/sites/default/files/Homeless%20Article%20Cover%20cropped.png',
+            logo: "https://endhomelessness.org/wp-content/uploads/2020/01/NAEH-Center-for-Learning-FINAL-LOGO.png",
+            mission: "The National Alliance to End Homelessness is a nonpartisan organization committed to preventing and ending homelessness in the United States.",
             description: 'The National Alliance to End Homelessness is a nonpartisan organization committed to preventing and ending homelessness in the United States.',
         },
     ]);

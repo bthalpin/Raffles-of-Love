@@ -30,7 +30,9 @@ query Charities {
       name
       website
       image
+      logo
       description
+      mission
     }
   }
 `;
@@ -42,7 +44,9 @@ query singleCharity($charityId: ID!) {
       name
       website
       image
+      logo
       description
+      mission
     }
   }
 `;

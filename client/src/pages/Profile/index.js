@@ -67,7 +67,7 @@ function Profile () {
     console.log(state, "THIS IS MINE")
     return (
             <div className="profilePage">
-              <Button onClick={handleDeleteShow}>DELETE USER</Button>
+              <Button className='btn-danger' onClick={handleDeleteShow}>DELETE USER</Button>
                 <Container className="my-4 profileInfoContainer" >
                     {editUser?
                     <EditUser setEditUser={setEditUser} updateUser={updateUser}/>

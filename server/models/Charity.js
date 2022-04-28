@@ -13,7 +13,13 @@ const charitySchema = new Schema ({
     image: {
         type: String
     },
+    logo: {
+        type: String
+    },
     description: {
+        type: String
+    },
+    mission: {
         type: String
     }
 });
