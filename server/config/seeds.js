@@ -77,7 +77,8 @@ db.once('open', async () => {
             price: "25",
             ticketCount: 100,
             charity: charities[0]._id,
-            tickets:[] 
+            tickets:[],
+            winningNumber:'000000000000000000000000'  
         },
         {
             name: "Basketball",
@@ -96,7 +97,8 @@ db.once('open', async () => {
             price: "300",
             ticketCount: 100,
             charity: charities[0]._id,
-            tickets:[]  
+            tickets:[],
+            winningNumber:'000000000000000000000000'   
         },
         {
             name: 'Shoes',
@@ -105,7 +107,8 @@ db.once('open', async () => {
             price: "55",
             ticketCount: 100,
             charity: charities[1]._id,
-            tickets:[]  
+            tickets:[],
+            winningNumber:'000000000000000000000000'   
         },
         {
             name: 'Cabin get away',
@@ -114,7 +117,8 @@ db.once('open', async () => {
             price: "200",
             ticketCount: 100,
             charity: charities[1]._id,
-            tickets:[]  
+            tickets:[],
+            winningNumber:'000000000000000000000000'   
         },
         {
             name: 'Concert Tickets',
@@ -123,7 +127,8 @@ db.once('open', async () => {
             price: "100",
             ticketCount: 100,
             charity: charities[1]._id,
-            tickets:[]  
+            tickets:[],
+            winningNumber:'000000000000000000000000'   
         },
         {
             name: 'Opera Tickets',
@@ -132,7 +137,8 @@ db.once('open', async () => {
             price: "100",
             ticketCount: 100,
             charity: charities[2]._id,
-            tickets:[]  
+            tickets:[],
+            winningNumber:'000000000000000000000000'   
         },
         {
             name: 'Gift Basket',
@@ -141,7 +147,8 @@ db.once('open', async () => {
             price: "35",
             ticketCount: 100,
             charity: charities[2]._id,
-            tickets:[]  
+            tickets:[],
+            winningNumber:'000000000000000000000000'   
         },
         {
             name: 'Pocket Watch',
@@ -150,7 +157,8 @@ db.once('open', async () => {
             price: "80",
             ticketCount: 100,
             charity: charities[2]._id,
-            tickets:[]  
+            tickets:[],
+            winningNumber:'000000000000000000000000'   
         },
         {
             name: 'Boat Tour',
@@ -159,7 +167,8 @@ db.once('open', async () => {
             price: "200",
             ticketCount: 100,
             charity: charities[3]._id,
-            tickets:[]  
+            tickets:[],
+            winningNumber:'000000000000000000000000'   
         },
         {
             name: 'Casino Boat',
@@ -168,7 +177,8 @@ db.once('open', async () => {
             price: "300",
             ticketCount: 100,
             charity: charities[3]._id,
-            tickets:[]  
+            tickets:[],
+            winningNumber:'000000000000000000000000'   
         },
         {
             name: 'Light Bar',
@@ -177,7 +187,8 @@ db.once('open', async () => {
             price: "50",
             ticketCount: 100,
             charity: charities[3]._id,
-            tickets:[]  
+            tickets:[],
+            winningNumber:'000000000000000000000000'   
         },
         {
             name: 'Guitar',
@@ -186,7 +197,8 @@ db.once('open', async () => {
             price: "125",
             ticketCount: 100,
             charity: charities[4]._id,
-            tickets:[]  
+            tickets:[],
+            winningNumber:'000000000000000000000000'   
         },
         {
             name: 'Guitar Lessons',
@@ -195,7 +207,8 @@ db.once('open', async () => {
             price: "80",
             ticketCount: 100,
             charity: charities[4]._id,
-            tickets:[]  
+            tickets:[],
+            winningNumber:'000000000000000000000000'   
         },
         {
             name: 'Guitar Amp',
@@ -204,7 +217,8 @@ db.once('open', async () => {
             price: "100",
             ticketCount: 100,
             charity: charities[4]._id,
-            tickets:[]  
+            tickets:[],
+            winningNumber:'000000000000000000000000'   
         },
         {
             name: 'Cowboy Hat',
@@ -213,7 +227,8 @@ db.once('open', async () => {
             price: "65",
             ticketCount: 100,
             charity: charities[5]._id,
-            tickets:[]  
+            tickets:[],
+            winningNumber:'000000000000000000000000'   
         },
         {
             name: 'Cowboy Boots',
@@ -222,7 +237,8 @@ db.once('open', async () => {
             price: "50",
             ticketCount: 100,
             charity: charities[5]._id,
-            tickets:[]  
+            tickets:[],
+            winningNumber:'000000000000000000000000'   
         },
         {
             name: 'Cowboy Jacket',
@@ -231,7 +247,8 @@ db.once('open', async () => {
             price: "125",
             ticketCount: 100,
             charity: charities[5]._id,
-            tickets:[]  
+            tickets:[],
+            winningNumber:'000000000000000000000000'   
         },
         {
             name: "Mountain Art",
@@ -240,7 +257,8 @@ db.once('open', async () => {
             price: "65",
             ticketCount: 100,
             charity: charities[6]._id,
-            tickets:[]  
+            tickets:[],
+            winningNumber:'000000000000000000000000'   
         },
         {
             name: 'Wall Art',
@@ -249,7 +267,8 @@ db.once('open', async () => {
             price: "75",
             ticketCount: 100,
             charity: charities[6]._id,
-            tickets:[]  
+            tickets:[],
+            winningNumber:'000000000000000000000000'   
         },
         {
             name: "Custom Art",
@@ -258,7 +277,8 @@ db.once('open', async () => {
             price: "100",
             ticketCount: 100,
             charity: charities[6]._id,
-            tickets:[]  
+            tickets:[],
+            winningNumber:'000000000000000000000000'   
         },
         {
             name: 'Metal Flowers',
@@ -267,7 +287,8 @@ db.once('open', async () => {
             price: "20",
             ticketCount: 100,
             charity: charities[7]._id,
-            tickets:[]  
+            tickets:[],
+            winningNumber:'000000000000000000000000'   
         },
         {
             name: 'Decorative Yard Art',
@@ -276,7 +297,8 @@ db.once('open', async () => {
             price: "15",
             ticketCount: 100,
             charity: charities[7]._id,
-            tickets:[]  
+            tickets:[],
+            winningNumber:'000000000000000000000000'   
         },
         {
             name: 'Custom Street Sign Art',
@@ -285,7 +307,8 @@ db.once('open', async () => {
             price: "65",
             ticketCount: 100,
             charity: charities[7]._id,
-            tickets:[]  
+            tickets:[],
+            winningNumber:'000000000000000000000000'   
         },
         {
             name: 'Monster Truck Tickets',
@@ -294,7 +317,8 @@ db.once('open', async () => {
             price: "50",
             ticketCount: 100,
             charity: charities[8]._id,
-            tickets:[]  
+            tickets:[],
+            winningNumber:'000000000000000000000000'   
         },
         {
             name: 'Demolition Derby',
@@ -303,7 +327,8 @@ db.once('open', async () => {
             price: "25",
             ticketCount: 100,
             charity: charities[8]._id,
-            tickets:[]  
+            tickets:[],
+            winningNumber:'000000000000000000000000'   
         },
         {
             name: 'MotoCross',
@@ -312,7 +337,8 @@ db.once('open', async () => {
             price: "100",
             ticketCount: 100,
             charity: charities[8]._id,
-            tickets:[]  
+            tickets:[],
+            winningNumber:'000000000000000000000000'   
         },
         {
             name: 'Horn Tankard',
@@ -321,7 +347,8 @@ db.once('open', async () => {
             price: "25",
             ticketCount: 100,
             charity: charities[9]._id,
-            tickets:[]  
+            tickets:[],
+            winningNumber:'000000000000000000000000'   
         },
         {
             name: 'Viking Jewelry',
@@ -330,7 +357,8 @@ db.once('open', async () => {
             price: "40",
             ticketCount: 100,
             charity: charities[9]._id,
-            tickets:[]  
+            tickets:[],
+            winningNumber:'000000000000000000000000'   
         },
         {
             name: 'Mardi Gras Trip',
@@ -339,7 +367,8 @@ db.once('open', async () => {
             price: "500",
             ticketCount: 100,
             charity: charities[9]._id,
-            tickets:[]  
+            tickets:[],
+            winningNumber:'000000000000000000000000'   
         },
     ]);
 

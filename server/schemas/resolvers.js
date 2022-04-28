@@ -55,12 +55,13 @@ const resolvers = {
     },
 
     tickets: async () => {
-      return await Ticket.find().populate('product');                                                // Get and return all documents from the product collection.
+      return await Ticket.find();                                                // Get and return all documents from the product collection.
     },
 
     ticket: async (parent, { _id }) => {                                          // Defining a resolver to retrieve individual tickets.
-      return await Ticket.findById(_id).populate('product');                      // Using the parameter to find the matching ticket in the collection.
+      return await Ticket.findById(_id);                      // Using the parameter to find the matching ticket in the collection.
     },
+    
     order: async (parent, { _id }, context) => {
       if (context.user) {
         const user = await User.findById(context.user._id)
@@ -208,6 +209,7 @@ const resolvers = {
 
         await User.findByIdAndUpdate(context.user._id, { $push: { orders: order } });
         products.map(async(productId)=>{
+          console.log(productId)
           const product = await Product.findById(productId);                     // Using the parameter to find the matching product in the collection.
           const ticket = await Ticket.create({ticketNumber:product.tickets.length + 1, product: productId});
 
