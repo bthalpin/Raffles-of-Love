@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState,useEffect } from 'react';
 import {useParams} from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import {QUERY_SUCCESS} from '../../utils/queries';
@@ -10,6 +10,9 @@ import { useStoreContext } from "../../utils/GlobalState";
 function OrderSuccess () {
     const [addOrder,results] = useMutation(ADD_ORDER)
     const [state, dispatch] = useStoreContext();
+
+    // Prevent double order
+    const [saved,setSaved] = useState(false)
     const {sessionId} = useParams()
     console.log(sessionId)
     const { loading, data } = useQuery(QUERY_SUCCESS,{
@@ -21,6 +24,7 @@ function OrderSuccess () {
           const products = cart.map((item) => item._id);
     
           if (products.length) {
+            console.log('here')
             const { data } = await addOrder({ variables: { products } });
             const productData = data.addOrder.products;
     
@@ -29,9 +33,9 @@ function OrderSuccess () {
             });
           }
     
-          setTimeout(() => {
-            window.location.assign('/');
-          }, 3000);
+          // setTimeout(() => {
+          //   window.location.assign('/');
+          // }, 3000);
         }
     
         saveOrder();

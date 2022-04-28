@@ -201,6 +201,7 @@ const resolvers = {
 
         await User.findByIdAndUpdate(context.user._id, { $push: { orders: order } });
         products.map(async(productId)=>{
+          console.log(productId)
           const product = await Product.findById(productId);                     // Using the parameter to find the matching product in the collection.
           const ticket = await Ticket.create({ticketNumber:product.tickets.length + 1,productId});
           await User.findByIdAndUpdate(context.user._id, { $push: { tickets: ticket } });
