@@ -6,7 +6,7 @@ import {Form,Button} from 'react-bootstrap';
 function Login () {
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
-
+    const [errorMessage,setErrorMessage] = useState('')
     const [login, {error,data}] = useMutation(LOGIN);
 
 
@@ -23,8 +23,10 @@ function Login () {
             const {data} = await login({
                 variables:{email,password}
             })
+            setErrorMessage('')
             Auth.login(data.login.token);
         } catch (error) {
+            setErrorMessage('Unable to Log In')
             console.error(error)
         }
         console.log(email,password)
@@ -50,6 +52,8 @@ function Login () {
                 <Button className="mt-4" variat="primary" type="submit">
                     Submit
                 </Button>
+                
+                <div className="text-danger">{errorMessage}</div>
             </Form>
     )
 }
