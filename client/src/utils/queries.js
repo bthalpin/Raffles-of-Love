@@ -61,6 +61,7 @@ query Products {
       }
       winningNumber
       charity {
+        _id
         name
       }
     }
