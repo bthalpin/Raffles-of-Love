@@ -58,6 +58,9 @@ function Charity () {
                             <Card.Title>{state.currentCharity.name}</Card.Title>
                             <img className="singleCharityImage" src={state.currentCharity.image}/>
                             <Card.Body>{state.currentCharity.description}</Card.Body>
+                            <Card.Body>
+                                <p>For more information, visit: <a href = {state.currentCharity.website}>{state.currentCharity.website}</a></p>
+                                </Card.Body>
                         </Card>
                         
                        
