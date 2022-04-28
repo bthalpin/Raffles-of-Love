@@ -33,9 +33,9 @@ function OrderSuccess () {
             });
           }
     
-          // setTimeout(() => {
-          //   window.location.assign('/');
-          // }, 3000);
+          setTimeout(() => {
+            window.location.assign('/');
+          }, 5000);
         }
     
         saveOrder();

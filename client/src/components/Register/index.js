@@ -6,6 +6,7 @@ import Auth from '../../utils/auth';
 import './register.css';
 
 function Register () {
+    const [errorMessage,setErrorMessage] = useState('')
     const [name,setName] = useState('')
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
@@ -25,8 +26,10 @@ function Register () {
                     userName:name,email,password,location:`${street}|${city}|${state}|${zip}`
                 }
             });
+            setErrorMessage('')
             Auth.login(data.addUser.token)
         } catch (error) {
+                        setErrorMessage('Unable to Register')
             console.error(error)
         }
         console.log(name,email,password,street,city,state,zip)
@@ -91,7 +94,7 @@ function Register () {
             <Button className="mt-4" variant="primary" type="submit">
                 Submit
             </Button>
-            
+                            <div className="text-danger">{errorMessage}</div>
         </Form>
     )
 }
