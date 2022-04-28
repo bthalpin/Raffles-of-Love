@@ -55,12 +55,14 @@ function Charity () {
                 
                         
                         <Card className="singleCharityCard m-2 p-3 text-center">
-                            <Card.Title>{state.currentCharity.name}</Card.Title>
+                            <Card.Title className="title m-2">{state.currentCharity.name}</Card.Title>
                             <img className="singleCharityImage" src={state.currentCharity.image}/>
-                            <Card.Body><p>Mission: </p>{state.currentCharity.mission}</Card.Body>
+                            <Card.Body>
+                                <p>Their Mission: </p>{state.currentCharity.mission}
+                            </Card.Body>
                             <Card.Body>
                                 <p>For more information, visit: <a href = {state.currentCharity.website}>{state.currentCharity.website}</a></p>
-                                </Card.Body>
+                            </Card.Body>
                         </Card>
                         
                        

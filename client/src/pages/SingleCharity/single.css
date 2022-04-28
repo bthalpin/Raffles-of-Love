@@ -1,12 +1,26 @@
-.singleCharityPage{
-    margin-bottom:8rem;
+.singleCharityPage {
+    margin-bottom: 8rem;
 }
-.singleCharityCard{
-    width:40rem;
-    height:30rem;
-    box-shadow:0.5rem 0.5rem 1rem rgb(178, 178, 178);
-  }
-  .singleCharityImage{
-      width:15rem;
-      margin:auto;
-  }
+
+.singleCharityCard {
+    width: 40rem;
+    height: 30rem;
+    box-shadow: 0.5rem 0.5rem 1rem rgb(178, 178, 178);
+}
+
+.singleCharityImage {
+    width: 15rem;
+    margin: auto;
+}
+
+.display-1 {
+    color: var(--royal);
+}
+
+p {
+    color: var(--royal);
+}
+
+.title {
+    color: var(--royal);
+}

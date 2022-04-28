@@ -75,7 +75,7 @@ db.once('open', async () => {
             image: 'https://www.conservationfund.org/images/Blog_Images/4_18_22_Pleasant_River_Headwaters_Forest_Katahdin_ME_Working_Forest_FundJerry_Monkman_065.jpg',
             logo: "https://logos-world.net/wp-content/uploads/2020/11/World-Wide-Fund-for-Nature-Logo.png",
             mission: "As the world’s leading conservation organization, WWF works in nearly 100 countries to tackle the most pressing issues at the intersection of nature, people, and climate.",
-            description: 'The World Wide Fund for Nature is an international non-governmental organization founded in 1961 that works in the field of wilderness preservation and the reduction of human impact on the environment. It was formerly named the World Wildlife Fund, which remains its official name in Canada and the United States.'
+            description: 'The World Wide Fund for Nature is an international non-governmental organization founded in 1961 that works in the field of wilderness preservation and the reduction of human impact on the environment.'
         },
         {
             name: 'National Alliance to End Homelessness',
