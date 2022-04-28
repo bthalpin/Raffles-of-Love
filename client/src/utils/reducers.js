@@ -51,6 +51,8 @@ export const reducer = (state, action) => {
         user:{...action.user}
       }
     case ADD_MULTIPLE_TO_CART:
+      console.log("...state.cart", ...state.cart)
+      console.log("...action.products", ...action.products)
       return {
         ...state,
         cart: [...state.cart, ...action.products],

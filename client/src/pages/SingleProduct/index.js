@@ -9,8 +9,6 @@ import { useStoreContext } from "../../utils/GlobalState";
 import { ADD_TO_CART,UPDATE_CART_QUANTITY } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
 import Auth from '../../utils/auth';
-import { idbPromise } from "../../utils/helpers";
-
 
 import './singleProduct.css';
 
@@ -27,7 +25,6 @@ function SingleProduct () {
     console.log(data)
 
     const addToCart = (product) => {
-<<<<<<< HEAD
         const itemInCart = state.cart.find(item => item._id === productId)
         if (itemInCart) {
           dispatch({
@@ -47,29 +44,6 @@ function SingleProduct () {
           idbPromise('cart', 'put', { ...product, quantity: 1 });
         }
       }
-=======
-        const itemInCart = state.cart.find(item=>item._id === productId)
-        if (itemInCart){
-            dispatch({
-                type: UPDATE_CART_QUANTITY,
-                _id: productId,
-                quantity: parseInt(itemInCart.quantity) + 1
-              });
-              idbPromise('cart', 'put', {
-                ...itemInCart,
-                quantity: parseInt(itemInCart.quantity) + 1
-              });
-        } else {
-            dispatch({
-                type: ADD_TO_CART,
-                product: { ...product,quantity:1 }
-              });
-              idbPromise('cart', 'put', { ...product, quantity: 1 });
-
-        }
-    }
-    console.log(state,productId)
->>>>>>> b55c0a1469dd15a897e129ecc0d4cbd27a40a18e
     
     return (
         <>

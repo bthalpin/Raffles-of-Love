@@ -5,10 +5,7 @@ const typeDefs = gql`
         _id: ID
         purchaseDate: String
         ticketNumber: Int!
-<<<<<<< HEAD
-=======
         productId:Product
->>>>>>> b55c0a1469dd15a897e129ecc0d4cbd27a40a18e
     }
 
     type Charity {
