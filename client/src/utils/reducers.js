@@ -51,26 +51,23 @@ export const reducer = (state, action) => {
         user:{...action.user}
       }
     case ADD_MULTIPLE_TO_CART:
+      console.log("...state.cart", ...state.cart)
+      console.log("...action.products", ...action.products)
       return {
         ...state,
         cart: [...state.cart, ...action.products],
       };
-    // TODO: Add a comment describing the functionality of the UPDATE_CART_QUANTITY case
-    // Your comment here
     case UPDATE_CART_QUANTITY:
       return {
         ...state,
         cartOpen: true,
         cart: state.cart.map((product) => {
           if (action._id === product._id) {
-            product.purchaseQuantity = action.purchaseQuantity;
+            product.quantity = action.quantity;
           }
           return product;
         }),
       };
-
-    // TODO: Add a comment describing the functionality of the REMOVE_FROM_CART case
-    // Your comment here
     case REMOVE_FROM_CART:
       let newState = state.cart.filter((product) => {
         return product._id !== action._id;
@@ -111,9 +108,6 @@ export const reducer = (state, action) => {
         ...state,
         currentTotal: action.currentTotal,
       };
-
-    // TODO: Add a comment describing what the default case is for
-    // Your comment here
     default:
       return state;
   }

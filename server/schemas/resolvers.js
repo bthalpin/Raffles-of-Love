@@ -48,12 +48,13 @@ const resolvers = {
     },
 
     tickets: async () => {
-      return await Ticket.find().populate('product');                                                // Get and return all documents from the product collection.
+      return await Ticket.find();                                                // Get and return all documents from the product collection.
     },
 
     ticket: async (parent, { _id }) => {                                          // Defining a resolver to retrieve individual tickets.
-      return await Ticket.findById(_id).populate('product');                      // Using the parameter to find the matching ticket in the collection.
+      return await Ticket.findById(_id);                      // Using the parameter to find the matching ticket in the collection.
     },
+    
     order: async (parent, { _id }, context) => {
       if (context.user) {
         const user = await User.findById(context.user._id)
