@@ -10,6 +10,7 @@
     box-shadow:0.5rem 0.5rem 1rem rgb(178, 178, 178);
     transition:all 0.2s ease-in-out;
     cursor: pointer;
+    background-color: var(--mint) !important;
 }
 .productCard:hover{
     transform: scale(1.02);
@@ -18,4 +19,6 @@
 .productImage{
     width:5rem;
     margin:auto;
+    color: var(--royal) !important;
 }
+

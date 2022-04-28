@@ -7,7 +7,7 @@ import './product.css';
 function ProductCard ({productData}) {
     
     return (
-            <Container className="d-flex flex-wrap justify-content-around m-auto">
+            <Container className="containerLarge d-flex flex-wrap justify-content-around m-auto">
                 {productData.map((product,index)=>{
                     console.log(product)
                     return (

@@ -61,7 +61,7 @@ function SingleProduct () {
                             <Card.Body>{data.product.description}</Card.Body>
                             {Auth.loggedIn()?data.product.winningNumber?
                             'RAFFLE OVER':
-                            <Button onClick={()=>addToCart(data.product)}>Buy Ticket</Button>
+                            <Button className="buyBtn" onClick={()=>addToCart(data.product)}>Buy Ticket</Button>
                             :
                             <Button disabled>Must Log In to Buy A Ticket</Button>
                             }
