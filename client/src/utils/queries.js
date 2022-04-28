@@ -17,6 +17,11 @@ query User {
         name
         description
         image
+        winningNumber
+        tickets{
+          _id
+        }
+        ticketCount
       }
     }
   }
