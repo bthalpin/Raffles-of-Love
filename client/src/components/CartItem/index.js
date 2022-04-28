@@ -2,6 +2,7 @@ import React from 'react';
 import { useStoreContext } from "../../utils/GlobalState";
 import { REMOVE_FROM_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
+import './CartItem.css'
 
 const CartItem = ({ item }) => {
 
@@ -24,14 +25,13 @@ const CartItem = ({ item }) => {
         _id: item._id
       });
       idbPromise('cart', 'delete', { ...item });
-
     } else {
       dispatch({
         type: UPDATE_CART_QUANTITY,
         _id: item._id,
-        purchaseQuantity: parseInt(value)
+        quantity: parseInt(value)
       });
-      idbPromise('cart', 'put', { ...item, purchaseQuantity: parseInt(value) });
+      idbPromise('cart', 'put', { ...item, quantity: parseInt(value) });
 
     }
   }
@@ -40,12 +40,20 @@ const CartItem = ({ item }) => {
     <div className="d-flex justify-content-between">
       <div>
         <img
-          src={`/images/${item.image}`}
+          className="productImage"
+          src={item.image}
           alt=""
         />
       </div>
       <div>
         <div>
+        <span>Qty:</span>
+          <input
+            type="number"
+            placeholder={item.quantity}
+            value={item.quantity}
+            onChange={onChange}
+          />
           <button
             role="img"
             aria-label="trash"
