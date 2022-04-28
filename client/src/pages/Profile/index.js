@@ -64,6 +64,7 @@ function Profile () {
 
     // }
     const [street,city,states,zip] = state.user.location.split('|')
+    console.log(state, "THIS IS MINE")
     return (
             <div className="profilePage">
               <Button onClick={handleDeleteShow}>DELETE USER</Button>

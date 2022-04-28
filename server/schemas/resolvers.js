@@ -40,7 +40,14 @@ const resolvers = {
     user: async (parent, args, context) => {                                      // Context will retrieve the logged-in user without specifically searching for them.
       if (context.user) {
         const thisUser = await User.findOne({ _id: context.user._id })
-          .populate('tickets').populate({path:'tickets.productId',populate:'product'})
+          .populate({
+            path: 'tickets', 
+            model: 'Ticket',
+            populate: {
+              path: 'product',
+              model: 'Product'
+            }
+          })
           console.log(thisUser)
           return thisUser
       }
@@ -204,10 +211,14 @@ const resolvers = {
         products.map(async(productId)=>{
           console.log(productId)
           const product = await Product.findById(productId);                     // Using the parameter to find the matching product in the collection.
-          const ticket = await Ticket.create({ticketNumber:product.tickets.length + 1,productId});
+          const ticket = await Ticket.create({ticketNumber:product.tickets.length + 1, product: productId});
+
           await User.findByIdAndUpdate(context.user._id, { $push: { tickets: ticket } });
+
           const newTicket = await Product.findByIdAndUpdate(productId, { $push: { tickets: ticket } },{new:true});
+
           console.log(newTicket,newTicket.tickets.length,newTicket.ticketCount)
+
           if(newTicket.tickets.length >= newTicket.ticketCount){
               const winningTicket = newTicket.tickets[Math.floor(Math.random()*newTicket.tickets.length)]
               const winner = await Product.findByIdAndUpdate(productId, {winningNumber:winningTicket} );

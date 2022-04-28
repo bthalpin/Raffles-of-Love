@@ -11,7 +11,7 @@ const ticketSchema = new Schema({
         type: Number,
         required: true,
     },
-    productId:{
+    product:{
         type: Schema.Types.ObjectId,
         ref: 'Product'
     }    
