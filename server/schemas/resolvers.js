@@ -4,6 +4,7 @@ const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');           
 
 
 const { AuthenticationError } = require('apollo-server-express');                 // Require AuthenticationError to perceive if server fails to authenticate required data.
+const { populate } = require('../models/Order');
 
 // Functions that fulfill the queries defined in `typeDefs.js`.
 const resolvers = {
@@ -28,15 +29,20 @@ const resolvers = {
     product: async (parent, { productId }) => {                                         // Defining a resolver to retrieve individual products.
       return await Product.findById(productId).populate('charity');                     // Using the parameter to find the matching product in the collection.
     },
+    myProducts: async (parent, args, context)=>{
+      if (context.user) {
+        return await Product.findById(args)
+          
+      }
+      throw new AuthenticationError('You need to be logged in!');                 // If user attempts to execute this mutation and isn't logged in, throw an error.
+    },
 
     user: async (parent, args, context) => {                                      // Context will retrieve the logged-in user without specifically searching for them.
       if (context.user) {
-        return User.findOne({ _id: context.user._id })
-          .populate('tickets')
-          .populate({
-            path: 'tickets.product',
-            populate: 'charity'
-          });
+        const thisUser = await User.findOne({ _id: context.user._id })
+          .populate('tickets').populate({path:'tickets.productId',populate:'product'})
+          console.log(thisUser)
+          return thisUser
       }
       throw new AuthenticationError('You need to be logged in!');                 // If user attempts to execute this mutation and isn't logged in, throw an error.
     },
@@ -58,12 +64,12 @@ const resolvers = {
     },
     
     success: async (parent, {sessionId}, context)=>{
-      const session = await stripe.checkout.sessions.retrieve(
-        sessionId, { expand: ['line_items'], }
+      const session = await stripe.checkout.sessions.listLineItems(
+        sessionId 
       );
       // ITEMS PURCHASED
-      console.log(session.line_items.data)
-      return session
+      console.log(session)
+      return session.line_items.data
     },
     checkout: async (parent, args, context) => {
       const url = new URL(context.headers.referer).origin;
@@ -194,6 +200,25 @@ const resolvers = {
         const order = new Order({ products });
 
         await User.findByIdAndUpdate(context.user._id, { $push: { orders: order } });
+        products.map(async(productId)=>{
+          const product = await Product.findById(productId);                     // Using the parameter to find the matching product in the collection.
+          const ticket = await Ticket.create({ticketNumber:product.tickets.length + 1,productId});
+          await User.findByIdAndUpdate(context.user._id, { $push: { tickets: ticket } });
+          const newTicket = await Product.findByIdAndUpdate(productId, { $push: { tickets: ticket } },{new:true});
+          console.log(newTicket,newTicket.tickets.length,newTicket.ticketCount)
+          if(newTicket.tickets.length >= newTicket.ticketCount){
+              const winningTicket = newTicket.tickets[Math.floor(Math.random()*newTicket.tickets.length)]
+              const winner = await Product.findByIdAndUpdate(productId, {winningNumber:winningTicket} );
+              console.log(winningTicket,winner)
+            }
+        })
+        // const ticket = Ticket.create(products.tickets.length + 1);
+        // await User.findByIdAndUpdate(context.user._id, { $push: { tickets: ticket } });
+        // const newTicket = await Product.findByIdAndUpdate(products._id, { $push: { tickets: ticket } });
+        // if(newTicket.tickets.length === newTicket.ticketCount){
+        //   const winningTicket = newTicket.tickets[Math.floor(Math.random()*newTicket.tickets.length)]
+        //   const newTicket = await Product.findByIdAndUpdate(products._id, {winningNumber:winningTicket} );
+        // }
 
         return order;
       }

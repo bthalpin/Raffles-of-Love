@@ -5,7 +5,7 @@ const typeDefs = gql`
         _id: ID
         purchaseDate: String
         ticketNumber: Int!
-        product: [Product]
+        productId:Product
     }
 
     type Charity {
@@ -24,6 +24,8 @@ const typeDefs = gql`
         price: Int!
         ticketCount: Int
         charity: Charity
+        tickets:[Ticket]
+        winningNumber:ID
     }
 
     type User {
@@ -50,6 +52,7 @@ const typeDefs = gql`
     type Success {
         session:ID
     }
+    
     type Auth {
         token: ID
         user: User
@@ -62,6 +65,7 @@ const typeDefs = gql`
         products: [Product]
         productsByCharity(charityId: ID!): [Product]
         product(productId: ID!): Product
+        myProducts(productId:[ID]!):[Product]
         tickets: [Ticket]
         ticket(_id: ID!): Ticket
         checkout(products: [ID]!): Checkout

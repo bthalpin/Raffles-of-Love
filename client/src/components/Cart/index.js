@@ -40,7 +40,7 @@ function Checkout () {
         productIds.push(item._id);
       }
     });
-
+    console.log(state.cart)
     getCheckout({
       variables: { products: productIds },
     });
