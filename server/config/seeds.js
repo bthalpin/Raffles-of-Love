@@ -7,7 +7,7 @@ db.once('open', async () => {
     const charities = await Charity.insertMany([
         {
             name: "St Jude Children's Research Hospital",
-            website: "https://www.stjude.org/promotion/hello/charitable-gifts-for-kids.html?sc_dcm=58700007222382216&sc_cid=kwp&sc_cat=nb&ds_rl=1290693&gclid=CjwKCAjwx46TBhBhEiwArA_DjAmeqnouXYwYBxLbKN82OpoM4LFo-0norJlIqlYTWI0zY5vjJFX3ihoCK_AQAvD_BwE&gclsrc=aw.ds",
+            website: "https://www.stjude.org",
             image: "https://www.stjude.org/content/sites/www/en_US/home/promotion/hello/charitable-gifts-for-kids/jcr:content/par-2/cnt_row_copy_copy_co/par-1/cnt_column_109669490/par-1/cnt_image.img.1200.high.jpg/1639513375113.jpg",
             description: "There are great research institutions, great hospitals and great charities — St. Jude Children's Research Hospital is all three. "
         },

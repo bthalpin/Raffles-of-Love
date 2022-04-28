@@ -5,8 +5,19 @@
     width:40rem;
     /* height:30rem; */
     box-shadow:0.5rem 0.5rem 1rem rgb(178, 178, 178);
+    background-color: var(--mint) !important;
   }
   .singleProductImage{
       width:10rem;
       margin:auto;
+  }
+  
+  .buyBtn {
+      background-color: var(--deepblue) !important;
+      color: var(--mint) !important;
+  }
+
+  .buyBtn:hover {
+      transform: scale(1.02) !important;
+      background-color: #0354a0!important;
   }

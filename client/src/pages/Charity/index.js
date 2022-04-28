@@ -60,7 +60,7 @@ function Charity () {
                     return (
                         <Link className="charityLink" to={`/Charity/${charity._id}`} key={index}>
                             <Card className="charityCard m-2 p-3 text-center">
-                                <Card.Title>{charity.name}</Card.Title>
+                                <Card.Title className="title">{charity.name}</Card.Title>
                                 
                                 <Card.Body>
                                     <img className="charityImage" src={charity.image} alt="Charity picture"></img>
