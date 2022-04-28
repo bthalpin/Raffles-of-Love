@@ -28,12 +28,16 @@ const productSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Charity'
     },
-    // tickets: [
-    //     {
-    //         type: Schema.Types.ObjectId,
-    //         ref: 'Ticket'
-    //     }
-    // ]
+    tickets: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Ticket'
+        }
+    ],
+    winningNumber:{
+        type: Schema.Types.ObjectId,
+        ref: 'Ticket'
+    }
 });
 
 const Product = mongoose.model('Product', productSchema);

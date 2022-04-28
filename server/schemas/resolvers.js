@@ -1,4 +1,4 @@
-const { User, Ticket, Product, Charity } = require('../models');                  // Require models folder.
+const { User, Ticket, Product, Charity, Order } = require('../models');                  // Require models folder.
 const { signToken } = require('../utils/auths');                                  // Require signToken (JWT) from auth.js folder to verify integrity of claims.
 const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');             // Require stripe for payment functions.
 const { AuthenticationError } = require('apollo-server-express');                 // Require AuthenticationError to perceive if server fails to authenticate required data.
@@ -48,7 +48,6 @@ const resolvers = {
     },
     
     order: async (parent, { _id }, context) => {
-      console.log(_id, context.user, "Log")
       if (context.user) {
         const user = await User.findById(context.user._id)
         return user.orders.id(_id);
@@ -87,7 +86,7 @@ const resolvers = {
         payment_method_types: ['card'],
         line_items,
         mode: 'payment',
-        success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
+        success_url: `${url}/orderConfirmation`,
         cancel_url: `${url}/`
       });
 
@@ -169,8 +168,12 @@ const resolvers = {
 
         await User.findByIdAndUpdate(context.user._id, { $push: { tickets: ticket } });
 
-        await Product.findByIdAndUpdate(products._id, { $push: { tickets: ticket } });
-
+        const newTicket = await Product.findByIdAndUpdate(products._id, { $push: { tickets: ticket } });
+        if(newTicket.tickets.length === newTicket.ticketCount){
+          const winningTicket = newTicket.tickets[Math.floor(Math.random()*newTicket.tickets.length)]
+          const newTicket = await Product.findByIdAndUpdate(products._id, {winningNumber:winningTicket} );
+          
+        }
         return ticket;
       }
 
@@ -178,7 +181,7 @@ const resolvers = {
     },
 
     addOrder: async (parent, { products }, context) => {
-      console.log(context);
+      console.log(products, "This is the LOG");
       if (context.user) {
         const order = new Order({ products });
 
