@@ -33,12 +33,13 @@ function Checkout () {
         getCart();
       }
     }, [state.cart.length, dispatch]);
-    
-    const getTotal = () =>{
-    const currentTotal = state.cart.reduce((acc,item)=>{
-      return acc+item.price
-    },0)
-    return currentTotal
+
+  function getTotal() {
+    let sum = 0;
+    state.cart.forEach((item) => {
+      sum += item.price * item.quantity;
+    });
+    return sum.toFixed(2);
   }
   
   function submitCheckout() {
@@ -71,7 +72,7 @@ function Checkout () {
             </div>
             <div className="d-flex justify-content-between" >
                 <p>Total</p>
-                <p>${getTotal()}.00</p>
+                <p>${getTotal()}</p>
             </div>
             <Button onClick={submitCheckout}>Checkout</Button>
             </>
