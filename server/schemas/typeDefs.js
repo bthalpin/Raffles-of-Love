@@ -47,7 +47,9 @@ const typeDefs = gql`
     type Checkout {
         session: ID
     }
-
+    type Success {
+        session:ID
+    }
     type Auth {
         token: ID
         user: User
@@ -64,6 +66,7 @@ const typeDefs = gql`
         ticket(_id: ID!): Ticket
         checkout(products: [ID]!): Checkout
         order(_id: ID!): Order
+        success(sessionId:ID!):Success
     }
 
     type Mutation {
