@@ -1,0 +1,33 @@
+.ticketLink{
+    color:#00104C;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+}
+.ticketLink:hover{
+    transform: scale(1.01);
+}
+.raffleImg{
+    width:10rem;
+    height:6rem;
+    object-fit: contain;
+}
+.won{
+    background-color: #fffff7 !important;
+    box-shadow: 0 0 1rem rgb(255, 194, 114);
+}
+.lost{
+    position: relative;
+}
+.lost *{
+    color:#717171;
+}
+.lost:after{
+    content: '';
+    background-color: black !important;
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    opacity: 0.3;
+}
