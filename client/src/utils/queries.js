@@ -17,6 +17,11 @@ query User {
         name
         description
         image
+        winningNumber
+        tickets{
+          _id
+        }
+        ticketCount
       }
     }
   }
@@ -65,6 +70,7 @@ query Products {
       }
       winningNumber
       charity {
+        _id
         name
       }
     }

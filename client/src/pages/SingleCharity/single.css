@@ -5,11 +5,11 @@
 .singleCharityCard {
     width: 40rem;
     height: 30rem;
-    box-shadow: 0.5rem 0.5rem 1rem rgb(178, 178, 178);
+    box-shadow: 0.5rem 0.5rem 1rem #bbc4cf;
 }
 
 .singleCharityImage {
-    width: 15rem;
+    width: 10rem;
     margin: auto;
 }
 

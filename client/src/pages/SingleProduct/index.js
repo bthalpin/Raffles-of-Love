@@ -10,6 +10,16 @@ import { ADD_TO_CART,UPDATE_CART_QUANTITY } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
 import Auth from '../../utils/auth';
 
+
+// export function ticketsLeft (product) {
+//   var num1 = product.ticketCount
+//   var num2 = product.tickets.length
+//   var sum = num1 - num2
+//   return sum
+// }
+
+
+
 import './singleProduct.css';
 
 function SingleProduct () {
@@ -54,7 +64,7 @@ function SingleProduct () {
                             <Card.Title>{data.product.name}</Card.Title>
                             <img className="singleProductImage" src={data.product.image} alt=""/>
                             <Card.Body>{data.product.description}</Card.Body>
-                            {Auth.loggedIn()?data.product.winningNumber?
+                            {Auth.loggedIn()?data.product.winningNumber!=='000000000000000000000000'?
                             'RAFFLE OVER':
                             <Button className="buyBtn" onClick={()=>addToCart(data.product)}>Buy Ticket</Button>
                             :
