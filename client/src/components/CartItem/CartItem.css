@@ -1,4 +1,4 @@
-.productLink,.productLink:hover{
+/* .productLink,.productLink:hover{
     text-decoration: none;
     color:black;
 
@@ -11,11 +11,12 @@
     transition:all 0.2s ease-in-out;
     cursor: pointer;
     background-color: var(--mint) !important;
+} */
+.cartItem{
+    background-color: var(--alice);
 }
-
-.productImage{
+.cartImage{
     width:5rem;
     margin:auto;
-    color: var(--royal) !important;
-}
+} 
 

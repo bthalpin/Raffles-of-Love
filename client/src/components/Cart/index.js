@@ -63,7 +63,7 @@ function Checkout() {
         {state.cart.map((item, index) => {
           return (
             <Card key={index}>
-              <div className="d-flex justify-content-between">
+              <div className="d-flex justify-content-between mt-1 mx-1 p-2 border">
                 <p>{item.name}</p>
                 <p>${item.price}.00</p>
               </div>
@@ -72,7 +72,7 @@ function Checkout() {
           )
         })}
       </div>
-      <div className="d-flex justify-content-between" >
+      <div className="d-flex justify-content-between mt-2" >
         <p>Total</p>
         <p>${getTotal()}</p>
       </div>

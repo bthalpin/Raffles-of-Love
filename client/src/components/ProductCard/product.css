@@ -22,3 +22,9 @@
     color: var(--royal) !important;
 }
 
+/* @media screen and (max-width:340px) {
+    .productCard,.productLink{
+      min-width:80vw !important;
+      padding:0 !important;
+    }
+  } */
