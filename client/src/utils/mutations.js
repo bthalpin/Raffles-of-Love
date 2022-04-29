@@ -40,8 +40,8 @@ export const REMOVE_USER = gql`
 `;
 
 export const ADD_PRODUCT = gql`
-  mutation addProduct($name: String!, $image: String!, $price: Int!, $charityId: ID!, $description: String, $ticketCount: Int) {
-    addProduct(name: $name, image: $image, price: $price, charity_id: $charityId, description: $description, ticketCount: $ticketCount) {
+  mutation addProduct($name: String!, $image: String!, $price: Int!, $charity: ID!, $description: String, $ticketCount: Int) {
+    addProduct(name: $name, image: $image, price: $price, charity: $charity, description: $description, ticketCount: $ticketCount) {
       _id
       name
       description

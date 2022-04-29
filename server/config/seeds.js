@@ -101,7 +101,7 @@ db.once('open', async () => {
             image: 'https://www.inkling.com/wp-content/uploads/2021/06/SD-default-image.png',
             logo:'https://www.inkling.com/wp-content/uploads/2021/06/SD-default-image.png',
             mission:'Enter Mission Statement',
-            youtube:'Enter Youtube Video',
+            youtube:'https://www.youtube.com/embed/JnYBvLY0GOg',
             description: 'Enter Description',
         },
     ]);
