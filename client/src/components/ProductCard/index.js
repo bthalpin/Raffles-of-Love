@@ -31,7 +31,7 @@ function ProductCard({ productData }) {
                             <Card.Body>
                                 <img className="productImage" src={product.image} alt='logo'></img>
                                 <br></br>
-                                {product.description}</Card.Body>
+                                <div className="proDesc">{product.description}</div></Card.Body>
                             {/* <Button>Buy Ticket</Button> */}
                             {product.ticketCount === product.tickets?.length ? 'Sold' : <>Tickets left: {ticketsLeft(product)}</>}
                         </Card>
