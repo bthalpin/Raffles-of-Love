@@ -13,13 +13,8 @@ function OrderSuccess () {
     const [addOrder,results] = useMutation(ADD_ORDER)
     const [state, dispatch] = useStoreContext();
 
-    // Prevent double order
     const [orderDetails,setOrderDetails] = useState(false)
     const {sessionId} = useParams()
-    console.log(sessionId)
-    const { loading, data } = useQuery(QUERY_SUCCESS,{
-        variables:{sessionId:sessionId}
-    });
     useEffect(() => {
         async function saveOrder() {
           const cart = await idbPromise('cart', 'get');
@@ -56,7 +51,7 @@ function OrderSuccess () {
     console.log(state.cart)
     return (
         <Container>
-            <Card>
+            {/* <Card>
               <Card.Header>
                 <Card.Title>Order Summary</Card.Title>
               </Card.Header>
@@ -64,7 +59,7 @@ function OrderSuccess () {
                 <Card.Text>{`${state.orderSummary[0].name} - ${state.orderSummary[0].description}`}</Card.Text>
                 <Card.Text>{state.orderSummary[0].quantity} ${state.orderSummary[0].price}</Card.Text>
               </Card.Body>
-            </Card>
+            </Card> */}
         </Container>
     )
 }
