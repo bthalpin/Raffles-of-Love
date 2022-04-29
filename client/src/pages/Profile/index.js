@@ -25,7 +25,7 @@ function Profile () {
     };
 
     const {loading,data} = useQuery(USER)
-    const productInfo = useQuery
+    // const productInfo = useQuery
     const [updateUser, results] = useMutation(UPDATE_USER)
     const [removeUser, result] = useMutation(REMOVE_USER)
 
@@ -64,10 +64,14 @@ function Profile () {
 
     // }
     const [street,city,states,zip] = state.user.location.split('|')
+    console.log(state, "THIS IS MINE")
 
     return (
             <div className="profilePage">
-              <Button onClick={handleDeleteShow}>DELETE USER</Button>
+              <h1 className='display-2 text-center'>Hello {state.user.userName}</h1>
+              <div>
+                <Button className='btn-danger' onClick={handleDeleteShow}>DELETE USER</Button>
+              </div>
                 <Container className="my-4 profileInfoContainer" >
                     {editUser?
                     <EditUser setEditUser={setEditUser} updateUser={updateUser}/>
@@ -172,8 +176,10 @@ function Profile () {
               </Modal>
               
             </div>
+            
     )
 }
+
 
 export default Profile;
 

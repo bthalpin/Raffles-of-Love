@@ -160,8 +160,8 @@ const resolvers = {
       return Product.findOneAndDelete({ _id: productId });
     },
 
-    addCharity: async (parent, { name, website, image, description }) => {
-      const charity = await Charity.create({ name, website, image, description });
+    addCharity: async (parent, { name, website, image, logo, description, mission, youtube }) => {
+      const charity = await Charity.create({ name, website, image, logo, description, mission, youtube });
       return charity;
     },
 
@@ -170,7 +170,10 @@ const resolvers = {
         name: args.name,
         website: args.website,
         image: args.image,
-        description: args.description
+        logo: args.logo,
+        description: args.description,
+        mission: args.mission,
+        youtube: args.youtube
       },
         { new: true }
       );
@@ -180,7 +183,6 @@ const resolvers = {
       return Charity.findOneAndDelete({ _id: charityId });
     },
 
-    //TODO: NEED TO RECONFIGURE
     addTicket: async (parent, { products }, context) => {
       if (context.user) {
         const ticket = Ticket.create(products.tickets.length + 1);

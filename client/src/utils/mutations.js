@@ -79,25 +79,31 @@ export const REMOVE_PRODUCT = gql`
 `;
 
 export const ADD_CHARITY = gql`
-  mutation addCharity($name: String!, $website: String, $image: String, $description: String) {
-    addCharity(name: $name, website: $website, image: $image, description: $description) {
+  mutation addCharity($name: String!, $website: String, $image: String, $logo: String, $description: String, $mission: String, $youtube: String) {
+    addCharity(name: $name, website: $website, image: $image, logo: $logo, description: $description, mission: $mission, youtube: $youtube) {
       _id
       name
       website
       image
+      logo
       description
+      mission
+      youtube
     }
   }
 `;
 
 export const UPDATE_CHARITY = gql`
-  mutation UpdateCharity($name: String!, $website: String, $image: String, $description: String, $charityId: ID!) {
-    updateCharity(name: $name, website: $website, image: $image, description: $description, charityId: $charityId) {
+  mutation UpdateCharity($name: String!, $website: String, $image: String, $logo: String, $description: String, $mission: String, $youtube: String, $charityId: ID!) {
+    updateCharity(name: $name, website: $website, image: $image, logo: $logo, description: $description, mission: $mission, youtube: $youtube, charityId: $charityId) {
       _id
       name
       website
       image
+      logo
       description
+      mission
+      youtube
     }
   }
 `;
@@ -109,7 +115,10 @@ export const REMOVE_CHARITY = gql`
       name
       website
       image
+      logo
       description
+      mission
+      youtube
     }
   }
 `;

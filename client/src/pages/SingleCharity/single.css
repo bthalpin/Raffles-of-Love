@@ -6,10 +6,24 @@
     width: 40rem;
     height: 30rem;
     box-shadow: 0.5rem 0.5rem 1rem #bbc4cf;
-    background-color: var(--mint) !important;
 }
 
 .singleCharityImage {
-    width: 10rem;
+    width: 15rem;
     margin: auto;
 }
+
+p {
+    color: var(--royal);
+}
+
+.title {
+    color: var(--royal);
+}
+
+iframe {
+    position: absolute;
+    top: 0; right: 0; 
+    bottom: 0; left: 0;
+    margin: auto;
+ }
