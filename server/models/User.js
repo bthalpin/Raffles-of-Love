@@ -43,10 +43,10 @@ const userSchema = new Schema({
             ref: 'Ticket'
         }    
     ],
-    favCharities: [
+    library: [
         {
             type: Schema.Types.ObjectId,
-            ref: 'Charity'
+            ref: 'Library'
         }
     ],
     orders: [Order.schema]

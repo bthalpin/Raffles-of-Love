@@ -1,4 +1,4 @@
-const { User, Ticket, Product, Charity, Order } = require('../models');                  // Require models folder.
+const { User, Ticket, Product, Charity, Order, Library } = require('../models');                  // Require models folder.
 const { signToken } = require('../utils/auths');                                  // Require signToken (JWT) from auth.js folder to verify integrity of claims.
 const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');             // Require stripe for payment functions.
 
@@ -47,6 +47,7 @@ const resolvers = {
               model: 'Product'
             }
           }).populate('charity')
+          .populate('library')
           return thisUser
       }
       throw new AuthenticationError('You need to be logged in!');                 // If user attempts to execute this mutation and isn't logged in, throw an error.
