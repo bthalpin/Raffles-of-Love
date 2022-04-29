@@ -12,6 +12,9 @@ query User {
       _id
       name
       website
+      logo
+      mission
+      youtube
       image
       description
     }
