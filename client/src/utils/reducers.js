@@ -12,14 +12,19 @@ import {
   TOTAL,
   UPDATE_CHARITIES,
   UPDATE_CHARITY_PRODUCTS,
-  UPDATE_USER_INFO
+  UPDATE_USER_INFO,
+  ORDER_SUMMARY
 } from './actions';
 
 
 export const reducer = (state, action) => {
   switch (action.type) {
    
-   
+    case ORDER_SUMMARY:
+      return {
+        ...state,
+        orderSummary: [...action.orderSummary],
+      };
     case UPDATE_PRODUCTS:
       return {
         ...state,
@@ -50,13 +55,6 @@ export const reducer = (state, action) => {
         ...state,
         user:{...action.user}
       }
-    case ADD_MULTIPLE_TO_CART:
-      console.log("...state.cart", ...state.cart)
-      console.log("...action.products", ...action.products)
-      return {
-        ...state,
-        cart: [...state.cart, ...action.products],
-      };
     case UPDATE_CART_QUANTITY:
       return {
         ...state,
@@ -68,6 +66,12 @@ export const reducer = (state, action) => {
           return product;
         }),
       };
+    case ADD_MULTIPLE_TO_CART:
+      return {
+        ...state,
+        cart: [...state.cart, ...action.products],
+      };
+   
     case REMOVE_FROM_CART:
       let newState = state.cart.filter((product) => {
         return product._id !== action._id;
@@ -108,6 +112,8 @@ export const reducer = (state, action) => {
         ...state,
         currentTotal: action.currentTotal,
       };
+
+   
     default:
       return state;
   }

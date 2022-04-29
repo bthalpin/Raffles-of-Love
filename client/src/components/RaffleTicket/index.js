@@ -56,7 +56,7 @@ function RaffleTicket ({tickets}) {
             <Container className="d-flex flex-wrap justify-content-around m-auto">
                 {tickets?.map((ticket,index)=>{
                     return(
-                        <Link className="ticketLink" to={`/Product/${ticket.product._id}`} key={index}>
+                        <Link className="ticketLink m-2" to={`/Product/${ticket.product._id}`} key={index}>
                             <Card className={checkWinner(ticket)}>
                                 <Card.Header>
                                     <Card.Title>Ticket Number: {ticket.ticketNumber}</Card.Title>

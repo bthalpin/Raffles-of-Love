@@ -87,10 +87,11 @@ const resolvers = {
       const { products } = await order.populate('products');
 
       for (let i = 0; i < products.length; i++) {
+        console.log('IMAGE',`${url}/images/${products[i].image}`)
         const product = await stripe.products.create({
           name: products[i].name,
           description: products[i].description,
-          images: [`${url}/images/${products[i].image}`]
+          images: [`${products[i].image}`]
         });
 
         const price = await stripe.prices.create({
@@ -212,7 +213,8 @@ const resolvers = {
         await User.findByIdAndUpdate(context.user._id, { $push: { orders: order } });
         products.map(async(productId)=>{
           console.log(productId)
-          const product = await Product.findById(productId);                     // Using the parameter to find the matching product in the collection.
+          const product = await Product.findById(productId); 
+          // console.log(product,product.tickets.length,'PRODUCT!!!!!!!!!!!!!!!!!!!!!!!')                    // Using the parameter to find the matching product in the collection.
           const ticket = await Ticket.create({ticketNumber:product.tickets.length + 1, product: productId});
 
           await User.findByIdAndUpdate(context.user._id, { $push: { tickets: ticket } });

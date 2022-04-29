@@ -15,7 +15,6 @@ export function ticketsLeft (product) {
 
 
 function ProductCard ({productData}) {
-
     return (
             <Container className="containerLarge d-flex flex-wrap justify-content-around m-auto">
                 {productData.map((product,index)=>{

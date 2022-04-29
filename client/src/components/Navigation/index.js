@@ -92,7 +92,7 @@ function Navigation() {
 
         <Modal show={showCart} onHide={handleCartClose} size="lg">
           <Modal.Header closeButton >
-            CHARITY Cart
+            <Modal.Title>Wagers of Compassion</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <Cart handleModalClose={()=>setShowCart(false)}/>
