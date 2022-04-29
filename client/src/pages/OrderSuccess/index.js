@@ -6,13 +6,15 @@ import { ADD_ORDER } from '../../utils/mutations';
 import { idbPromise } from '../../utils/helpers';
 import { useMutation } from '@apollo/client';
 import { useStoreContext } from "../../utils/GlobalState";
+import { Card,Container } from 'react-bootstrap';
+import { ORDER_SUMMARY } from '../../utils/actions';
 
 function OrderSuccess () {
     const [addOrder,results] = useMutation(ADD_ORDER)
     const [state, dispatch] = useStoreContext();
 
     // Prevent double order
-    const [saved,setSaved] = useState(false)
+    const [orderDetails,setOrderDetails] = useState(false)
     const {sessionId} = useParams()
     console.log(sessionId)
     const { loading, data } = useQuery(QUERY_SUCCESS,{
@@ -21,21 +23,31 @@ function OrderSuccess () {
     useEffect(() => {
         async function saveOrder() {
           const cart = await idbPromise('cart', 'get');
-          const products = cart.map((item) => item._id);
-    
+          
+          const products = cart.flatMap((item) => {
+            let multipleItems=[]
+            for (let i=0;i<item.quantity;i++){
+              multipleItems.push(item._id)
+            }
+            return multipleItems
+          });
+          console.log(products)
           if (products.length) {
             console.log('here')
+            setOrderDetails(cart)
             const { data } = await addOrder({ variables: { products } });
             const productData = data.addOrder.products;
-    
+            dispatch({
+              type:ORDER_SUMMARY,
+              orderSummary:cart
+            })
             productData.forEach((item) => {
               idbPromise('cart', 'delete', item);
             });
+          
           }
+          console.log(orderDetails)
     
-          setTimeout(() => {
-            window.location.assign('/');
-          }, 5000);
         }
     
         saveOrder();
@@ -43,9 +55,17 @@ function OrderSuccess () {
 
     console.log(state.cart)
     return (
-        <>
-            <h2>SUCCESS!!!</h2>
-        </>
+        <Container>
+            <Card>
+              <Card.Header>
+                <Card.Title>Order Summary</Card.Title>
+              </Card.Header>
+              <Card.Body>
+                <Card.Text>{`${state.orderSummary[0].name} - ${state.orderSummary[0].description}`}</Card.Text>
+                <Card.Text>{state.orderSummary[0].quantity} ${state.orderSummary[0].price}</Card.Text>
+              </Card.Body>
+            </Card>
+        </Container>
     )
 }
 

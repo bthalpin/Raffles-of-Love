@@ -83,9 +83,21 @@
         padding:0;
     }
 }
-@media screen and (max-width:425px) {
+/* @media screen and (max-width:425px) {
     .Link{
         padding:1.4rem 0.5rem;
         font-size: 0.89rem;;
     }
-} */
+}  */
+@media screen and (max-width:625px) {
+    
+    .brandName{
+        font-size: 2rem !important;
+    }
+}
+@media screen and (max-width:430px) {
+    
+    .brandName{
+        display:none;
+    }
+}
