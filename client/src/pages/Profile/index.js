@@ -147,7 +147,7 @@ function Profile () {
                       <EditCharity charityInfo={state.user.charity} handleModalClose={()=>setShowEdit(false)} />
                     </Tab.Pane>
                     <Tab.Pane eventKey="product" title="Charity Products">
-                      <AddProduct charityId={state.user.charity._id}/>
+                      {/* <AddProduct charityId={state.user.charity._id}/> */}
                     </Tab.Pane>
                   {/* </Tab.Content> */}
                   

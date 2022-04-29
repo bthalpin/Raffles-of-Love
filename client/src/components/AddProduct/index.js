@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ProductCard } from '..';
+import { MyProductCard } from '..';
 import { Button, Modal, Card, Form } from 'react-bootstrap';
 import { tempProductData } from '../../tempProductData';
 import { SINGLE_CHARITY, PRODUCTS_BY_CHARITY } from '../../utils/queries';
@@ -44,7 +44,7 @@ function EditProduct({charityId}) {
             </div>
             {data?.productsByCharity?.length ?
 
-                <ProductCard productData={data.productsByCharity} />
+                <MyProductCard productData={data.productsByCharity} myProducts={true} />
                 :
                 <p className="text-center m-3">No Products</p>}
 
