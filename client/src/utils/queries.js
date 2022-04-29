@@ -38,6 +38,7 @@ query Charities {
       logo
       description
       mission
+      youtube
     }
   }
 `;
@@ -52,6 +53,7 @@ query singleCharity($charityId: ID!) {
       logo
       description
       mission
+      youtube
     }
   }
 `;

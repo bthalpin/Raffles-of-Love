@@ -54,7 +54,7 @@ function Charity () {
             <Container className="d-flex flex-wrap justify-content-around my-5 mx-auto">
                 
                         
-                        <Card className="singleCharityCard m-2 p-3 text-center">
+                        <Card className="singleCharityCard m-2 p-3 text-center col-lg">
                             <Card.Title className="title m-2">{state.currentCharity.name}</Card.Title>
                             <img className="singleCharityImage" src={state.currentCharity.image}/>
                             <Card.Body>
@@ -65,6 +65,9 @@ function Charity () {
                             </Card.Body>
                         </Card>
                         
+                        <Card className="singleCharityCard m-2 p-3 col-lg">
+                            <iframe width="420" height="315" src="https://www.youtube.com/embed/tgbNymZ7vqY" allowfullscreen=""></iframe>
+                        </Card>
                        
             </Container>
             <ProductCard productData={state.charityProducts} />

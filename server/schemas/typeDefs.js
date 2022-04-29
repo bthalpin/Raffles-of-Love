@@ -16,6 +16,7 @@ const typeDefs = gql`
         logo: String
         description: String
         mission: String
+        youtube: String
     }
     
     type Product {
@@ -82,8 +83,8 @@ const typeDefs = gql`
         addProduct(name: String!, description: String, image: String!, price: Int!, ticketCount: Int, charity_id: ID!): Product
         updateProductInfo(productId: ID!, name: String!, description: String, image: String, price: Int!, ticketCount: Int!): Product
         removeProduct(productId: ID!): Product
-        addCharity(name: String!, website: String, image: String, logo: String, description: String, mission: String): Charity
-        updateCharity(charityId: ID!, name: String!, website: String, image: String, logo: String, description: String, mission: String): Charity
+        addCharity(name: String!, website: String, image: String, logo: String, description: String, mission: String, youtube: String): Charity
+        updateCharity(charityId: ID!, name: String!, website: String, image: String, logo: String, description: String, mission: String, youtube: String): Charity
         removeCharity(charityId: ID!): Charity
         addTicket(_id: ID!, user_id: ID!, product_id: ID!): Ticket
         login(email: String!, password: String!): Auth

@@ -21,6 +21,9 @@ const charitySchema = new Schema ({
     },
     mission: {
         type: String
+    },
+    youtube: {
+        type: String
     }
 });
 
