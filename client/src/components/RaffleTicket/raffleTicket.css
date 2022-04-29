@@ -32,6 +32,6 @@
     opacity: 0.3;
 }
 
-.cardTitle {
-    background-color: var(--skyblue);
+.raffleTop {
+    background-color: var(--skyblue) !important;
 }
