@@ -113,7 +113,7 @@ function Profile () {
                 :
                 <p className="text-center">No Raffle Tickets Yet</p>}
                 {state.user.charity?
-                <>
+                <Container className="my-5 border-top">
                 <Button className="charityButton" onClick={()=>handleEditShow()}>Edit Charity Info</Button>
                 <h3 className="text-center">My Charity</h3>
                 <MyCharity charityInfo={state.user.charity}/>
@@ -158,7 +158,7 @@ function Profile () {
                 <Login handleModalClose={()=>setShow(false)} /> */}
               </Modal>
 
-              </>
+              </Container>
                 :<></>
                 }
 
