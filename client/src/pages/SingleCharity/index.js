@@ -58,7 +58,7 @@ function Charity () {
                         </Card>
                         
                         <Card className="singleCharityCard m-2 p-3 col-lg">
-                            <iframe width="420" height="315" src={state.currentCharity.youtube} frameborder="0" allowfullscreen=""></iframe>
+                            <iframe width="420" height="315" src={state.currentCharity.youtube} frameBorder="0" allowFullScreen="" title="youtube"></iframe>
                         </Card>
                        
             </Container>

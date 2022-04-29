@@ -13,7 +13,6 @@ export const REMOVE_FROM_CART = "REMOVE_FROM_CART";
 export const ADD_MULTIPLE_TO_CART = "ADD_MULTIPLE_TO_CART";
 export const ORDER_SUMMARY = "ORDER_SUMMARY";
 
-
 export const CLEAR_CART = "CLEAR_CART";
 export const TOGGLE_CART = "TOGGLE_CART";
 
