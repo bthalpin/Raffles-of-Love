@@ -3,7 +3,7 @@ import {Form,Button,Card} from 'react-bootstrap';
 import { useStoreContext } from "../../utils/GlobalState";
 import {UPDATE_USER_INFO} from '../../utils/actions';
 
-function EditUser ({update,setEditUser,updateUser}) {
+function EditUser ({update,setEditUser,updateUser,handleDeleteShow}) {
     const [state, dispatch] = useStoreContext();
     const [name,setName] = useState(state.user.userName)
     const [email,setEmail] = useState(state.user.email)
@@ -76,10 +76,12 @@ function EditUser ({update,setEditUser,updateUser}) {
                 </Form.Group>
             </div>
             
+            <div className="d-flex justify-content-between">
             <Button className="mt-4" variant="primary" type="submit">
                 Save
             </Button>
-            
+                <Button className='btn-danger mt-4' onClick={handleDeleteShow}>Delete User</Button>
+              </div>
             
                                     </Card.Body>
                                     </Card>

@@ -69,12 +69,10 @@ function Profile () {
     return (
             <div className="profilePage">
               <h1 className='display-2 text-center'>Hello {state.user.userName}</h1>
-              <div>
-                <Button className='btn-danger' onClick={handleDeleteShow}>DELETE USER</Button>
-              </div>
+              
                 <Container className="my-4 profileInfoContainer" >
                     {editUser?
-                    <EditUser setEditUser={setEditUser} updateUser={updateUser}/>
+                    <EditUser setEditUser={setEditUser} updateUser={updateUser} handleDeleteShow={handleDeleteShow}/>
                     :
                     <Card>
                         <Card.Header>
@@ -99,7 +97,7 @@ function Profile () {
                                 {zip}
                             </p>
                             <Button onClick={()=>setEditUser(true)}>Edit</Button>
-                            
+                           
                         </Card.Body>
                     </Card>
                     
