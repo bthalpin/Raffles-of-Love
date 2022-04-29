@@ -77,10 +77,16 @@ function EditUser ({update,setEditUser,updateUser,handleDeleteShow}) {
             </div>
             
             <div className="d-flex justify-content-between">
-            <Button className="mt-4" variant="primary" type="submit">
-                Save
-            </Button>
-                <Button className='btn-danger mt-4' onClick={handleDeleteShow}>Delete User</Button>
+                <div className="mt-4">
+                    <Button className="m-1" variant="primary" type="submit">
+                        Save
+                    </Button>
+                    <Button className="m-1" onClick={()=>setEditUser(false)} variant="secondary" type="submit">
+                        Cancel
+                    </Button>
+
+                </div>
+                <Button className='btn-danger mt-4 mb-1' onClick={handleDeleteShow}>Delete User</Button>
               </div>
             
                                     </Card.Body>
