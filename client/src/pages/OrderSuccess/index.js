@@ -26,16 +26,17 @@ function OrderSuccess () {
             }
             return multipleItems
           });
+          dispatch({
+            type:ORDER_SUMMARY,
+            orderSummary:cart
+          })
           console.log(products)
           if (products.length) {
             console.log('here')
             setOrderDetails(cart)
             const { data } = await addOrder({ variables: { products } });
             const productData = data.addOrder.products;
-            dispatch({
-              type:ORDER_SUMMARY,
-              orderSummary:cart
-            })
+            
             productData.forEach((item) => {
               idbPromise('cart', 'delete', item);
             });
@@ -48,18 +49,18 @@ function OrderSuccess () {
         saveOrder();
       }, [addOrder]);
 
-    console.log(state.cart)
+    console.log(state)
     return (
         <Container>
-            {/* <Card>
+            <Card>
               <Card.Header>
                 <Card.Title>Order Summary</Card.Title>
               </Card.Header>
               <Card.Body>
-                <Card.Text>{`${state.orderSummary[0].name} - ${state.orderSummary[0].description}`}</Card.Text>
-                <Card.Text>{state.orderSummary[0].quantity} ${state.orderSummary[0].price}</Card.Text>
+                <Card.Text>{`${state?.orderSummary[0].name} - ${state?.orderSummary[0].description}`}</Card.Text>
+                <Card.Text>{state?.orderSummary[0].quantity} ${state?.orderSummary[0].price}</Card.Text>
               </Card.Body>
-            </Card> */}
+            </Card>
         </Container>
     )
 }
