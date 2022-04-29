@@ -6,7 +6,6 @@ import {Container,Card} from 'react-bootstrap';
 import './raffleTicket.css';
 
 function RaffleTicket ({tickets}) {
-    console.log(tickets)
     let myProducts=[];
     let myIds=[];
 

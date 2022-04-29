@@ -20,7 +20,6 @@ function OrderSuccess () {
     useEffect(() => {
         async function saveOrder() {
           const cart = await idbPromise('cart', 'get');
-          console.log(cart)
           if(cart){
 
             setSummary(cart)
@@ -32,9 +31,7 @@ function OrderSuccess () {
             }
             return multipleItems
           });
-          console.log(products)
           if (products.length) {
-            console.log('here')
             // setstate.orderSummary(cart)
             const { data } = await addOrder({ variables: { products } });
             const productData = data.addOrder.products;
@@ -44,7 +41,7 @@ function OrderSuccess () {
             });
           
           }
-          console.log(state.orderSummary)
+
     
         }
     
@@ -59,7 +56,7 @@ function OrderSuccess () {
 
       }
     },[summary])
-    console.log(summary,state)
+
     
     return (
         <Container className="my-3 " >

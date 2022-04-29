@@ -13,16 +13,17 @@ function Charity () {
     const {charityId} = useParams()
     const [state, dispatch] = useStoreContext();
     const tempProductData = state.products
-    console.log(charityId)
+
     const { loading, data } = useQuery(SINGLE_CHARITY,{
         variables:{charityId:charityId},
     });
+
     const results = useQuery(PRODUCTS_BY_CHARITY,{
         variables:{charityId:charityId},
     });
+
     useEffect(()=>{
         if(data){
-            console.log(data.charity,data)
             dispatch({
                 type: UPDATE_CURRENT_CHARITY,
                 currentCharity: data.charity,
@@ -39,7 +40,7 @@ function Charity () {
 
         }
     },[results])
-    console.log(state.currentCharity,state.charityProducts)
+    
     const tempCharity = 
         {
             name:"Temp Name",

@@ -32,7 +32,6 @@ function Register () {
                         setErrorMessage('Unable to Register')
             console.error(error)
         }
-        console.log(name,email,password,street,city,state,zip)
         setEmail('')
         setPassword('')
     }

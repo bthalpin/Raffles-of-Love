@@ -43,7 +43,7 @@ function Profile () {
       Auth.logout()
 
     }
-    console.log(state.user,'STATE')
+
     const tempUserData = state.user;
     const tempCharityData = Object.values(state.charities).flatMap(item=>item)
     const tempProductData = state.products
@@ -64,7 +64,7 @@ function Profile () {
 
     // }
     const [street,city,states,zip] = state.user.location.split('|')
-    console.log(state, "THIS IS MINE")
+
     return (
             <div className="profilePage">
               <Button onClick={handleDeleteShow}>DELETE USER</Button>
@@ -109,7 +109,6 @@ function Profile () {
                 
                 :
                 <p className="text-center">No Raffle Tickets Yet</p>}
-                {console.log(state.user.charity,'charity')}
                 {state.user.charity?
                 <>
                 <Button className="charityButton" onClick={()=>handleEditShow()}>Edit Charity Info</Button>

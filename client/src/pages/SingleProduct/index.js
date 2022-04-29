@@ -36,7 +36,6 @@ function SingleProduct() {
       }
     }
   )
-  console.log(state.cart, Object.values(state.cart.flatMap(item => Object.values(item))).includes(productId), Object.values(state.cart.flatMap(item => Object.values(item))))
 
   const addToCart = (product) => {
     setInCart(true)
@@ -60,9 +59,7 @@ function SingleProduct() {
     }
   }
   const displayButton = () => {
-    console.log('here')
     if (!Auth.loggedIn()) {
-      console.log('here')
 
       return <div><Button disabled>Must Log In to Buy A Ticket</Button></div>
     } else if (data.product.winningNumber !== '000000000000000000000000') {

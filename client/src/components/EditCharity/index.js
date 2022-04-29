@@ -23,7 +23,7 @@ function EditCharity ({charityInfo,handleModalClose}) {
         handleModalClose()
         // setPassword('')
     }
-    console.log(charityInfo)
+
     return (
         
                     <Card>

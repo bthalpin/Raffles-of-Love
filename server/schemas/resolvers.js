@@ -13,8 +13,7 @@ const resolvers = {
       return await Charity.find();                                                // Get and return all documents from the charity collection.
     },
 
-    charity: async (parent, { charityId }) => {
-      console.log(charityId)                                       // Get and return one document from the charity collection.
+    charity: async (parent, { charityId }) => {                                     // Get and return one document from the charity collection.
       return Charity.findOne({ _id: charityId });
     },
 
@@ -48,7 +47,6 @@ const resolvers = {
               model: 'Product'
             }
           }).populate('charity')
-          console.log(thisUser)
           return thisUser
       }
       throw new AuthenticationError('You need to be logged in!');                 // If user attempts to execute this mutation and isn't logged in, throw an error.
@@ -76,18 +74,16 @@ const resolvers = {
         sessionId 
       );
       // ITEMS PURCHASED
-      console.log(session)
       return session.line_items.data
     },
+
     checkout: async (parent, args, context) => {
       const url = new URL(context.headers.referer).origin;
       const order = new Order({ products: args.products });
       const line_items = [];
-
       const { products } = await order.populate('products');
 
       for (let i = 0; i < products.length; i++) {
-        console.log('IMAGE',`${url}/images/${products[i].image}`)
         const product = await stripe.products.create({
           name: products[i].name,
           description: products[i].description,
@@ -113,6 +109,7 @@ const resolvers = {
         success_url: `${url}/success/{CHECKOUT_SESSION_ID}`,
         cancel_url: `${url}/`
       });
+
       return { session: session.id };
     }
   },
@@ -124,8 +121,7 @@ const resolvers = {
       return { token, user };                                                     // Return an `Auth` object that consists of the signed token and user's information.
     },
 
-    updateUser: async (parent, { userName, email, location }, context) => {
-      console.log(context.user)                              // Add a third argument to the resolver to access data in our `context`.
+    updateUser: async (parent, { userName, email, location }, context) => {                            // Add a third argument to the resolver to access data in our `context`.
       if (context.user) {                                                         // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in.
         return await User.findByIdAndUpdate(context.user._id, { userName, email, location, password: context.user.password },               // Find and update the matching User using args.
           { new: true });                                                       // Return the newly updated object instead of the original.
@@ -204,27 +200,21 @@ const resolvers = {
     },
 
     addOrder: async (parent, { products }, context) => {
-      console.log(products, "This is the LOG");
       if (context.user) {
         const order = new Order({ products });
 
         await User.findByIdAndUpdate(context.user._id, { $push: { orders: order } });
         products.map(async(productId)=>{
-          console.log(productId)
           const product = await Product.findById(productId); 
-          // console.log(product,product.tickets.length,'PRODUCT!!!!!!!!!!!!!!!!!!!!!!!')                    // Using the parameter to find the matching product in the collection.
           const ticket = await Ticket.create({ticketNumber:Math.floor(Math.random()*1000000), product: productId});
 
           await User.findByIdAndUpdate(context.user._id, { $push: { tickets: ticket } });
 
           const newTicket = await Product.findByIdAndUpdate(productId, { $push: { tickets: ticket } },{new:true});
 
-          console.log(newTicket,newTicket.tickets.length,newTicket.ticketCount)
-
           if(newTicket.tickets.length >= newTicket.ticketCount){
               const winningTicket = newTicket.tickets[Math.floor(Math.random()*newTicket.tickets.length)]
               const winner = await Product.findByIdAndUpdate(productId, {winningNumber:winningTicket} );
-              console.log(winningTicket,winner)
             }
         })
         // const ticket = Ticket.create(products.tickets.length + 1);
