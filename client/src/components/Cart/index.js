@@ -16,10 +16,9 @@ function Checkout() {
 
   useEffect(() => {
     if (data) {
-      console.log("also")
       stripePromise.then((res) => {
         res.redirectToCheckout({ sessionId: data.checkout.session });
-        console.log(res)
+
       });
     }
   }, [data]);
@@ -27,7 +26,6 @@ function Checkout() {
   useEffect(() => {
     async function getCart() {
       const cart = await idbPromise('cart', 'get');
-      console.log(cart.length, cart)
       dispatch({ type: ADD_MULTIPLE_TO_CART, products: [...cart] });
     }
 
@@ -52,7 +50,6 @@ function Checkout() {
         productIds.push(item._id);
       }
     });
-    console.log(state.cart)
     getCheckout({
       variables: { products: productIds },
     });

@@ -10,7 +10,6 @@ function EditProduct ({charityId}) {
     const {loading,data} = useQuery(PRODUCTS_BY_CHARITY,{
         variables:{charityId:charityId},
     });
-    console.log(data)
     return (
                     <>  
                         <div className="d-flex justify-content-center">

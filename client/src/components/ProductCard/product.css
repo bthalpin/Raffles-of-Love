@@ -11,6 +11,7 @@
     transition:all 0.2s ease-in-out;
     cursor: pointer;
     background-color: var(--mint) !important;
+    color: var(--royal);
 }
 .productCard:hover{
     transform: scale(1.02);
@@ -20,6 +21,13 @@
     width:5rem;
     margin:auto;
     color: var(--royal) !important;
+}
+
+.proDesc {
+    padding-top: 5%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* @media screen and (max-width:340px) {

@@ -16,7 +16,6 @@ function EditUser ({update,setEditUser,updateUser}) {
 
     const handleSubmit=(e)=>{
         e.preventDefault()
-        console.log(name,email,street,city,state,zip)
         updateUser({variables:{userName:name,email,password,location:`${street}|${city}|${states}|${zip}`}})
         setEmail('')
         

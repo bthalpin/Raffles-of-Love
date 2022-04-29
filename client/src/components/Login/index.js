@@ -29,7 +29,6 @@ function Login () {
             setErrorMessage('Unable to Log In')
             console.error(error)
         }
-        console.log(email,password)
         setEmail('')
         setPassword('')
     }
