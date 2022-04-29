@@ -68,7 +68,7 @@ function Profile () {
 
     return (
             <div className="profilePage">
-              <h1 className='display-2 text-center'>Hello {state.user.userName}</h1>
+              <h1 className='display-2 text-center helloProfile'>Hello {state.user.userName}</h1>
               <div>
                 <Button className='btn-danger' onClick={handleDeleteShow}>DELETE USER</Button>
               </div>
@@ -77,26 +77,26 @@ function Profile () {
                     <EditUser setEditUser={setEditUser} updateUser={updateUser}/>
                     :
                     <Card>
-                        <Card.Header>
-                            <Card.Title>
+                        <Card.Header  className ="profileCard">
+                            <Card.Title className="profileCardTitle">
                                 {state.user.userName}
                             </Card.Title>
                         </Card.Header>
-                        <Card.Body>
+                        <Card.Body className="profileBody">
                             <p className="profileInfo p-1 d-flex justify-content-between align-items-center">
-                                {state.user.email}
+                               <span>Email Address:</span> {state.user.email}
                             </p>
                             <p className="profileInfo p-1 d-flex justify-content-between align-items-center">
-                                {street}
+                               <span>Street:</span> {street}
                             </p>
                             <p className="profileInfo p-1 d-flex justify-content-between align-items-center">
-                                {city}
+                                <span>City:</span> {city}
                             </p>
                             <p className="profileInfo p-1 d-flex justify-content-between align-items-center">
-                                {states}
+                                <span>State:</span>{states}
                             </p>
                             <p className="profileInfo p-1 d-flex justify-content-between align-items-center">
-                                {zip}
+                                <span>Zipe Code:</span>{zip}
                             </p>
                             <Button onClick={()=>setEditUser(true)}>Edit</Button>
                             
