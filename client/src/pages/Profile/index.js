@@ -1,9 +1,5 @@
 import React, {useEffect, useState} from 'react';
-<<<<<<< HEAD
-import {EditCharity,EditProduct,EditUser,RaffleTicket} from '../../components';
-=======
 import {ProductCard,EditCharity,EditProduct,EditUser,RaffleTicket, MyCharity} from '../../components';
->>>>>>> 3f9a7c8345058db933d2371018d3268bd7c05b51
 import {USER} from '../../utils/queries';
 import Auth from '../../utils/auth';
 // import { tempProductData } from '../../tempProductData';
@@ -49,13 +45,8 @@ function Profile () {
     }
     console.log(state.user,'STATE')
     const tempUserData = state.user;
-<<<<<<< HEAD
-    const tempCharityData = state.charities[0]
-    // const tempProductData = state.products
-=======
     const tempCharityData = Object.values(state.charities).flatMap(item=>item)
     const tempProductData = state.products
->>>>>>> 3f9a7c8345058db933d2371018d3268bd7c05b51
     // const tempUserData = {
     //     name:'Brian',
     //     email:'user@gmail.com',
