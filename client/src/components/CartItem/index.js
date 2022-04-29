@@ -20,13 +20,13 @@ const CartItem = ({ item }) => {
 
   const onChange = (e) => {
     const value = e.target.value;
-    if (value === '0') {
-      dispatch({
-        type: REMOVE_FROM_CART,
-        _id: item._id
-      });
-      idbPromise('cart', 'delete', { ...item });
-    } else {
+    // if (value === '0') {
+    //   dispatch({
+    //     type: REMOVE_FROM_CART,
+    //     _id: item._id
+    //   });
+    //   idbPromise('cart', 'delete', { ...item });
+    // } else {
       dispatch({
         type: UPDATE_CART_QUANTITY,
         _id: item._id,
@@ -34,7 +34,7 @@ const CartItem = ({ item }) => {
       });
       idbPromise('cart', 'put', { ...item, quantity: parseInt(value) });
 
-    }
+    // }
   }
 
   return (
@@ -54,6 +54,7 @@ const CartItem = ({ item }) => {
             name="quantity"
             type="number"
             max={item.ticketCount-item.tickets.length}
+            min='1'
             placeholder={item.quantity}
             value={item.quantity}
             onChange={onChange}
