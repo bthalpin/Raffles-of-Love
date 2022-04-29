@@ -76,7 +76,7 @@ function Profile () {
                     {editUser?
                     <EditUser setEditUser={setEditUser} updateUser={updateUser}/>
                     :
-                    <Card>
+                    <Card className="profileCardFull">
                         <Card.Header  className ="profileCard">
                             <Card.Title className="profileCardTitle">
                                 {state.user.userName}
