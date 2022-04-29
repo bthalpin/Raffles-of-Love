@@ -15,3 +15,23 @@
     text-shadow: 0 0 1rem var(--alice);
     transform: scale(1.03);
 }
+
+@media screen and (max-width: 410px) {
+    
+    .footer{
+        width: 105%;
+        height: auto;
+    }
+
+    
+}
+
+@media screen and (max-width:398px) {
+    
+    .footer{
+        width: 109%;
+        height: auto;
+    }
+
+    
+}
