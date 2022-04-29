@@ -64,13 +64,13 @@ function SingleProduct() {
     if (!Auth.loggedIn()) {
       console.log('here')
 
-      return <Button disabled>Must Log In to Buy A Ticket</Button>
+      return <div><Button disabled>Must Log In to Buy A Ticket</Button></div>
     } else if (data.product.winningNumber !== '000000000000000000000000') {
-      return <Button disabled>Raffle Over</Button>
+      return <div><Button disabled>Raffle Over</Button></div>
     } else if (Object.values(state.cart.flatMap(item => Object.values(item))).includes(productId)) {
-      return <Button disabled>In Cart</Button>
+      return <div><Button disabled>In Cart</Button></div>
     } else {
-      return <Button className="buyBtn" onClick={() => addToCart(data.product)}>Buy Ticket</Button>
+      return <div><Button className="buyBtn" onClick={() => addToCart(data.product)}>Buy Ticket</Button></div>
     }
   }
 
@@ -78,15 +78,15 @@ function SingleProduct() {
     <>
       {data ?
         <Container className="singleProductPage d-flex flex-wrap justify-content-around mt-5 mx-auto">
-          <Card className="singleProductCard m-2 p-3 text-center">
-            <Card.Header>Brought to you by <Link to={`/Charity/${data.product.charity._id}`}>{data.product.charity.name}</Link></Card.Header>
-            <Card.Title>{data.product.name}</Card.Title>
+          <Card className="singleProductCard d-flex m-2 p-3 text-center">
+            <Card.Header className="cardHeader">Brought to you by <Link className="link" to={`/Charity/${data.product.charity._id}`}>{data.product.charity.name}</Link></Card.Header>
+            <Card.Title className="cardTitle">{data.product.name}</Card.Title>
             <img className="singleProductImage" src={data.product.image} alt="" />
             <Card.Body>{data.product.description}</Card.Body>
+            {displayButton()}
             <footer>
               {data.product.ticketCount === data.product.tickets?.length ? 'Sold' : <>Tickets left: {ticketsLeft(data.product)}</>}
             </footer>
-            {displayButton()}
             {/* {Auth.loggedIn()?data.product.winningNumber!=='000000000000000000000000'?
                             'RAFFLE OVER':
                             <Button className="buyBtn" onClick={()=>addToCart(data.product)}>Buy Ticket</Button>

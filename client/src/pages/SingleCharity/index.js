@@ -55,7 +55,7 @@ function Charity () {
                 
                         
                         <Card className="singleCharityCard m-2 p-3 text-center">
-                            <Card.Title>{state.currentCharity.name}</Card.Title>
+                            <Card.Title className='cardTitle'>{state.currentCharity.name}</Card.Title>
                             <img className="singleCharityImage" src={state.currentCharity.image}/>
                             <Card.Body>{state.currentCharity.description}</Card.Body>
                         </Card>
