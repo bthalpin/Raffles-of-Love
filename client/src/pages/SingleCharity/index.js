@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {ProductCard} from '../../components/';
+import {ProductCard, FavoriteButton} from '../../components/';
 import {Card,Container} from 'react-bootstrap';
 import { useStoreContext } from "../../utils/GlobalState";
 import {SINGLE_CHARITY,PRODUCTS_BY_CHARITY} from '../../utils/queries';
@@ -44,6 +44,7 @@ function Charity () {
         <div className="singleCharityPage ">
             {data?
             <>
+            <FavoriteButton/>
             <Container className="d-flex flex-wrap justify-content-around my-5 mx-auto">
                 
                         

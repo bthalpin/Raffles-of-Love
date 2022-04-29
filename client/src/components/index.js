@@ -9,5 +9,6 @@ import Cart from './Cart';
 import EditUser from './EditUser';
 import RaffleTicket from './RaffleTicket';
 import MyCharity from './MyCharity';
+import FavoriteButton from './FavoriteButton';
 
-export {Login,Navigation,Register,ProductCard,Footer,EditProduct,EditCharity,Cart,EditUser,RaffleTicket,MyCharity}
+export {Login,Navigation,Register,ProductCard,Footer,EditProduct,EditCharity,Cart,EditUser,RaffleTicket,MyCharity,FavoriteButton}
