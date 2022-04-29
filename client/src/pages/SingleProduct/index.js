@@ -10,6 +10,16 @@ import { ADD_TO_CART,UPDATE_CART_QUANTITY } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
 import Auth from '../../utils/auth';
 
+
+// export function ticketsLeft (product) {
+//   var num1 = product.ticketCount
+//   var num2 = product.tickets.length
+//   var sum = num1 - num2
+//   return sum
+// }
+
+
+
 import './singleProduct.css';
 
 function SingleProduct () {
