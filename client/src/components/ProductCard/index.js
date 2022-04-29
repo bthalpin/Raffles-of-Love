@@ -23,12 +23,14 @@ function ProductCard({ productData }) {
                         <Card className="productCard m-2 p-3 text-center">
                             {
                                 window.location.pathname === '/Product' ?
-                                    <Card.Header>Brought to you by{product?.charity?.name}</Card.Header>
+                                    <Card.Header className="cardHeader">Brought to you by {product?.charity?.name}</Card.Header>
                                     : <></>
                             }
+                            <br></br>
                             <Card.Title>{product.name}</Card.Title>
                             <Card.Body>
                                 <img className="productImage" src={product.image} alt='logo'></img>
+                                <br></br>
                                 {product.description}</Card.Body>
                             {/* <Button>Buy Ticket</Button> */}
                             {product.ticketCount === product.tickets?.length ? 'Sold' : <>Tickets left: {ticketsLeft(product)}</>}
