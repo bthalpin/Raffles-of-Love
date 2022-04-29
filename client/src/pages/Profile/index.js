@@ -1,5 +1,9 @@
 import React, {useEffect, useState} from 'react';
+<<<<<<< HEAD
 import {EditCharity,EditProduct,EditUser,RaffleTicket} from '../../components';
+=======
+import {ProductCard,EditCharity,EditProduct,EditUser,RaffleTicket, MyCharity} from '../../components';
+>>>>>>> 3f9a7c8345058db933d2371018d3268bd7c05b51
 import {USER} from '../../utils/queries';
 import Auth from '../../utils/auth';
 // import { tempProductData } from '../../tempProductData';
@@ -45,8 +49,13 @@ function Profile () {
     }
     console.log(state.user,'STATE')
     const tempUserData = state.user;
+<<<<<<< HEAD
     const tempCharityData = state.charities[0]
     // const tempProductData = state.products
+=======
+    const tempCharityData = Object.values(state.charities).flatMap(item=>item)
+    const tempProductData = state.products
+>>>>>>> 3f9a7c8345058db933d2371018d3268bd7c05b51
     // const tempUserData = {
     //     name:'Brian',
     //     email:'user@gmail.com',
@@ -108,14 +117,18 @@ function Profile () {
                     
                 </Container>
                 <h2 className="text-center">My raffles</h2>
+                {state?.user?.tickets?.length?
                 <RaffleTicket tickets={state.user.tickets}/>
-                {tempUserData.charityId===tempCharityData._id?
+                
+                :
+                <p className="text-center">No Raffle Tickets Yet</p>}
+                {console.log(state.user.charity,'charity')}
+                {state.user.charity?
                 <>
                 <Button className="charityButton" onClick={()=>handleEditShow()}>Edit Charity Info</Button>
-                </>
-                :<></>
-                }
-               
+                <h3 className="text-center">My Charity</h3>
+                <MyCharity charityInfo={state.user.charity}/>
+                
                 {/* <Container className="my-4">
 
                     
@@ -141,10 +154,10 @@ function Profile () {
                   {/* <Tab.Content> */}
       
                     <Tab.Pane eventKey="charity" title="Charity Information">
-                      <EditCharity charityInfo={tempCharityData} handleModalClose={()=>setShowEdit(false)} />
+                      <EditCharity charityInfo={state.user.charity} handleModalClose={()=>setShowEdit(false)} />
                     </Tab.Pane>
                     <Tab.Pane eventKey="product" title="Charity Products">
-                      <EditProduct handleModalClose={()=>setShowEdit(false)}/>
+                      <EditProduct charityId={state.user.charity._id}handleModalClose={()=>setShowEdit(false)}/>
                     </Tab.Pane>
                   {/* </Tab.Content> */}
                   
@@ -155,7 +168,9 @@ function Profile () {
                 <Login handleModalClose={()=>setShow(false)} /> */}
               </Modal>
 
-
+              </>
+                :<></>
+                }
 
                 <Modal show={confirmDelete} onHide={handleDeleteClose} size="sm">
                 <Modal.Header closeButton >

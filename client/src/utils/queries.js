@@ -8,6 +8,13 @@ query User {
     email
     password
     location
+    charity{
+      _id
+      name
+      website
+      image
+      description
+    }
     tickets {
       _id
       purchaseDate

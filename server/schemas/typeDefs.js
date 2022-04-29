@@ -40,7 +40,7 @@ const typeDefs = gql`
         tickets: [Ticket]
         favCharities: [Charity]
         order: [Order]
-
+        charity: Charity
     }
 
     type Order {

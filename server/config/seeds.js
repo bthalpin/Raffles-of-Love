@@ -95,6 +95,12 @@ db.once('open', async () => {
             youtube: "https://www.youtube.com/embed/cN57ub0B8eM",
             description: 'The National Alliance to End Homelessness is a nonpartisan organization committed to preventing and ending homelessness in the United States.',
         },
+        {
+            name: 'New-Charity-Change-Name',
+            website: 'Enter Website',
+            image: 'Enter Image URL',
+            description: 'Enter Description',
+        },
     ]);
 
     await Product.deleteMany();
