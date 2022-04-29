@@ -6,6 +6,7 @@
     width: 40rem;
     height: 30rem;
     box-shadow: 0.5rem 0.5rem 1rem #bbc4cf;
+    background-color: var(--mint) !important;
 }
 
 .singleCharityImage {

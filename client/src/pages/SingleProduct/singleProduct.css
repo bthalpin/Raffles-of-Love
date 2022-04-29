@@ -1,23 +1,46 @@
-.singleProductPage{
-    margin-bottom:8rem;
+.singleProductPage {
+    margin-bottom: 8rem;
 }
-.singleProductCard{
-    width:40rem;
-    /* height:30rem; */
-    box-shadow:0.5rem 0.5rem 1rem #bbc4cf;
-    background-color: var(--mint) !important;
-  }
-  .singleProductImage{
-      width:10rem;
-      margin:auto;
-  }
-  
-  .buyBtn {
-      background-color: var(--deepblue) !important;
-      color: var(--mint) !important;
-  }
 
-  .buyBtn:hover {
-      transform: scale(1.02) !important;
-      background-color: #0354a0!important;
-  }
+.singleProductCard {
+    width: 40rem;
+    /* height:30rem; */
+    box-shadow: 0.5rem 0.5rem 1rem #bbc4cf;
+    background-color: var(--mint) !important;
+}
+
+.singleProductImage {
+    width: 10rem;
+    margin: auto;
+}
+
+.buyBtn {
+    background-color: var(--deepblue) !important;
+    color: var(--mint) !important;
+    width: 25%;
+    justify-content: center;
+}
+
+.buyBtn:hover {
+    transform: scale(1.02) !important;
+    background-color: #0354a0 !important;
+}
+
+.cardHeader {
+    background: linear-gradient( to right top, var(--royal), 2%, var(--lightblue), var(--alice), var(--lightblue)); 
+}
+
+.link {
+    color: var(--deepblue);
+    text-shadow: 1px 1px var(--alice);
+}
+
+.link:hover {
+    color: var(--mint);
+    text-shadow: 1px 1px var(--royal);
+}
+
+a:link { text-decoration: none; }
+a:visited { text-decoration: none; }
+a:hover { text-decoration: none; }
+a:active { text-decoration: none; }

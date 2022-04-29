@@ -6,7 +6,6 @@ import {Container,Card} from 'react-bootstrap';
 import './raffleTicket.css';
 
 function RaffleTicket ({tickets}) {
-    console.log(tickets)
     let myProducts=[];
     let myIds=[];
 
@@ -58,7 +57,7 @@ function RaffleTicket ({tickets}) {
                     return(
                         <Link className="ticketLink m-2" to={`/Product/${ticket.product._id}`} key={index}>
                             <Card className={checkWinner(ticket)}>
-                                <Card.Header>
+                                <Card.Header className="raffleTop">
                                     <Card.Title className="text-center">Ticket #{ticket.ticketNumber}</Card.Title>
                                 </Card.Header>
                                 <Card.Body className="">

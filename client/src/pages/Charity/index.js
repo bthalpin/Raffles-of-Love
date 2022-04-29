@@ -10,7 +10,6 @@ import './charity.css';
 function Charity () {
     const [state, dispatch] = useStoreContext();
     const { loading, data } = useQuery(CHARITIES);
-    console.log(loading,data)
     useEffect(()=>{
         if(data){
             dispatch({
