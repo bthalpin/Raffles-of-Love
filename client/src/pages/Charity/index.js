@@ -20,37 +20,7 @@ function Charity () {
         }
     },[data])
     const tempCharities = state.charities
-    // [
-    //     {
-    //         name:"Temp Name",
-    //         description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with "
-
-    //     },
-    //     {
-    //         name:"Temp Name",
-    //         description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with "
-
-    //     },
-    //     {
-    //         name:"Temp Name",
-    //         description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with "
-
-    //     },
-    //     {
-    //         name:"Temp Name",
-    //         description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with "
-
-    //     },
-    //     {
-    //         name:"Temp Name",
-    //         description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with "
-
-    //     },
-    //     {
-    //         name:"Temp Name",
-    //         description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with "
-    //     },
-    // ]
+    
     return (
             <Container className="charityPage d-flex flex-wrap justify-content-around mx-auto">
                 <p className="my-5 p-2">
@@ -63,12 +33,12 @@ function Charity () {
                     return (
                         <Link className="charityLink" to={`/Charity/${charity._id}`} key={index}>
                             <Card className="charityCard m-2 p-3 text-center">
-                                <Card.Title className="title">{charity.name}</Card.Title>
-                                
+                                <Card.Title className="title m-2">{charity.name}</Card.Title>
                                 <Card.Body>
-                                    <img className="charityImage" src={charity.image} alt="Charity picture"></img>
-                                    <p>{charity.description}</p>
-                                    <p>{charity.website}</p>
+                                    <img className="charityImage" src={charity.logo}></img>
+                                </Card.Body>
+                                <Card.Body>    
+                                    <p className='m-4'>{charity.description}</p>
                                 </Card.Body>
                             </Card>
                         </Link>

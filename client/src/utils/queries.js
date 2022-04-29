@@ -42,7 +42,10 @@ query Charities {
       name
       website
       image
+      logo
       description
+      mission
+      youtube
     }
   }
 `;
@@ -54,7 +57,10 @@ query singleCharity($charityId: ID!) {
       name
       website
       image
+      logo
       description
+      mission
+      youtube
     }
   }
 `;
