@@ -75,27 +75,27 @@ function Profile () {
                     {editUser?
                     <EditUser setEditUser={setEditUser} updateUser={updateUser} handleDeleteShow={handleDeleteShow}/>
                     :
-                    <Card>
-                        <Card.Header>
-                            <Card.Title>
+                    <Card className="profileCardFull">
+                        <Card.Header  className ="profileCard">
+                            <Card.Title className="profileCardTitle">
                                 {state.user.userName}
                             </Card.Title>
                         </Card.Header>
-                        <Card.Body>
+                        <Card.Body className="profileBody">
                             <p className="profileInfo p-1 d-flex justify-content-between align-items-center">
-                                {state.user.email}
+                               <span>Email Address:</span> {state.user.email}
                             </p>
                             <p className="profileInfo p-1 d-flex justify-content-between align-items-center">
-                                {street}
+                               <span>Street:</span> {street}
                             </p>
                             <p className="profileInfo p-1 d-flex justify-content-between align-items-center">
-                                {city}
+                                <span>City:</span> {city}
                             </p>
                             <p className="profileInfo p-1 d-flex justify-content-between align-items-center">
-                                {states}
+                                <span>State:</span>{states}
                             </p>
                             <p className="profileInfo p-1 d-flex justify-content-between align-items-center">
-                                {zip}
+                                <span>Zip Code:</span>{zip}
                             </p>
                             <Button onClick={()=>setEditUser(true)}>Edit</Button>
                            

@@ -40,3 +40,10 @@ p {
 .title {
     color: var(--royal);
 }
+
+@media screen and (max-width: 405px) {
+    .charityCard {
+        width: 100% !important;
+    }
+
+}
