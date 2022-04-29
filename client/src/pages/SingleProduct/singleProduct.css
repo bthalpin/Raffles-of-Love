@@ -27,15 +27,17 @@
 }
 
 .cardHeader {
-    background: var(--lightblue) !important;
+    background: linear-gradient( to right top, var(--royal), 2%, var(--lightblue), var(--alice), var(--lightblue)); 
 }
 
 .link {
     color: var(--deepblue);
+    text-shadow: 1px 1px var(--alice);
 }
 
 .link:hover {
-    color: var(--alice);
+    color: var(--mint);
+    text-shadow: 1px 1px var(--royal);
 }
 
 a:link { text-decoration: none; }
