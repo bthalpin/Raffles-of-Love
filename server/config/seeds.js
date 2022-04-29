@@ -65,6 +65,12 @@ db.once('open', async () => {
             image: 'https://housing.az.gov/sites/default/files/Homeless%20Article%20Cover%20cropped.png',
             description: 'The National Alliance to End Homelessness is a nonpartisan organization committed to preventing and ending homelessness in the United States.',
         },
+        {
+            name: 'New-Charity-Change-Name',
+            website: 'Enter Website',
+            image: 'Enter Image URL',
+            description: 'Enter Description',
+        },
     ]);
 
     await Product.deleteMany();

@@ -29,6 +29,10 @@ const userSchema = new Schema({
     //     default: false,
     //     charity: [Charity.schema]},
     // ],
+    charity:{
+        type: Schema.Types.ObjectId,
+        ref: 'Charity'
+    },
     location: {
         type: String,
         required: true
