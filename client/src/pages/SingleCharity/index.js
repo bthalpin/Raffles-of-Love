@@ -38,7 +38,7 @@ function Charity () {
 
         }
     },[results])
-    console.log(state.currentCharity,state.charityProducts)
+    // console.log(state.currentCharity,state.charityProducts,state.user)
     
     return (
         <div className="singleCharityPage ">
@@ -63,6 +63,9 @@ function Charity () {
                         </Card>
                        
             </Container>
+
+            {/* <AddProduct charityId={state.user.charity._id} handleModalClose={()=>setShowEdit(false)}/> */}
+
             <ProductCard productData={state.charityProducts} />
             </>
             :<></>}

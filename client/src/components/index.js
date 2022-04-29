@@ -3,11 +3,12 @@ import Navigation from './Navigation';
 import Register from './Register';
 import ProductCard from './ProductCard';
 import Footer from './Footer';
-import EditProduct from './Edit Product';
+import EditProduct from './EditProduct';
 import EditCharity from './EditCharity';
 import Cart from './Cart';
 import EditUser from './EditUser';
 import RaffleTicket from './RaffleTicket';
 import MyCharity from './MyCharity';
+import AddProduct from './AddProduct';
 
-export {Login,Navigation,Register,ProductCard,Footer,EditProduct,EditCharity,Cart,EditUser,RaffleTicket,MyCharity}
+export {Login,Navigation,Register,ProductCard,Footer,EditProduct,EditCharity,Cart,EditUser,RaffleTicket,MyCharity,AddProduct}

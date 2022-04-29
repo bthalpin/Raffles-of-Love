@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {ProductCard,EditCharity,EditProduct,EditUser,RaffleTicket, MyCharity} from '../../components';
+import {ProductCard,EditCharity,EditProduct,EditUser,RaffleTicket, MyCharity,AddProduct} from '../../components';
 import {USER} from '../../utils/queries';
 import Auth from '../../utils/auth';
 // import { tempProductData } from '../../tempProductData';
@@ -16,6 +16,7 @@ function Profile () {
     const [confirmDelete,setConfirmDelete] = useState(false)
     const handleDeleteClose = () => setConfirmDelete(false)
     const handleDeleteShow = () => setConfirmDelete(true)
+    
     const [showEdit, setShowEdit] = useState(false);
     const [editKey, setEditKey] = useState('charity');
     const handleEditClose = () => setShowEdit(false);
@@ -116,6 +117,7 @@ function Profile () {
                 <Button className="charityButton" onClick={()=>handleEditShow()}>Edit Charity Info</Button>
                 <h3 className="text-center">My Charity</h3>
                 <MyCharity charityInfo={state.user.charity}/>
+                <AddProduct charityId={state.user.charity._id} handleModalClose={()=>setShowEdit(false)}/>
                 
                 {/* <Container className="my-4">
 
@@ -145,7 +147,7 @@ function Profile () {
                       <EditCharity charityInfo={state.user.charity} handleModalClose={()=>setShowEdit(false)} />
                     </Tab.Pane>
                     <Tab.Pane eventKey="product" title="Charity Products">
-                      <EditProduct charityId={state.user.charity._id}handleModalClose={()=>setShowEdit(false)}/>
+                      <AddProduct charityId={state.user.charity._id}/>
                     </Tab.Pane>
                   {/* </Tab.Content> */}
                   
