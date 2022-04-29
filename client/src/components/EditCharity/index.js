@@ -5,14 +5,25 @@ import {UPDATE_CHARITY} from '../../utils/mutations';
 
 function EditCharity ({charityInfo,handleModalClose}) {
     const [charityName,setCharityName] = useState(charityInfo.name)
+    const [charityMission,setCharityMission] = useState(charityInfo.mission)
+    const [charityLogo,setCharityLogo] = useState(charityInfo.logo)
     const [charityImage,setCharityImage] = useState(charityInfo.image)
+    const [charityYoutube,setCharityYoutube] = useState(charityInfo.youtube)
     const [charityDescription,setCharityDescription] = useState(charityInfo.description)
     const [charityWebsite,setCharityWebsite] = useState(charityInfo.website)
     const [updateCharity, {data}] = useMutation(UPDATE_CHARITY);
     
     const saveCharity=(e)=>{
         e.preventDefault()
-        updateCharity({variables:{charityId:charityInfo._id,name:charityName,image:charityImage,description:charityDescription,website:charityWebsite}})
+        updateCharity({variables:{charityId:charityInfo._id,
+                                    name:charityName,
+                                    image:charityImage,
+                                    description:charityDescription,
+                                    website:charityWebsite,
+                                    mission:charityMission,
+                                    logo:charityLogo,
+                                    youtube:charityYoutube,
+                                }})
         
         
         // dispatch({
@@ -37,15 +48,29 @@ function EditCharity ({charityInfo,handleModalClose}) {
                             </Card.Title>
                         </Card.Header>
                         <Card.Body>
-                            <p className="profileInfo p-1 d-flex justify-content-between align-items-center">
-                                {charityInfo.image==='Enter Image URL'?
-                                <Form.Group className="py-2" controlId="formCharityImage">
-                                    <Form.Label>Enter Image URL</Form.Label>
-                                    <Form.Control onChange={(e)=>setCharityImage(e.target.value)} type="text" placeholder='Enter URL' value={charityImage} />
+                            {/* <p className="profileInfo p-1 d-flex justify-content-between align-items-center"> */}
+                                
+                                <Form.Group className="py-2" controlId="formCharityLogo">
+                                    <Form.Label>Enter Logo URL</Form.Label>
+                                    <Form.Control onChange={(e)=>setCharityLogo(e.target.value)} type="text" placeholder='Enter Logo URL' value={charityLogo} />
                                     
                                 </Form.Group>
-                                :<img src={charityInfo.image} alt={charityInfo.name}></img>}
-                            </p>
+                                
+                               
+                                <Form.Group className="py-2" controlId="formCharityImage">
+                                    <Form.Label>Enter Image URL</Form.Label>
+                                    <Form.Control onChange={(e)=>setCharityImage(e.target.value)} type="text" placeholder='Enter Image URL' value={charityImage} />
+                                    
+                                </Form.Group>
+                                
+                                
+                                <Form.Group className="py-2" controlId="formCharityYoutube">
+                                    <Form.Label>Enter Youtube Link</Form.Label>
+                                    <Form.Control onChange={(e)=>setCharityYoutube(e.target.value)} type="text" placeholder='Enter Youtube Link' value={charityYoutube} />
+                                    
+                                </Form.Group>
+                                
+                            {/* </p> */}
                             
                                 <Form.Group className="py-2" controlId="formCharityDescription">
                                     <Form.Label>Charity Description</Form.Label>
@@ -56,6 +81,11 @@ function EditCharity ({charityInfo,handleModalClose}) {
                                 <Form.Group className="py-2" controlId="formCharityWebsite">
                                     <Form.Label>Charity Website</Form.Label>
                                     <Form.Control onChange={(e)=>setCharityWebsite(e.target.value)} type="text" placeholder={charityWebsite} value={charityWebsite} />
+                                    
+                                </Form.Group>
+                                <Form.Group className="py-2" controlId="formCharityMission">
+                                    <Form.Label>Charity Mission</Form.Label>
+                                    <Form.Control onChange={(e)=>setCharityMission(e.target.value)} type="text" placeholder={charityMission} value={charityMission} />
                                     
                                 </Form.Group>
                             
