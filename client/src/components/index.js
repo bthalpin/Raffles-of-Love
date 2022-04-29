@@ -8,5 +8,6 @@ import EditCharity from './EditCharity';
 import Cart from './Cart';
 import EditUser from './EditUser';
 import RaffleTicket from './RaffleTicket';
+import MyCharity from './MyCharity';
 
-export {Login,Navigation,Register,ProductCard,Footer,EditProduct,EditCharity,Cart,EditUser,RaffleTicket}
+export {Login,Navigation,Register,ProductCard,Footer,EditProduct,EditCharity,Cart,EditUser,RaffleTicket,MyCharity}

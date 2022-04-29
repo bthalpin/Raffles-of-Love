@@ -47,7 +47,7 @@ const resolvers = {
               path: 'product',
               model: 'Product'
             }
-          })
+          }).populate('charity')
           console.log(thisUser)
           return thisUser
       }
@@ -213,7 +213,7 @@ const resolvers = {
           console.log(productId)
           const product = await Product.findById(productId); 
           // console.log(product,product.tickets.length,'PRODUCT!!!!!!!!!!!!!!!!!!!!!!!')                    // Using the parameter to find the matching product in the collection.
-          const ticket = await Ticket.create({ticketNumber:product.tickets.length + 1, product: productId});
+          const ticket = await Ticket.create({ticketNumber:Math.floor(Math.random()*1000000), product: productId});
 
           await User.findByIdAndUpdate(context.user._id, { $push: { tickets: ticket } });
 
