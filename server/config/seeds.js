@@ -98,7 +98,10 @@ db.once('open', async () => {
         {
             name: 'New-Charity-Change-Name',
             website: 'Enter Website',
-            image: 'Enter Image URL',
+            image: 'https://www.inkling.com/wp-content/uploads/2021/06/SD-default-image.png',
+            logo:'https://www.inkling.com/wp-content/uploads/2021/06/SD-default-image.png',
+            mission:'Enter Mission Statement',
+            youtube:'Enter Youtube Video',
             description: 'Enter Description',
         },
     ]);

@@ -1,6 +1,6 @@
 import React from 'react';
 import {Card,Container} from 'react-bootstrap';
-
+import {Link} from 'react-router-dom';
 import { useStoreContext } from "../../utils/GlobalState";
 
 
@@ -9,7 +9,7 @@ function MyCharity ({charityInfo}) {
     return (
         <div className="">
            
-            <Container className="d-flex flex-wrap justify-content-around my-5 mx-auto">
+            <Container as={Link} to={`/Charity/${charityInfo._id}`} className="d-flex flex-wrap justify-content-around my-5 mx-auto">
                 
                         
                         <Card className=" m-2 p-3 text-center">
