@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 // import {ProductCard} from '../../components';
 import {Card,Container,Button} from 'react-bootstrap';
 // import { tempProductData } from '../../tempProductData';
@@ -23,6 +23,8 @@ import Auth from '../../utils/auth';
 import './singleProduct.css';
 
 function SingleProduct () {
+    const [inCart,setInCart] = useState(false)
+
     const {productId} = useParams()
     const [state, dispatch] = useStoreContext();
     // const tempProductData = state.products;
@@ -32,9 +34,10 @@ function SingleProduct () {
                 productId:productId
             }}
         )
-    console.log(data)
+    console.log(state.cart,Object.values(state.cart.flatMap(item=>Object.values(item))).includes(productId),Object.values(state.cart.flatMap(item=>Object.values(item))))
 
     const addToCart = (product) => {
+      setInCart(true)
         const itemInCart = state.cart.find(item => item._id === productId)
         if (itemInCart) {
           dispatch({
@@ -54,7 +57,21 @@ function SingleProduct () {
           idbPromise('cart', 'put', { ...product, quantity: 1 });
         }
       }
-    
+    const displayButton = () => {
+      console.log('here')
+      if (!Auth.loggedIn()){
+      console.log('here')
+
+        return <Button disabled>Must Log In to Buy A Ticket</Button>
+      } else if (data.product.winningNumber!=='000000000000000000000000'){
+        return <Button disabled>Raffle Over</Button>
+      } else if (Object.values(state.cart.flatMap(item=>Object.values(item))).includes(productId)) {
+        return <Button disabled>In Cart</Button>
+      } else {
+        return <Button className="buyBtn" onClick={()=>addToCart(data.product)}>Buy Ticket</Button>
+      }
+    }
+
     return (
         <>
             {data?
@@ -64,12 +81,13 @@ function SingleProduct () {
                             <Card.Title>{data.product.name}</Card.Title>
                             <img className="singleProductImage" src={data.product.image} alt=""/>
                             <Card.Body>{data.product.description}</Card.Body>
-                            {Auth.loggedIn()?data.product.winningNumber!=='000000000000000000000000'?
+                            {displayButton()}
+                            {/* {Auth.loggedIn()?data.product.winningNumber!=='000000000000000000000000'?
                             'RAFFLE OVER':
                             <Button className="buyBtn" onClick={()=>addToCart(data.product)}>Buy Ticket</Button>
                             :
                             <Button disabled>Must Log In to Buy A Ticket</Button>
-                            }
+                            } */}
                         </Card>
             </Container>
             
