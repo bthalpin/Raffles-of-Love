@@ -1,0 +1,9 @@
+.loginContainer{
+    padding:1rem;
+}
+@media screen and (max-width:500px) {
+    .loginContainer{
+        padding:0;
+    }
+    
+}
