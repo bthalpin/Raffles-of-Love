@@ -49,6 +49,11 @@
 @media screen and (max-width: 411px) {
     .profilePage{
         margin-top: 2%;
+        margin-bottom:10rem;
+    }
+    .userContainer{
+        margin:0 !important;
+        padding:0 !important;
     }
 }
 

@@ -19,4 +19,9 @@
     width:5rem;
     margin:auto;
 } 
-
+@media screen and (max-width:500px) {
+    .removeBtn{
+        font-size: 0.9rem !important;
+    }
+    
+}

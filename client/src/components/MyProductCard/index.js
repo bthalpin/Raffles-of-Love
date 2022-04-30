@@ -23,7 +23,7 @@ function MyProductCard({ productData,myProducts }) {
                     
                     
                     <div className="productLink" key={index}>
-                        <Card className="productCard m-2 p-3 text-center">
+                        <Card className="productCard p-3 text-center">
                             {
                                 window.location.pathname === '/Product' ?
                                     <Card.Header className="cardHeader">Brought to you by {product?.charity?.name}</Card.Header>

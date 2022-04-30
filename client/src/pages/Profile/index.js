@@ -71,7 +71,7 @@ function Profile () {
             <div className="profilePage">
               <h1 className='display-2 text-center'>Hello {state.user.userName}</h1>
               
-                <Container className="my-4 " >
+                <Container className="userContainer my-4 " >
                     {editUser?
                     <EditUser setEditUser={setEditUser} updateUser={updateUser} handleDeleteShow={handleDeleteShow}/>
                     :
