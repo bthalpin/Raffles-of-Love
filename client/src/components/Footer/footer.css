@@ -20,6 +20,7 @@
     
     .footer{
         display:block !important;
+        text-align: center;
         /* width: 105%; */
         height: auto;
     }
