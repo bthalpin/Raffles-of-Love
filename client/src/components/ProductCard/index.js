@@ -16,14 +16,14 @@ function ticketsLeft(product) {
 
 function ProductCard({ productData,myProducts }) {
     return (
-        <Container className="containerLarge d-flex flex-wrap justify-content-around m-auto">
+        <Container className="productContainer containerLarge d-flex flex-wrap justify-content-around m-auto">
             {productData.map((product, index) => {
                 return (
                     <>
                     
                     
                     <Link className="productLink"  to={`/Product/${product._id}`}key={index}>
-                        <Card className="productCard m-2 p-3 text-center">
+                        <Card className="productCard p-3 text-center">
                             {
                                 window.location.pathname === '/Product' ?
                                     <Card.Header className="cardHeader">Brought to you by {product?.charity?.name}</Card.Header>

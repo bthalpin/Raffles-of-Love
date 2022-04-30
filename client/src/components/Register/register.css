@@ -4,3 +4,21 @@
 .zip{
     width:20%;
 }
+.addressContainer{
+    display:flex;
+    justify-content: space-between;
+}
+.registerContainer{
+    padding:1rem !important;
+}
+@media screen and (max-width: 500px) {
+    .addressContainer{
+        display:block !important;
+    }
+    .registerContainer{
+        padding:0 !important;
+    }
+    .address,.zip{
+        width:100%;
+    }
+}

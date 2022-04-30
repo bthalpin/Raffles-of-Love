@@ -41,10 +41,9 @@
     border-radius: 50%;
     padding:0 0.4rem;
 }
-
 @media screen and (max-width: 992px) {
-    button.navbar-toggler.collapsed {
-        margin-right: 30px  !important;
+    .navLink{
+        padding-right:0 !important;
     }
 }
 
@@ -68,7 +67,7 @@
     }
     
     .navigation{
-        width: 105%;
+        /* width: 105%; */
     }
 
 
@@ -82,7 +81,7 @@
     }
     
     .navigation{
-        width: 109%;
+        /* width: 100vw; */
     }
 
 

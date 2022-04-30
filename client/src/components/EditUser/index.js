@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import {Form,Button,Card} from 'react-bootstrap';
 import { useStoreContext } from "../../utils/GlobalState";
 import {UPDATE_USER_INFO} from '../../utils/actions';
+import './editUser.css';
 
 function EditUser ({update,setEditUser,updateUser,handleDeleteShow}) {
     const [state, dispatch] = useStoreContext();
@@ -32,8 +33,8 @@ function EditUser ({update,setEditUser,updateUser,handleDeleteShow}) {
 
                                 
                             
-        <Form className="p-4" onSubmit={handleSubmit}>
-        <Card>
+        <Form className="editUserConatiner" onSubmit={handleSubmit}>
+        <Card className="editUserCard">
                         <Card.Header>
                             <Card.Title>
             <Form.Group className="py-2" controlId="editUserFormName">

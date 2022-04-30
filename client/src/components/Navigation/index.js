@@ -39,7 +39,7 @@ function Navigation() {
           <Navbar.Brand className="brandName display-1" href="#home"as={Link} to='/'>Raffles of Love</Navbar.Brand>
         </div>
         <div>
-          <Navbar.Toggle aria-controls="navbar" />
+          <Navbar.Toggle  aria-controls="navbar" />
           <Navbar.Collapse id="navbar">
             <Nav className="navRight">
               {/* <Nav className="navLink fs-3" as={Link} to='/'>Home</Nav> */}

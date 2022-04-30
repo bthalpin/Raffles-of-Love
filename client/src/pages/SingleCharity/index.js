@@ -44,7 +44,7 @@ function Charity () {
         <div className="singleCharityPage ">
             {data?
             <>
-            <Container className="d-flex flex-wrap justify-content-around my-5 mx-auto">
+            <Container className="singleCharityContainer d-flex flex-wrap justify-content-around my-5 mx-auto">
                 
                         
                         <Card className="singleCharityCard m-2 p-3 text-center col-lg">

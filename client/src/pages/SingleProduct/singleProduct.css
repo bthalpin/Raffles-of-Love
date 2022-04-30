@@ -43,11 +43,20 @@ a:link { text-decoration: none; }
 a:visited { text-decoration: none; }
 a:hover { text-decoration: none; }
 a:active { text-decoration: none; }
-
+@media screen  and (max-width:500px){
+    .buyBtn {
+        width:50%;
+    }
+}
 @media screen and (max-width:410px) {
     html {
         height:800px !important;
     }
+    .singleProductPage{
+        margin-bottom:10rem;
+        padding:0 !important;
+    }
+    
 }
 
 @media screen and (max-width:398px) {
