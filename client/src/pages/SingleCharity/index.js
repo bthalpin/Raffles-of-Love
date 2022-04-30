@@ -54,11 +54,11 @@ function Charity () {
                                 <p>Their Mission: </p>{state.currentCharity.mission}
                             </Card.Body>
                             <Card.Body>
-                                <p>For more information, visit: <a href = {state.currentCharity.website}>{state.currentCharity.website}</a></p>
+                                <p className="pLink">For more information, visit: <a href = {state.currentCharity.website}>{state.currentCharity.website}</a></p>
                             </Card.Body>
                         </Card>
                         
-                        <Card className="singleCharityCard m-2 p-3 col-lg">
+                        <Card className="singleCharityCard2 m-2 p-3 col-lg">
                             <iframe width="420" height="315" src={state.currentCharity.youtube} frameBorder="0" allowFullScreen="" title="youtube"></iframe>
                         </Card>
                        
