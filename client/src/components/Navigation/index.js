@@ -47,8 +47,10 @@ function Navigation() {
               {Auth.loggedIn()?
               <>
               <Nav className="navLink fs-3" as={Link} to='/Profile'>My Profile</Nav>
-              <Nav onClick={handleCartShow} className="navLink fs-3 navCheckout" >Cart<span className="cartCount">{state.cart.length?state.cart.length:<></>}</span></Nav>
-              
+              <Nav onClick={handleCartShow} className="navLink fs-3 navCheckout" >Cart<span className="cartCount">{state.cart.length?state.cart.reduce((acc,item)=>{
+                return acc+parseInt(item.quantity)
+              },0):<></>}</span></Nav>
+             
               <Nav onClick={logout} className="navLink fs-3" as={Link} to='#'> Logout</Nav>
               </>
               :
