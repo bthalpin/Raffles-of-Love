@@ -10,7 +10,7 @@ db.once('open', async () => {
             website: "https://www.stjude.org",
             image: "https://www.stjude.org/content/sites/www/en_US/home/promotion/hello/charitable-gifts-for-kids/jcr:content/par-2/cnt_row_copy_copy_co/par-1/cnt_column_109669490/par-1/cnt_image.img.1200.high.jpg/1639513375113.jpg",
             logo: "https://1000logos.net/wp-content/uploads/2017/08/St.-Jude-Logo.png",
-            mission: "The mission of St. Jude Children’s Research Hospital is to advance cures, and means of prevention, for pediatric catastrophic diseases through research and treatment. Consistent with the vision of our founder Danny Thomas, no child is denied treatment based on race, religion or a family's ability to pay.",
+            mission: "The mission of St. Jude Children’s Research Hospital is to advance cures, and means of prevention, for pediatric catastrophic diseases through research and treatment.",
             youtube: "https://www.youtube.com/embed/n78D5XpPv-c",
             description: "There are great research institutions, great hospitals and great charities — St. Jude Children's Research Hospital is all three."
         },
