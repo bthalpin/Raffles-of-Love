@@ -36,7 +36,7 @@ function Navigation() {
     <Navbar className="navigation p-4 d-flex justify-content-between"  variant="dark" expand="lg">
         <div>
 
-          <Navbar.Brand className="brandName display-1" href="#home"as={Link} to='/'>Wagers of Compassion</Navbar.Brand>
+          <Navbar.Brand className="brandName display-1" href="#home"as={Link} to='/'>Raffles of Love</Navbar.Brand>
         </div>
         <div>
           <Navbar.Toggle aria-controls="navbar" />
@@ -92,7 +92,7 @@ function Navigation() {
 
         <Modal show={showCart} onHide={handleCartClose} size="lg">
           <Modal.Header closeButton >
-            <Modal.Title>Wagers of Compassion</Modal.Title>
+            <Modal.Title>Raffles of Love</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <Cart handleModalClose={()=>setShowCart(false)}/>

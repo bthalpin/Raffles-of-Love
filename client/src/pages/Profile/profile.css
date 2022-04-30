@@ -45,3 +45,28 @@
     }
     
 }
+
+@media screen and (max-width: 411px) {
+    .profilePage{
+        margin-top: 2%;
+    }
+}
+
+@media screen and (max-width: 399px) {
+    .profilePage{
+        margin-top: 20%;
+    }
+}
+
+@media screen and (max-width: 398px) {
+    div.my-4.container{
+        margin-left: 10px;
+    }
+}
+
+@media screen and (max-width: 383px) {
+    div.my-4.container{
+        margin-left: 20px;
+    }
+}
+

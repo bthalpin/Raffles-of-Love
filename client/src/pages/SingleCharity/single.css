@@ -9,6 +9,14 @@
     background-color: var(--mint) !important;
 }
 
+.singleCharityCard2 {
+    width: 40rem;
+    height: 30rem;
+    box-shadow: 0.5rem 0.5rem 1rem #bbc4cf;
+    background-color: var(--mint) !important;
+}
+
+
 .singleCharityImage {
     width: 15rem;
     margin: auto;
@@ -30,6 +38,27 @@ iframe {
  }
 
 
- .ytp-cued-thumbnail-overlay-image {
-    
- }
+@media screen and (max-width: 491px){
+    iframe {
+        width: 350px;
+    }
+}
+
+@media screen and (max-width: 410px){
+    iframe {
+        width: 315px;
+    }
+}
+
+@media screen and (max-width: 392px){
+
+    div.card-body{
+        padding: 0;
+    }
+}
+
+@media screen and (max-width: 383px){
+    div.card-body{
+        padding-bottom: 5px;
+    }
+}
