@@ -114,9 +114,10 @@ function Profile () {
                 <p className="text-center">No Raffle Tickets Yet</p>}
                 {state.user.charity?
                 <Container className="my-5 border-top">
-                <Button className="charityButton" onClick={()=>handleEditShow()}>Edit Charity Info</Button>
                 <h3 className="text-center">My Charity</h3>
-                <MyCharity charityInfo={state.user.charity}/>
+                <MyCharity charityInfo={state.user.charity} handleEditShow={handleEditShow}/>
+                {/* <Button className="charityButton" onClick={()=>handleEditShow()}>Edit Charity Info</Button> */}
+
                 <AddProduct charityId={state.user.charity._id} handleModalClose={()=>setShowEdit(false)}/>
                 
                 {/* <Container className="my-4">

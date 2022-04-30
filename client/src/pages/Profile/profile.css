@@ -7,9 +7,9 @@
     background-color: var(--alice);
 }
 .charityButton{
-    position:absolute;
+    /* position:absolute;
     top:0;
-    right:1rem;
+    right:1rem; */
 }
 
 .profileCardTitle {
