@@ -2,7 +2,7 @@
 
 
   ## Description
-  We built a raffle website that would give charities a place to raffle off donated items.  It gives people the opportunity to learn about charities they may not have known about in the past on the landing page.  Selecting a charity will show you more information on them and their items they are raffling off.  Selecting the item will take you to a page with information on the item as well as allow you to buy tickets for the item if you are logged in.  Once all of the tickets for an item are sold a random ticket will be selected and notify the winner they have won, and will notify the people without winning tickets that they did not win the raffle.  It allows for a charity's to join the website and will build their page off of provided information, including raffled items.
+  We built a raffle website that would give charities a place to raffle off donated items.  It gives people the opportunity to learn about charities they may not have known about in the past on the landing page.  Selecting a charity will show you more information on them and their items they are raffling off.  Selecting the item will take you to a page with information on the item as well as allow you to buy tickets for the item if you are logged in.  Once all of the tickets for an item are sold a random ticket will be selected and notify the winner they have won, and will notify the people without winning tickets that they did not win the raffle.  It allows for a charity to join the website and will build their page off of provided information, including raffled items.
   
   ## Table of Contents
 
