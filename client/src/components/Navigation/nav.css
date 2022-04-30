@@ -44,7 +44,7 @@
 
 @media screen and (max-width: 992px) {
     button.navbar-toggler.collapsed {
-        margin-right: 30px  !important;
+        /* margin-right: 30px  !important; */
     }
 }
 
@@ -68,7 +68,7 @@
     }
     
     .navigation{
-        width: 105%;
+        /* width: 105%; */
     }
 
 
@@ -82,7 +82,7 @@
     }
     
     .navigation{
-        width: 109%;
+        /* width: 100vw; */
     }
 
 
