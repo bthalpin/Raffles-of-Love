@@ -18,7 +18,7 @@
     cursor: pointer;
     overflow: hidden;
     background-color: var(--mint) !important;
-
+    margin:0.5rem;
 }
 .charityCard:hover{
     transform: scale(1.02);
@@ -39,4 +39,20 @@ p {
 
 .title {
     color: var(--royal);
+}
+
+@media screen and (max-width: 410px) {
+    .charityCard {
+        width: 100vw !important;
+        margin-left:0 !important;
+        margin-right:0 !important;
+    }
+    .charityImage{
+        width:85vw;
+        object-fit: cover;
+    }
+    .charityPage{
+        margin-bottom: 10rem;
+    }
+
 }

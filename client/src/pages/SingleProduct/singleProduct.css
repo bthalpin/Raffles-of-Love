@@ -4,7 +4,6 @@
 
 .singleProductCard {
     width: 40rem;
-    /* height:30rem; */
     box-shadow: 0.5rem 0.5rem 1rem #bbc4cf;
     background-color: var(--mint) !important;
 }
@@ -31,16 +30,38 @@
 }
 
 .link {
-    color: var(--deepblue);
-    text-shadow: 1px 1px var(--alice);
+    color: blue;
+    /* text-shadow: 1px 1px var(--alice); */
 }
 
 .link:hover {
-    color: var(--mint);
-    text-shadow: 1px 1px var(--royal);
+    color: rgb(168, 0, 168);
+
 }
 
 a:link { text-decoration: none; }
 a:visited { text-decoration: none; }
 a:hover { text-decoration: none; }
 a:active { text-decoration: none; }
+@media screen  and (max-width:500px){
+    .buyBtn {
+        width:50%;
+    }
+}
+@media screen and (max-width:410px) {
+    html {
+        height:800px !important;
+    }
+    .singleProductPage{
+        margin-bottom:10rem;
+        padding:0 !important;
+    }
+    
+}
+
+@media screen and (max-width:398px) {
+    html {
+        height: 110% !important;
+    }
+    
+}

@@ -36,10 +36,10 @@ function Navigation() {
     <Navbar className="navigation p-4 d-flex justify-content-between"  variant="dark" expand="lg">
         <div>
 
-          <Navbar.Brand className="brandName display-1" href="#home"as={Link} to='/'>Wagers of Compassion</Navbar.Brand>
+          <Navbar.Brand className="brandName display-1" href="#home"as={Link} to='/'>Raffles of Love</Navbar.Brand>
         </div>
         <div>
-          <Navbar.Toggle aria-controls="navbar" />
+          <Navbar.Toggle  aria-controls="navbar" />
           <Navbar.Collapse id="navbar">
             <Nav className="navRight">
               {/* <Nav className="navLink fs-3" as={Link} to='/'>Home</Nav> */}
@@ -47,8 +47,10 @@ function Navigation() {
               {Auth.loggedIn()?
               <>
               <Nav className="navLink fs-3" as={Link} to='/Profile'>My Profile</Nav>
-              <Nav onClick={handleCartShow} className="navLink fs-3 navCheckout" >Cart<span className="cartCount">{state.cart.length?state.cart.length:<></>}</span></Nav>
-              
+              <Nav onClick={handleCartShow} className="navLink fs-3 navCheckout" >Cart<span className="cartCount">{state.cart.length?state.cart.reduce((acc,item)=>{
+                return acc+parseInt(item.quantity)
+              },0):<></>}</span></Nav>
+             
               <Nav onClick={logout} className="navLink fs-3" as={Link} to='#'> Logout</Nav>
               </>
               :
@@ -92,7 +94,7 @@ function Navigation() {
 
         <Modal show={showCart} onHide={handleCartClose} size="lg">
           <Modal.Header closeButton >
-            <Modal.Title>Wagers of Compassion</Modal.Title>
+            <Modal.Title>Raffles of Love</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <Cart handleModalClose={()=>setShowCart(false)}/>

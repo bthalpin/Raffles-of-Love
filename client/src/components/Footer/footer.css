@@ -2,7 +2,7 @@
     position:absolute;
     bottom:0;
     left:0;
-    width:100vw;
+    right:0;
     background-color: var(--royal);
     border-top: 3px solid var(--orange);
 }
@@ -14,4 +14,28 @@
     color: var(--alice);
     text-shadow: 0 0 1rem var(--alice);
     transform: scale(1.03);
+}
+
+@media screen and (max-width: 410px) {
+    
+    .footer{
+        display:block !important;
+        text-align: center;
+        /* width: 105%; */
+        height: auto;
+    }
+    .footerLinkContainer{
+        display:block !important;
+    }
+    
+}
+
+@media screen and (max-width:398px) {
+    
+    /* .footer{
+        width: 109%;
+        height: auto;
+    } */
+
+    
 }

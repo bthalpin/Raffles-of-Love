@@ -67,7 +67,7 @@ function OrderSuccess () {
               </Card.Header>
                 {state.orderSummary.map((item,index)=>{
                   return (
-              <Card.Body key={index} className="border">
+              <Card.Body key={index} className="orderContent border">
                 <div className="d-flex justify-content-between flex-wrap">
                 <img className="orderImage" src={item.image} alt={item.name}></img>
                 <Card.Text>{`${item.name} - ${item.description} x ${item.quantity}`}</Card.Text>

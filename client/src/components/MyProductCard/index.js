@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import {EditProduct} from '../../components'
 import { Card, Container, Button } from 'react-bootstrap';
-import './product.css';
+// import './product.css';
 import { PRODUCTS } from '../../utils/queries';
 
 
@@ -14,15 +14,15 @@ function ticketsLeft(product) {
 }
 
 
-function ProductCard({ productData,myProducts }) {
+function MyProductCard({ productData,myProducts }) {
     return (
-        <Container className="productContainer containerLarge d-flex flex-wrap justify-content-around m-auto">
+        <Container className="containerLarge d-flex flex-wrap justify-content-around m-auto">
             {productData.map((product, index) => {
                 return (
-                    <>
                     
                     
-                    <Link className="productLink"  to={`/Product/${product._id}`}key={index}>
+                    
+                    <div className="productLink" key={index}>
                         <Card className="productCard p-3 text-center">
                             {
                                 window.location.pathname === '/Product' ?
@@ -38,11 +38,10 @@ function ProductCard({ productData,myProducts }) {
                             {/* <Button>Buy Ticket</Button> */}
                             {product.ticketCount === product.tickets?.length ? 'Sold' : <>Tickets left: {ticketsLeft(product)}</>}
                             
-                        </Card>
-                    </Link>
                     {myProducts?<EditProduct productInfo={product}/>:<></>}
+                        </Card>
+                    </div>
          
-                    </>
 
                 )
             })}
@@ -102,4 +101,4 @@ function ProductCard({ productData,myProducts }) {
     )
 }
 
-export default ProductCard;
+export default MyProductCard;

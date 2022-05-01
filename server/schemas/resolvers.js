@@ -137,9 +137,11 @@ const resolvers = {
       throw new AuthenticationError('Not logged in');                           // If user attempts to execute this mutation and isn't logged in, throw an error.
     },
 
-    addProduct: async (parent, { name, description, image, price, ticketCount, charity_id }) => {
-      const product = await Product.create({ name, description, image, price, ticketCount, charity_id });
-      return product;
+    addProduct: async (parent, { name, description, image, price, ticketCount, charity }) => {
+      console.log('ADD PRODUCT')
+      const charityInfo = await Charity.findById(charity)
+      const product =  await Product.create({ name, description, image, price, ticketCount, charity:charityInfo._id,winningNumber:'000000000000000000000000',tickets:[] });
+      return product
     },
 
     addFavCharity: async (parent, { charity_id }, context) => {

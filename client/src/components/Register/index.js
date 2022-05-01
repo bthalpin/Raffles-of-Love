@@ -37,7 +37,7 @@ function Register () {
     }
 
     return (
-        <Form className="p-4" onSubmit={handleSubmit}>
+        <Form className="registerContainer" onSubmit={handleSubmit}>
             <Form.Group className="py-2" controlId="registerFormName">
                 <Form.Label>Name</Form.Label>
                 <Form.Control onChange={(e)=>setName(e.target.value)} type="text" placeholder="Enter Name" value={name} autoFocus />
@@ -66,7 +66,7 @@ function Register () {
                     We won't share your name
                 </Form.Text> */}
             </Form.Group>
-            <div className="d-flex justify-content-between">
+            <div className="addressContainer">
                 <Form.Group className="py-2 address" controlId="registerFormCity">
                     <Form.Label>City</Form.Label>
                     <Form.Control onChange={(e)=>setCity(e.target.value)} type="text" placeholder="Enter City" value={city} />

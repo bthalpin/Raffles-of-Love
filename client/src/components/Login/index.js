@@ -3,6 +3,8 @@ import { useMutation } from '@apollo/client';
 import { LOGIN } from '../../utils/mutations';
 import Auth from '../../utils/auth';
 import {Form,Button} from 'react-bootstrap';
+import './login.css';
+
 function Login () {
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
@@ -33,13 +35,13 @@ function Login () {
         setPassword('')
     }
     return (
-            <Form className="p-4" onSubmit={handleSubmit}>
+            <Form className="loginContainer" onSubmit={handleSubmit}>
                 <Form.Group className="py-2" controlId="formEmail">
                     <Form.Label>Email</Form.Label>
                     <Form.Control onChange={(e)=>setEmail(e.target.value)} type="email" placeholder="Enter Email" value={email} autoFocus />
-                    <Form.Text className="text-muted">
+                    {/* <Form.Text className="text-muted">
                         We won't share your email
-                    </Form.Text>
+                    </Form.Text> */}
                 </Form.Group>
                 <Form.Group className="py-2" controlId="formPassword">
                     <Form.Label>Password</Form.Label>

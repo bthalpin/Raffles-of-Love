@@ -60,7 +60,7 @@ const CartItem = ({ item }) => {
             onChange={onChange}
           />
           <Button
-            className="btn-secondary"
+            className="removeBtn btn-secondary"
             role="img"
             aria-label="trash"
             onClick={() => removeFromCart(item)}

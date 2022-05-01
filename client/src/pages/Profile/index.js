@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {ProductCard,EditCharity,EditProduct,EditUser,RaffleTicket, MyCharity} from '../../components';
+import {ProductCard,EditCharity,EditProduct,EditUser,RaffleTicket, MyCharity,AddProduct} from '../../components';
 import {USER} from '../../utils/queries';
 import Auth from '../../utils/auth';
 // import { tempProductData } from '../../tempProductData';
@@ -16,6 +16,7 @@ function Profile () {
     const [confirmDelete,setConfirmDelete] = useState(false)
     const handleDeleteClose = () => setConfirmDelete(false)
     const handleDeleteShow = () => setConfirmDelete(true)
+    
     const [showEdit, setShowEdit] = useState(false);
     const [editKey, setEditKey] = useState('charity');
     const handleEditClose = () => setShowEdit(false);
@@ -69,37 +70,35 @@ function Profile () {
     return (
             <div className="profilePage">
               <h1 className='display-2 text-center'>Hello {state.user.userName}</h1>
-              <div>
-                <Button className='btn-danger' onClick={handleDeleteShow}>DELETE USER</Button>
-              </div>
-                <Container className="my-4 profileInfoContainer" >
+              
+                <Container className="userContainer my-4 " >
                     {editUser?
-                    <EditUser setEditUser={setEditUser} updateUser={updateUser}/>
+                    <EditUser setEditUser={setEditUser} updateUser={updateUser} handleDeleteShow={handleDeleteShow}/>
                     :
-                    <Card>
-                        <Card.Header>
-                            <Card.Title>
+                    <Card className="profileCardFull">
+                        <Card.Header  className ="profileCard">
+                            <Card.Title className="profileCardTitle">
                                 {state.user.userName}
                             </Card.Title>
                         </Card.Header>
-                        <Card.Body>
+                        <Card.Body className="profileBody">
                             <p className="profileInfo p-1 d-flex justify-content-between align-items-center">
-                                {state.user.email}
+                               <span>Email Address:</span> {state.user.email}
                             </p>
                             <p className="profileInfo p-1 d-flex justify-content-between align-items-center">
-                                {street}
+                               <span>Street:</span> {street}
                             </p>
                             <p className="profileInfo p-1 d-flex justify-content-between align-items-center">
-                                {city}
+                                <span>City:</span> {city}
                             </p>
                             <p className="profileInfo p-1 d-flex justify-content-between align-items-center">
-                                {states}
+                                <span>State:</span>{states}
                             </p>
                             <p className="profileInfo p-1 d-flex justify-content-between align-items-center">
-                                {zip}
+                                <span>Zip Code:</span>{zip}
                             </p>
                             <Button onClick={()=>setEditUser(true)}>Edit</Button>
-                            
+                           
                         </Card.Body>
                     </Card>
                     
@@ -114,10 +113,12 @@ function Profile () {
                 :
                 <p className="text-center">No Raffle Tickets Yet</p>}
                 {state.user.charity?
-                <>
-                <Button className="charityButton" onClick={()=>handleEditShow()}>Edit Charity Info</Button>
+                <Container className="my-5 border-top">
                 <h3 className="text-center">My Charity</h3>
-                <MyCharity charityInfo={state.user.charity}/>
+                <MyCharity charityInfo={state.user.charity} handleEditShow={handleEditShow}/>
+                {/* <Button className="charityButton" onClick={()=>handleEditShow()}>Edit Charity Info</Button> */}
+
+                <AddProduct charityId={state.user.charity._id} handleModalClose={()=>setShowEdit(false)}/>
                 
                 {/* <Container className="my-4">
 
@@ -147,7 +148,7 @@ function Profile () {
                       <EditCharity charityInfo={state.user.charity} handleModalClose={()=>setShowEdit(false)} />
                     </Tab.Pane>
                     <Tab.Pane eventKey="product" title="Charity Products">
-                      <EditProduct charityId={state.user.charity._id}handleModalClose={()=>setShowEdit(false)}/>
+                      {/* <AddProduct charityId={state.user.charity._id}/> */}
                     </Tab.Pane>
                   {/* </Tab.Content> */}
                   
@@ -158,7 +159,7 @@ function Profile () {
                 <Login handleModalClose={()=>setShow(false)} /> */}
               </Modal>
 
-              </>
+              </Container>
                 :<></>
                 }
 

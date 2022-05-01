@@ -1,0 +1,14 @@
+.editUserContainer{
+    padding:1rem !important;
+}
+
+@media screen and (max-width: 411px) {
+    .editUserContainer{
+        margin:0 !important;
+        padding:0 !important;
+    }
+    .editUserCard{
+        padding-left:0.2rem;
+        padding-right:0.2rem;
+    }
+}
