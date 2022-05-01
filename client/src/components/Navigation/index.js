@@ -46,7 +46,7 @@ function Navigation() {
               <Nav className="navLink fs-3" as={Link} to='/Product'>Raffles</Nav>
               {Auth.loggedIn()?
               <>
-              <Nav className="navLink fs-3" as={Link} to='/Profile'>My Profile</Nav>
+              <Nav className="navLink fs-3" as={Link} to='/Profile' >My Profile</Nav>
               <Nav onClick={handleCartShow} className="navLink fs-3 navCheckout" >Cart<span className="cartCount">{state.cart.length?state.cart.reduce((acc,item)=>{
                 return acc+parseInt(item.quantity)
               },0):<></>}</span></Nav>
