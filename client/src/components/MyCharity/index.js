@@ -14,12 +14,15 @@ function MyCharity ({charityInfo,handleEditShow}) {
                         
                         <Card className=" m-2 p-3 text-center">
                             <Card.Title>{charityInfo.name}</Card.Title>
-                            <div className="my-1">
-                                <img className="myCharityImage" src={charityInfo.logo}/>
-                                
-                            </div>
-                            <div className="my-1">
-                                <img className="myCharityImage" src={charityInfo.image}/>
+                            <div className="myImages">
+                                <div className="my-1">
+                                    <img className="myCharityImage" src={charityInfo.logo}/>
+                                    
+                                </div>
+                                <div className="my-1">
+                                    <img className="myCharityImage" src={charityInfo.image}/>
+
+                                </div>
 
                             </div>
                             <Card.Body>{charityInfo.description}</Card.Body>

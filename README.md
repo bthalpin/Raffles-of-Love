@@ -7,8 +7,13 @@
   ## Table of Contents
 
   - [Tools](#tools)
+
   - [License](#license)
+
+  - [Link](#link)
+
   - [Screenshots](#screenshots)
+
   - [Questions](#questions)
   
   ## Tools
@@ -20,9 +25,11 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
   
-  
-  ## Screenshots
+  ## Link
 [Live App](https://charity-raffle.herokuapp.com/)
+
+
+  ## Screenshots
 ![Landing Page](./client/public/images/landing-page.PNG)
 ![Singular Charity](./client/public/images/singular-charity.PNG)
 ![All Raffles](./client/public/images/all-raffles.PNG)

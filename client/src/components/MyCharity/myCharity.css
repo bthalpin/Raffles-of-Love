@@ -3,9 +3,21 @@
     margin:auto;
 }
 .myCharityImage{
+    width:98%;
     max-width: 30rem;
 }   
-
+.myImages{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #e6f0fc;
+    border-radius: 0.1rem;
+}
+@media screen and (max-width:768px) {
+    .myImages{
+        display:block;
+    }   
+}
 @media screen and (max-width:500px) {
     .myCharityImage{
         max-width: 95%;
