@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
-import {ProductCard, FavoriteButton} from '../../components/';
-import {Card,Container} from 'react-bootstrap';
+import {ProductCard} from '../../components/';
+import {Card,Container,Button} from 'react-bootstrap';
 import { useStoreContext } from "../../utils/GlobalState";
 import {SINGLE_CHARITY,PRODUCTS_BY_CHARITY} from '../../utils/queries';
 import { UPDATE_CURRENT_CHARITY,UPDATE_CHARITY_PRODUCTS } from '../../utils/actions';
@@ -45,8 +45,6 @@ function Charity () {
             {data?
             <>
             <Container className="singleCharityContainer d-flex flex-wrap justify-content-around my-5 mx-auto">
-                
-                        
                         <Card className="singleCharityCard m-2 p-3 text-center col-lg">
                             <Card.Title className="title m-2">{state.currentCharity.name}</Card.Title>
                             <img className="singleCharityImage" src={state.currentCharity.image} alt=""/>

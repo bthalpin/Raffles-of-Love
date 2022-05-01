@@ -28,9 +28,9 @@ function Charity () {
                     </p>
                     <p><span className='display-5'>We are&nbsp;</span> a non-profit organization created to uphold non-profit charities.</p>
                     <p><span className='display-5'>You&nbsp;</span> can donate and not only help these charities reach those in need, but also have a chance to win yourself a prize for your selflessness.</p>
-                    <p><span className='display-3'>Together,&nbsp;</span> we can make a difference!</p>
+                    <p><span className='display-3'>Together,&nbsp;</span> we can make the difference!</p>
                 </Card>  
-                <img className="imageFront" src='http://globalyouthinitiative.net/wp-content/themes/youth_speak_up_2013/images/about/about-divider-news.jpg'></img>
+                <img className="imageFront" src='http://globalyouthinitiative.net/wp-content/themes/youth_speak_up_2013/images/about/about-divider-news.jpg' alt=""></img>
                 <div>
                     <p className='lists my-3 bordered'>Tracking over <span className='display-4'>$46 billion</span> within the last year of 2021 in US-based charitable...</p>
                     <ul key="fact">
@@ -53,7 +53,7 @@ function Charity () {
                             <Card className="charityCard p-3 text-center">
                                 <Card.Title className="title m-2">{charity.name}</Card.Title>
                                 <Card.Body>
-                                    <img className="charityImage" src={charity.logo}></img>
+                                    <img alt="" className="charityImage" src={charity.logo}></img>
                                 </Card.Body>
                                 <Card.Body>    
                                     <p className='m-4'>{charity.description}</p>

@@ -158,23 +158,3 @@ export const ADD_ORDER = gql`
     }
   }
 `;
-
-export const FAVORITE_CHARITY = gql`
-mutation Mutation($favorite: FavoriteInput) {
-  addFavCharity(favorite: $favorite) {
-    _id
-    userName
-    email
-    favCharities {
-      _id
-      name
-      website
-      image
-      logo
-      description
-      youtube
-      mission
-    }
-  }
-}
-`

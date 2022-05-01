@@ -38,7 +38,6 @@ const typeDefs = gql`
         password: String!
         location: String!
         tickets: [Ticket]
-        favCharities: [Charity]
         order: [Order]
         charity: Charity
     }
