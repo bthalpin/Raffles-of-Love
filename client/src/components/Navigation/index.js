@@ -42,19 +42,6 @@ function Navigation() {
           <Navbar.Collapse id="navbar">
             <Nav className="navRight">
               <Nav className="navLink fs-3" as={Link} to='/Product'>Raffles</Nav>
-<<<<<<< HEAD
-              {Auth.loggedIn()?
-              <>
-              <Nav className="navLink fs-3" as={Link} to='/Profile' >My Profile</Nav>
-              <Nav onClick={handleCartShow} className="navLink fs-3 navCheckout" >Cart<span className="cartCount">{state.cart.length?state.cart.reduce((acc,item)=>{
-                return acc+parseInt(item.quantity)
-              },0):<></>}</span></Nav>
-             
-              <Nav onClick={logout} className="navLink fs-3" as={Link} to='#'> Logout</Nav>
-              </>
-              :
-              <Nav onClick={handleShow} className="navLink fs-3" as={Link} to='#'> Login</Nav>
-=======
               {Auth.loggedIn() ?
                 <>
                   <Nav className="navLink fs-3" as={Link} to='/Profile'>My Profile</Nav>
@@ -66,7 +53,6 @@ function Navigation() {
                 </>
                 :
                 <Nav onClick={handleShow} className="navLink fs-3" as={Link} to='#'> Login</Nav>
->>>>>>> c559afcec4022dfa8dfb5a465d2a53a2e5ed1992
               }
             </Nav>
           </Navbar.Collapse>

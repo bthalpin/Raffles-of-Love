@@ -100,4 +100,7 @@ iframe {
     div.card-body{
         padding-bottom: 5px;
     }
+    .charityImage1{
+        width:95vw;
+    }
 }

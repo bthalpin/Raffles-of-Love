@@ -37,12 +37,8 @@ function Charity () {
 
         }
     },[results])
-<<<<<<< HEAD
     
     
-=======
-
->>>>>>> c559afcec4022dfa8dfb5a465d2a53a2e5ed1992
     return (
         <div className="singleCharityPage ">
             {data?
