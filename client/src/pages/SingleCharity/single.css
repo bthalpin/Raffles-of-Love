@@ -13,20 +13,41 @@
     width: 40rem;
     height: 30rem;
     box-shadow: 0.5rem 0.5rem 1rem #bbc4cf;
-    background-color: var(--mint) !important;
+    background-color: #322b2b !important;
 }
-
 
 .singleCharityImage {
     width: 15rem;
     margin: auto;
 }
 
+.charityImage1{
+    width:20rem;
+    margin:auto;
+    animation: 2s ease-out 0s 1 slideInFromLeft;
+}
+
+.frontCard1{
+    width:100%;
+    box-shadow:0.5rem 0.5rem 1rem #bbc4cf;
+    transition:all 0.5s ease-in-out;
+    overflow: hidden;
+    background-color: var(--mint) !important;
+    margin:0.5rem;
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.frontCard1:hover{
+    transform: scale(1.02);
+}
+
 p {
     color: var(--royal);
 }
 
-.title {
+.title1 {
     color: var(--royal);
 }
 

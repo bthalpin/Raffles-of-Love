@@ -40,6 +40,7 @@ function Charity () {
                         <li>Small, medium, and large nonprofits in the United States now raise more than <span className='display-6'>10%</span> of their fundraising online in comparison to previous years.</li>
                         <li>No matter how small, even <span className='display-6'>YOU</span> can make the difference.</li>
                     </ul>
+                    <img className="imageFront" src='https://www.ocpgroup.ma/media/styles/wide_x1_max_w1440/azblob/2020-07/20200130_TOGO_FOCP_128%20%281%29.jpg?itok=gNDgGzDB' alt=""></img>
                     <p className='charityTitle'>
                         <ModalHeader className="display-2 charityAnim">Charities</ModalHeader>
                     </p>
