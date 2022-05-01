@@ -89,7 +89,7 @@ const typeDefs = gql`
         addTicket(_id: ID!, user_id: ID!, product_id: ID!): Ticket
         login(email: String!, password: String!): Auth
         addOrder(products: [ID]!): Order
-        
+        addFavCharity(_id: ID!, charity_id: ID!): User
     }
 `;
 

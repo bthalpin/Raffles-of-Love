@@ -1,4 +1,4 @@
-const { User, Ticket, Product, Charity, Order, Library } = require('../models');                  // Require models folder.
+const { User, Ticket, Product, Charity, Order } = require('../models');                  // Require models folder.
 const { signToken } = require('../utils/auths');                                  // Require signToken (JWT) from auth.js folder to verify integrity of claims.
 const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');             // Require stripe for payment functions.
 
@@ -47,7 +47,6 @@ const resolvers = {
               model: 'Product'
             }
           }).populate('charity')
-          .populate('library')
           return thisUser
       }
       throw new AuthenticationError('You need to be logged in!');                 // If user attempts to execute this mutation and isn't logged in, throw an error.
@@ -142,6 +141,14 @@ const resolvers = {
       const product = await Product.create({ name, description, image, price, ticketCount, charity_id });
       return product;
     },
+
+    addFavCharity: async (parent, { charity_id }, context) => {
+      if (context.user) {
+        return await User.create(context.user._id, { $push: { favCharities: charity_id } }, {new: true});
+      }
+      // throw new AuthenticationError('Not logged in');
+    },
+
 
     updateProductInfo: async (parent, args, context) => {
       if (context.user) {
