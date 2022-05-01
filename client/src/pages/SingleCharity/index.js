@@ -38,23 +38,23 @@ function Charity () {
 
         }
     },[results])
-    // console.log(state.currentCharity,state.charityProducts,state.user)
-    
+
     return (
         <div className="singleCharityPage ">
             {data?
             <>
+            <Card>
+                <img alt="" className="charityImage1" src={state.currentCharity.logo}></img>
+            </Card>
             <Container className="singleCharityContainer d-flex flex-wrap justify-content-around my-5 mx-auto">
-                
-                        
-                        <Card className="singleCharityCard m-2 p-3 text-center col-lg">
-                            <Card.Title className="title m-2">{state.currentCharity.name}</Card.Title>
+                        <Card className="singleCharityCard frontCard1 m-2 p-3 text-center col-lg">
+                            <Card.Title className="title1 m-2">{state.currentCharity.name}</Card.Title>
                             <img className="singleCharityImage" src={state.currentCharity.image} alt=""/>
                             <Card.Body>
                                 <p>Their Mission: </p>{state.currentCharity.mission}
                             </Card.Body>
                             <Card.Body>
-                                <p className="pLink">For more information, visit: <a href = {state.currentCharity.website}>{state.currentCharity.website}</a></p>
+                                <p className="Link">For more information, visit: <a href = {state.currentCharity.website}>{state.currentCharity.website}</a></p>
                             </Card.Body>
                         </Card>
                         
@@ -70,9 +70,6 @@ function Charity () {
             </>
             :<></>}
         </div>
-
-                    
-                
 
     )
 }
