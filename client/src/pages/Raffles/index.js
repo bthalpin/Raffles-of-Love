@@ -17,7 +17,7 @@ function Raffles () {
     //     address:'City, State'
     // }
     const { loading, data } = useQuery(PRODUCTS);
-    // console.log(state,state.products)
+    
     useEffect(()=>{
         if (data){
             dispatch({

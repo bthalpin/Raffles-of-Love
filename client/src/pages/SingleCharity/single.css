@@ -39,6 +39,9 @@ iframe {
 
 
 @media screen and (max-width: 491px){
+    .singleCharityCard{
+        height:auto;
+    }
     iframe {
         width: 350px;
     }

@@ -11,7 +11,6 @@ import './single.css';
 function Charity () {
     const {charityId} = useParams()
     const [state, dispatch] = useStoreContext();
-    console.log(charityId)
     const { loading, data } = useQuery(SINGLE_CHARITY,{
         variables:{charityId:charityId},
     });
@@ -38,7 +37,7 @@ function Charity () {
 
         }
     },[results])
-    // console.log(state.currentCharity,state.charityProducts,state.user)
+    
     
     return (
         <div className="singleCharityPage ">
