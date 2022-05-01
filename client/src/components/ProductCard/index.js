@@ -19,10 +19,10 @@ function ProductCard({ productData,myProducts }) {
         <Container className="productContainer containerLarge d-flex flex-wrap justify-content-around m-auto">
             {productData.map((product, index) => {
                 return (
-                    <>
+                    <div  key={index}>
                     
                     
-                    <Link className="productLink"  to={`/Product/${product._id}`}key={index}>
+                    <Link className="productLink"  to={`/Product/${product._id}`}>
                         <Card className="productCard p-3 text-center">
                             {
                                 window.location.pathname === '/Product' ?
@@ -42,7 +42,7 @@ function ProductCard({ productData,myProducts }) {
                     </Link>
                     {myProducts?<EditProduct productInfo={product}/>:<></>}
          
-                    </>
+                    </div>
 
                 )
             })}

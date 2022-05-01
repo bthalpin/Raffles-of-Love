@@ -60,6 +60,9 @@ iframe {
 
 
 @media screen and (max-width: 491px){
+    .singleCharityCard{
+        height:auto;
+    }
     iframe {
         width: 350px;
     }
@@ -96,5 +99,8 @@ iframe {
 @media screen and (max-width: 383px){
     div.card-body{
         padding-bottom: 5px;
+    }
+    .charityImage1{
+        width:95vw;
     }
 }

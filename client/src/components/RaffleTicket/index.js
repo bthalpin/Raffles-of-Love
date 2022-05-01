@@ -9,30 +9,8 @@ function RaffleTicket ({tickets}) {
     let myProducts=[];
     let myIds=[];
 
-
-
-    // HAVE TO GET THE PRODUCT INFO FOR THE TICKET TO DISPLAY ON PROFILE PAGE
-    // if (tickets){
-    //     tickets.map((ticket)=>{
-    //         myProducts.push({id:ticket.productId._id,number:ticket.ticketNumber})
-    //         myIds.push(ticket.productId._id)
-    //     })
-
-    // }
-    // console.log(myProducts)
-    // const {loading,data} = useQuery(PRODUCTS);
     
-    // console.log(data)
-    // useEffect(()=>{
-    //     if (data&&myIds){
-    //         console.log(data)
-    //         const myProduct = data.products.filter((product)=>{
-    //             // console.log(myProducts,product._id)
-    //             return myIds.includes(product._id)
-    //         })
-    //         console.log(myProduct,data.products)
-    //     }
-    // },[data,myProducts])
+    
     const checkWinner = (ticket) => {
         if (ticket.product.winningNumber==='000000000000000000000000'){
             return ''

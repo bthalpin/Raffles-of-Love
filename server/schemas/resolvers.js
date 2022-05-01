@@ -138,7 +138,6 @@ const resolvers = {
     },
 
     addProduct: async (parent, { name, description, image, price, ticketCount, charity }) => {
-      console.log('ADD PRODUCT')
       const charityInfo = await Charity.findById(charity)
       const product =  await Product.create({ name, description, image, price, ticketCount, charity:charityInfo._id,winningNumber:'000000000000000000000000',tickets:[] });
       return product
