@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 const bcrypt = require('bcrypt')
-const Charity = require('./Charity');
 const Order = require('./Order')
 
 const userSchema = new Schema({
@@ -44,7 +43,6 @@ const userSchema = new Schema({
             ref: 'Ticket'
         }    
     ],
-    favoriteCharities: [Charity.schema],
     orders: [Order.schema]
 });
 

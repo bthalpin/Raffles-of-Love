@@ -26,11 +26,81 @@
 .charityImage{
     width:20rem;
     margin:auto;
-
 }
+
+.frontCard{
+    width:100%;
+    box-shadow:0.5rem 0.5rem 1rem #bbc4cf;
+    transition:all 0.5s ease-in-out;
+    overflow: hidden;
+    background-color: var(--mint) !important;
+    margin:0.5rem;
+    animation: fadeInAnimation ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.imageFront{
+    max-width: 100%;
+    animation: fadeInAnimation ease 4s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
+}
+
+.frontCard:hover{
+    transform: scale(1.02);
+}
+
+.lists {
+    font-size: 30px;
+    text-align: left;
+}
+
+.bordered{
+    border-bottom: black 1px solid;
+}
+
+.charityTitle{
+    animation: 2s ease-out 0s 1 slideInFromLeft;
+    width: auto;
+    margin-top: 10px;
+    background-color: var(--mint) !important;
+    margin:0.5rem;
+}
+
+.charityAnim {
+    box-shadow: inset 0 0 0 0 rgb(7, 56, 125);
+    color: rgb(7, 56, 125);
+    margin: 0 -.25rem;
+    padding: 0 .25rem;
+    transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+  }
+
+.charityAnim:hover {
+    box-shadow: inset 0 140px 0 0 rgb(7, 56, 125);
+    color: white;
+  }
 
 .display-1 {
     color: var(--royal);
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
 p {

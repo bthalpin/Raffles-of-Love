@@ -33,7 +33,7 @@ function Navigation() {
 
   return (
     <>
-    <Navbar className="navigation p-4 d-flex justify-content-between"  variant="dark" expand="lg">
+    <Navbar className="navigation p-3 d-flex justify-content-between"  variant="dark" expand="lg">
         <div>
 
           <Navbar.Brand className="brandName display-1" href="#home"as={Link} to='/'>Raffles of Love</Navbar.Brand>

@@ -144,25 +144,25 @@ const resolvers = {
       return product
     },
 
-    addFavCharity: async (parent, { favorite }, context) => {
-      if (context.user) {
-        const updatedUser = await User.findByIdAndUpdate(
-          { _id: context.user._id },
-          { $push: { favoriteCharities: favorite } },
-          { new: true }
-        );
+    // addFavCharity: async (parent, { favorite }, context) => {
+    //   if (context.user) {
+    //     const updatedUser = await User.findByIdAndUpdate(
+    //       { _id: context.user._id },
+    //       { $push: { favoriteCharities: favorite } },
+    //       { new: true }
+    //     );
 
-        return updatedUser;
-      }
+    //     return updatedUser;
+    //   }
 
-      throw new AuthenticationError('You need to be logged in!');
-    },
+    //   throw new AuthenticationError('You need to be logged in!');
+    // },
 
     // removeFavCharity: async (parent, { bookId }, context) => {
     //   if (context.user) {
     //     const updatedUser = await User.findOneAndUpdate(
     //       { _id: context.user._id },
-    //       { $pull: { savedBooks: { bookId: bookId } } },
+    //       { $pull: { addFavCharity: { bookId: bookId } } },
     //       { new: true }
     //     );
     //     return updatedUser;
