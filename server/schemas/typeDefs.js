@@ -61,6 +61,16 @@ const typeDefs = gql`
         user: User
     }
 
+    input FavoriteInput {
+        name: String!
+        website: String
+        description: String
+        logo: String
+        image: String
+        mission: String
+        youtube: String
+    }
+
     type Query {
         user: User
         charities: [Charity]
@@ -89,7 +99,7 @@ const typeDefs = gql`
         addTicket(_id: ID!, user_id: ID!, product_id: ID!): Ticket
         login(email: String!, password: String!): Auth
         addOrder(products: [ID]!): Order
-        addFavCharity(_id: ID!, charity_id: ID!): User
+        addFavCharity(favorite: FavoriteInput): User
     }
 `;
 

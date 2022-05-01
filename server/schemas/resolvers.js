@@ -144,13 +144,31 @@ const resolvers = {
       return product
     },
 
-    addFavCharity: async (parent, { charity_id }, context) => {
+    addFavCharity: async (parent, { favorite }, context) => {
       if (context.user) {
-        return await User.create(context.user._id, { $push: { favCharities: charity_id } }, {new: true});
+        const updatedUser = await User.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $push: { favoriteCharities: favorite } },
+          { new: true }
+        );
+
+        return updatedUser;
       }
-      // throw new AuthenticationError('Not logged in');
+
+      throw new AuthenticationError('You need to be logged in!');
     },
 
+    // removeFavCharity: async (parent, { bookId }, context) => {
+    //   if (context.user) {
+    //     const updatedUser = await User.findOneAndUpdate(
+    //       { _id: context.user._id },
+    //       { $pull: { savedBooks: { bookId: bookId } } },
+    //       { new: true }
+    //     );
+    //     return updatedUser;
+    //   }
+    //   throw new AuthenticationError("You need to be logged in!");
+    // },
 
     updateProductInfo: async (parent, args, context) => {
       if (context.user) {
