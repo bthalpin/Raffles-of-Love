@@ -428,6 +428,7 @@ db.once('open', async () => {
         email: '3brothers@gmail.com',
         password: 'password1234',
         location: "Nowhere, NJ",
+        favCharities: [],
         ticket: tickets[0]._id
     },
     {
@@ -435,6 +436,7 @@ db.once('open', async () => {
         email: 'sellingDucks@gmail.com',
         password: 'password1234',
         location: "Nowhere, NJ",
+        favCharities: [],
         tickets: []
     },
     {
@@ -442,6 +444,7 @@ db.once('open', async () => {
         email: 'jdoe123@gmail.com',
         password: 'password1234',
         location: "Nowhere, NJ",
+        favCharities: [],
         tickets: []
     },
     {   
@@ -449,6 +452,7 @@ db.once('open', async () => {
         email: 'janeDoe@gmail.com',
         password: 'password1234',
         location: "Nowhere, NJ",
+        favCharities: [],
         tickets: []
     },
     {
@@ -456,6 +460,7 @@ db.once('open', async () => {
         email: 'orangestripes@gmail.com',
         password: 'password1234',
         location: "Nowhere, NJ",
+        favCharities: [],
         tickets: []
     }, 
     {
@@ -463,6 +468,7 @@ db.once('open', async () => {
         email: 'sharks4life@gmail.com',
         password: 'password1234',
         location: "Nowhere, NJ",
+        favCharities: [],
         tickets: []
     },
     {
@@ -470,6 +476,7 @@ db.once('open', async () => {
         email: 'collectKickCans@gmail.com',
         password: 'password1234',
         location: "Nowhere, NJ",
+        favCharities: [],
         tickets: []
     },
     {
@@ -477,6 +484,7 @@ db.once('open', async () => {
         email: 'fourstarG@gmail.com',
         password: 'password1234',
         location: "Nowhere, NJ",
+        favCharities: [],
         tickets: []
     },
     {
@@ -484,6 +492,7 @@ db.once('open', async () => {
         email: 'ofaafo@gmail.com',
         password: 'password1234',
         location: "Nowhere, NJ",
+        favCharities: [],
         tickets: []
     },
     {
@@ -491,6 +500,7 @@ db.once('open', async () => {
         email: 'ilikeseals@gmail.com',
         password: 'password1234',
         location: "Nowhere, NJ",
+        favCharities: [],
         tickets: []
     },
 ]);

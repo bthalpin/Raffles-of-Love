@@ -38,7 +38,6 @@ const typeDefs = gql`
         password: String!
         location: String!
         tickets: [Ticket]
-        favCharities: [Charity]
         order: [Order]
         charity: Charity
     }
@@ -89,7 +88,6 @@ const typeDefs = gql`
         addTicket(_id: ID!, user_id: ID!, product_id: ID!): Ticket
         login(email: String!, password: String!): Auth
         addOrder(products: [ID]!): Order
-        
     }
 `;
 
