@@ -2,3 +2,15 @@
     width:180px;
     margin:auto;
 }
+.myCharityImage{
+    max-width: 30rem;
+}   
+
+@media screen and (max-width:500px) {
+    .myCharityImage{
+        max-width: 95%;
+    }   
+    .myCharityContainer{
+        padding:0 !important;
+    }
+}

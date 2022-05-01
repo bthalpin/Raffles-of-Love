@@ -61,7 +61,7 @@ function Navigation() {
 
       <Modal show={show} onHide={handleClose} size="lg">
         <Modal.Header closeButton >
-          CHARITY
+          Raffles of Love
         </Modal.Header>
         <Modal.Body>
 

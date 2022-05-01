@@ -26,14 +26,8 @@ function EditCharity ({charityInfo,handleModalClose}) {
                                 }})
         
         
-        // dispatch({
-        // type:UPDATE_USER_INFO,
-        // user:{userName:name,email,location:`${street}|${city}|${states}|${zip}`}
-        // })
-           
         handleModalClose()
-        // setPassword('')
-    }
+        }
 
     return (
         
@@ -48,7 +42,7 @@ function EditCharity ({charityInfo,handleModalClose}) {
                             </Card.Title>
                         </Card.Header>
                         <Card.Body>
-                            {/* <p className="profileInfo p-1 d-flex justify-content-between align-items-center"> */}
+                           
                                 
                                 <Form.Group className="py-2" controlId="formCharityLogo">
                                     <Form.Label>Enter Logo URL</Form.Label>
@@ -67,10 +61,11 @@ function EditCharity ({charityInfo,handleModalClose}) {
                                 <Form.Group className="py-2" controlId="formCharityYoutube">
                                     <Form.Label>Enter Youtube Link</Form.Label>
                                     <Form.Control onChange={(e)=>setCharityYoutube(e.target.value)} type="text" placeholder='Enter Youtube Link' value={charityYoutube} />
-                                    
+                                    <Form.Text className="text-muted">
+                                        Select embed link and enable privacy enhance mode from youtube
+                                    </Form.Text>
                                 </Form.Group>
                                 
-                            {/* </p> */}
                             
                                 <Form.Group className="py-2" controlId="formCharityDescription">
                                     <Form.Label>Charity Description</Form.Label>
@@ -99,22 +94,3 @@ function EditCharity ({charityInfo,handleModalClose}) {
 
 export default EditCharity;
 
-// {/* <Form className="p-4" onSubmit={handleSubmit}>
-//                 <Form.Group className="py-2" controlId="formEmail">
-//                     <Form.Label>Email</Form.Label>
-//                     <Form.Control onChange={(e)=>setEmail(e.target.value)} type="email" placeholder="Enter Email" value={email} autoFocus />
-//                     <Form.Text className="text-muted">
-//                         We won't share your email
-//                     </Form.Text>
-//                 </Form.Group>
-//                 <Form.Group className="py-2" controlId="formPassword">
-//                     <Form.Label>Password</Form.Label>
-//                     <Form.Control onChange={(e)=>setPassword(e.target.value)} type="password" placeholder="Enter Password" value={password} />
-//                     {/* <Form.Text className="text-muted">
-//                         We won't share your name
-//                     </Form.Text> */}
-//                 </Form.Group>
-//                 <Button className="mt-4" variant="primary" type="submit">
-//                     Submit
-//                 </Button>
-//             </Form> */}

@@ -1,8 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import {ProductCard,EditCharity,EditProduct,EditUser,RaffleTicket, MyCharity,AddProduct} from '../../components';
+import {EditCharity,EditUser,RaffleTicket, MyCharity,AddProduct} from '../../components';
 import {USER} from '../../utils/queries';
 import Auth from '../../utils/auth';
-// import { tempProductData } from '../../tempProductData';
 import { UPDATE_USER,REMOVE_USER } from '../../utils/mutations';
 import { useQuery,useMutation } from '@apollo/client';
 import { useStoreContext } from "../../utils/GlobalState";
@@ -26,7 +25,6 @@ function Profile () {
     };
 
     const {loading,data} = useQuery(USER)
-    // const productInfo = useQuery
     const [updateUser, results] = useMutation(UPDATE_USER)
     const [removeUser, result] = useMutation(REMOVE_USER)
 
@@ -45,25 +43,7 @@ function Profile () {
 
     }
 
-    const tempUserData = state.user;
-    const tempCharityData = Object.values(state.charities).flatMap(item=>item)
-    const tempProductData = state.products
-    // const tempUserData = {
-    //     name:'Brian',
-    //     email:'user@gmail.com',
-    //     street:'101 Some st',
-    //     address:'City, State',
-    //     website:'www.google.com',
-    //     charityId:1
-    // }
-    // const tempCharityData = {
-    //     _id:1,
-    //     name:'Charity Name',
-    //     description:'Some charity information',
-    //     image:'/logo192.png',
-    //     website:'www.google.com',
-
-    // }
+   
     const [street,city,states,zip] = state.user.location.split('|')
    
 
@@ -116,25 +96,19 @@ function Profile () {
                 <Container className="my-5 border-top">
                 <h3 className="text-center">My Charity</h3>
                 <MyCharity charityInfo={state.user.charity} handleEditShow={handleEditShow}/>
-                {/* <Button className="charityButton" onClick={()=>handleEditShow()}>Edit Charity Info</Button> */}
+                
 
                 <AddProduct charityId={state.user.charity._id} handleModalClose={()=>setShowEdit(false)}/>
                 
-                {/* <Container className="my-4">
-
-                    
-                </Container>
-                <h2 className="text-center">Products Sold by My Charity</h2>
-                <ProductCard productData={tempProductData}/>
-                 */}
+               
                 
                 <Modal show={showEdit} onHide={handleEditClose} size="lg">
                 <Modal.Header closeButton >
-                  CHARITY
+                  Raffles of Love
                 </Modal.Header>
                 <Modal.Body>
       
-                {/* <Tab.Container> */}
+                
       
                 <Tabs
                     id="charity-tab"
@@ -142,21 +116,22 @@ function Profile () {
                     onSelect={(k) => setEditKey(k)}
                     className="mb-3 d-flex"
                   > 
-                  {/* <Tab.Content> */}
+                  
       
                     <Tab.Pane eventKey="charity" title="Charity Information">
                       <EditCharity charityInfo={state.user.charity} handleModalClose={()=>setShowEdit(false)} />
                     </Tab.Pane>
+                    {/* 
+                    FUTURE DEVELOPMENT - ADD EDIT PRODUCT TAB
                     <Tab.Pane eventKey="product" title="Charity Products">
-                      {/* <AddProduct charityId={state.user.charity._id}/> */}
-                    </Tab.Pane>
-                  {/* </Tab.Content> */}
+                      
+                    </Tab.Pane> */}
+                  
                   
                   </Tabs>
-                {/* </Tab.Container> */}
+                
                 </Modal.Body>
-                  {/* <Modal.Title>Login</Modal.Title>
-                <Login handleModalClose={()=>setShow(false)} /> */}
+                  
               </Modal>
 
               </Container>
@@ -172,8 +147,7 @@ function Profile () {
                 <div>Are you sure you want to delete?</div>
                 <Button className="btn-danger" onClick={deleteUser}>Confirm</Button><Button onClick={handleDeleteClose} className="btn-secondary">Cancel</Button>
                 </Modal.Body>
-                  {/* <Modal.Title>Login</Modal.Title>
-                <Login handleModalClose={()=>setShow(false)} /> */}
+                  
               </Modal>
               
             </div>
