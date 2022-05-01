@@ -34,20 +34,20 @@ function Charity () {
                 <div>
                     <p className='lists my-3 bordered'>Tracking over <span className='display-4'>$46 billion</span> within the last year of 2021 in US-based charitable...</p>
                     <ul key="fact">
-                        <li>Overall giving increased <span className='display-6'>9%</span> in 2021, representing a three-year increase of <span className='display-6'>19%</span>.</li>
-                        <li>Online giving grew <span className='display-6'>9%</span> in 2021, representing a three-year increase of <span className='display-6'>42%</span>.</li>
-                        <li><span className='display-6'>28%</span> of online contributions were made from a mobile device.</li>
-                        <li>Small, medium, and large nonprofits in the United States now raise more than <span className='display-6'>10%</span> of their fundraising online in comparison to previous years.</li>
-                        <li>No matter how small, even <span className='display-6'>YOU</span> can make the difference.</li>
+                        <li key="fact1">Overall giving increased <span className='display-6'>9%</span> in 2021, representing a three-year increase of <span className='display-6'>19%</span>.</li>
+                        <li key="fact2">Online giving grew <span className='display-6'>9%</span> in 2021, representing a three-year increase of <span className='display-6'>42%</span>.</li>
+                        <li key="fact3"><span className='display-6'>28%</span> of online contributions were made from a mobile device.</li>
+                        <li key="fact4">Small, medium, and large nonprofits in the United States now raise more than <span className='display-6'>10%</span> of their fundraising online in comparison to previous years.</li>
+                        <li key="fact5">No matter how small, even <span className='display-6'>YOU</span> can make the difference.</li>
                     </ul>
                     <img className="imageFront" src='https://www.ocpgroup.ma/media/styles/wide_x1_max_w1440/azblob/2020-07/20200130_TOGO_FOCP_128%20%281%29.jpg?itok=gNDgGzDB' alt=""></img>
-                    <p className='charityTitle'>
+                    <div className='charityTitle'>
                         <ModalHeader className="display-2 charityAnim">Charities</ModalHeader>
-                    </p>
+                    </div>
                 </div>
                 {tempCharities.map((charity,index)=>{
                     if(charity.name==='New-Charity-Change-Name'){
-                        return
+                        return 
                     }
                     return (
                         <Link className="charityLink" to={`/Charity/${charity._id}`} key={index}>
