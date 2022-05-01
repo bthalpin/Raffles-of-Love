@@ -32,7 +32,7 @@ function RaffleTicket ({tickets}) {
     return (
             <Container className="d-flex flex-wrap justify-content-around m-auto">
                 {tickets?.map((ticket,index)=>{
-                    {console.log(ticket)}
+                    
                     return(
                         <Link className="ticketLink m-2" to={`/Product/${ticket.product._id}`} key={index}>
                             <Card className={checkWinner(ticket)}>

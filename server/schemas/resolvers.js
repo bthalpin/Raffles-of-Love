@@ -1,6 +1,6 @@
 const { User, Ticket, Product, Charity, Order } = require('../models');                  // Require models folder.
 const { signToken } = require('../utils/auths');                                  // Require signToken (JWT) from auth.js folder to verify integrity of claims.
-const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');             // Require stripe for payment functions.
+const stripe = require('stripe')(process.env.STRIPE_SECRET);             // Require stripe for payment functions.
 
 
 const { AuthenticationError } = require('apollo-server-express');                 // Require AuthenticationError to perceive if server fails to authenticate required data.
@@ -138,6 +138,7 @@ const resolvers = {
     },
 
     addProduct: async (parent, { name, description, image, price, ticketCount, charity }) => {
+      console.log('ADD PRODUCT')
       const charityInfo = await Charity.findById(charity)
       const product =  await Product.create({ name, description, image, price, ticketCount, charity:charityInfo._id,winningNumber:'000000000000000000000000',tickets:[] });
       return product
