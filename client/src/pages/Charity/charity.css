@@ -45,10 +45,13 @@
 }
 
 .imageFront{
-    max-width: 100%;
+    width: 100%;
+    position:center;
+    object-fit: cover;
     animation: fadeInAnimation ease 4s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
+    aspect-ratio: 3.5;
 }
 
 @keyframes fadeInAnimation {

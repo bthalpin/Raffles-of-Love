@@ -9,13 +9,24 @@ function MyCharity ({charityInfo,handleEditShow}) {
     return (
         <div className="">
            
-            <Container className="d-flex flex-wrap justify-content-around my-5 mx-auto">
+            <Container className="myCharityContainer d-flex flex-wrap justify-content-around my-5 mx-auto">
                 
                         
                         <Card className=" m-2 p-3 text-center">
                             <Card.Title>{charityInfo.name}</Card.Title>
-                            <img className="" src={charityInfo.image}/>
+                            <div className="myImages">
+                                <div className="my-1">
+                                    <img className="myCharityImage" src={charityInfo.logo}/>
+                                    
+                                </div>
+                                <div className="my-1">
+                                    <img className="myCharityImage" src={charityInfo.image}/>
+
+                                </div>
+
+                            </div>
                             <Card.Body>{charityInfo.description}</Card.Body>
+                            <Card.Footer><a href={charityInfo.website}>{charityInfo.website}</a></Card.Footer>
                             <Button className="charityButton" onClick={()=>handleEditShow()}>Edit Charity Info</Button>
                         </Card>
                         

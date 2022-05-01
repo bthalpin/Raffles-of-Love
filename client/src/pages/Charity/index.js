@@ -30,7 +30,7 @@ function Charity () {
                     <p><span className='display-5'>You&nbsp;</span> can donate and not only help these charities reach those in need, but also have a chance to win yourself a prize for your selflessness.</p>
                     <p><span className='display-3'>Together,&nbsp;</span> we can make the difference!</p>
                 </Card>  
-                <img className="imageFront" src='http://globalyouthinitiative.net/wp-content/themes/youth_speak_up_2013/images/about/about-divider-news.jpg' alt=""></img>
+                <img className="imageFront" src='https://www.gannett-cdn.com/-mm-/d3b6dffaeec46acd6996b0f8d5e950f095216e0b/c=0-125-2045-1280/local/-/media/2018/06/12/USATODAY/USATODAY/636643942202141206-GettyImages-515836063.jpg' alt="Charity banner"></img>
                 <div>
                     <p className='lists my-3 bordered'>Tracking over <span className='display-4'>$46 billion</span> within the last year of 2021 in US-based charitable...</p>
                     <ul key="fact">

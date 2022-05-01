@@ -114,7 +114,7 @@ db.once('open', async () => {
             description: "Signed Baseball from Casey Jones",
             image: "https://upload.wikimedia.org/wikipedia/en/1/1e/Baseball_%28crop%29.jpg",
             price: "25",
-            ticketCount: 100,
+            ticketCount: 10,
             charity: charities[0]._id,
             tickets:[],
             winningNumber:'000000000000000000000000'  
