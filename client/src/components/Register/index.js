@@ -2,6 +2,8 @@ import React,{useState} from 'react';
 import {Form,Button} from 'react-bootstrap';
 import {useMutation} from '@apollo/client';
 import { ADD_USER } from '../../utils/mutations';
+import { idbPromise } from '../../utils/helpers';
+
 import Auth from '../../utils/auth';
 import './register.css';
 
@@ -17,6 +19,17 @@ function Register () {
 
     const [addUser,{error,data}] = useMutation(ADD_USER);
 
+
+    async function clearCart() {
+        const cart = await idbPromise('cart', 'get');
+        
+        console.log(cart,'cart')
+          cart.forEach((item) => {
+            idbPromise('cart', 'delete', item);
+          });
+        
+        }
+
     const handleSubmit= async (e)=>{
         e.preventDefault()
 
@@ -27,6 +40,8 @@ function Register () {
                 }
             });
             setErrorMessage('')
+            clearCart()
+
             Auth.login(data.addUser.token)
         } catch (error) {
                         setErrorMessage('Unable to Register')

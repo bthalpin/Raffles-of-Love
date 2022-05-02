@@ -2,6 +2,8 @@ import React,{useState} from 'react';
 import { useMutation } from '@apollo/client';
 import { LOGIN } from '../../utils/mutations';
 import Auth from '../../utils/auth';
+import { idbPromise } from '../../utils/helpers';
+
 import {Form,Button} from 'react-bootstrap';
 import './login.css';
 
@@ -14,6 +16,22 @@ function Login () {
 
 
 
+
+
+    
+        async function clearCart() {
+          const cart = await idbPromise('cart', 'get');
+          
+          
+            cart.forEach((item) => {
+              idbPromise('cart', 'delete', item);
+            });
+          
+          }
+
+    
+        
+    
     // 
     // 
     // ADD ERROR FOR FAILED LOGIN
@@ -26,11 +44,13 @@ function Login () {
                 variables:{email,password}
             })
             setErrorMessage('')
+            clearCart()
             Auth.login(data.login.token);
         } catch (error) {
             setErrorMessage('Unable to Log In')
             console.error(error)
         }
+
         setEmail('')
         setPassword('')
     }
