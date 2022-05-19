@@ -31,14 +31,19 @@ function Navigation() {
   return (
     <>
       <Navbar className="navigation p-3 d-flex justify-content-between" variant="dark" expand="lg">
-        <div>
+        <div className="logoContainer">
           <a href="/">
             <img className='logo' src="https://www.nicepng.com/png/full/116-1161012_creative-heart-logo-designs-heart-logo-png.png" alt=""></img>
           </a>
           <Navbar.Brand className="brandName display-1" href="/">Raffles of Love</Navbar.Brand>
         </div>
-        <div>
+        <div className="menuContainer"> 
+          <div className="menuButton">
+
           <Navbar.Toggle aria-controls="navbar" />
+          </div>
+          <div>
+
           <Navbar.Collapse id="navbar">
             <Nav className="navRight">
               <Nav className="navLink fs-3" as={Link} to='/Product'>Raffles</Nav>
@@ -56,6 +61,7 @@ function Navigation() {
               }
             </Nav>
           </Navbar.Collapse>
+          </div>
         </div>
       </Navbar>
 

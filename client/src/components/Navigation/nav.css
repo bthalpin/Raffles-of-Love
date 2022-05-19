@@ -18,6 +18,7 @@
     padding:1.5rem 2rem;
     text-decoration: none;
     color: var(--alice);
+    cursor: pointer;
 }
 .navLink:hover{
     color: var(--alice);
@@ -48,6 +49,19 @@
 @media screen and (max-width: 992px) {
     .navLink{
         padding-right:0 !important;
+    }
+    .menuContainer{
+        display: flex;
+        flex-direction: column;
+    }
+    .menuButton{
+        margin-left:auto;
+    }
+    .menuButton button{
+        margin:0.4rem 0;
+    }
+    .logoContainer{
+        margin-bottom:auto;
     }
 }
 

@@ -87,9 +87,9 @@ const resolvers = {
         const product = await stripe.products.create({
           name: products[i].name,
           description: products[i].description,
-          images: [`${products[i].image}`]
+          // images: [`${products[i].image}`]
         });
-
+        console.log(products[i])
         const price = await stripe.prices.create({
           product: product.id,
           unit_amount: products[i].price * 100,
@@ -220,13 +220,6 @@ const resolvers = {
               const winner = await Product.findByIdAndUpdate(productId, {winningNumber:winningTicket} );
             }
         })
-        // const ticket = Ticket.create(products.tickets.length + 1);
-        // await User.findByIdAndUpdate(context.user._id, { $push: { tickets: ticket } });
-        // const newTicket = await Product.findByIdAndUpdate(products._id, { $push: { tickets: ticket } });
-        // if(newTicket.tickets.length === newTicket.ticketCount){
-        //   const winningTicket = newTicket.tickets[Math.floor(Math.random()*newTicket.tickets.length)]
-        //   const newTicket = await Product.findByIdAndUpdate(products._id, {winningNumber:winningTicket} );
-        // }
 
         return order;
       }

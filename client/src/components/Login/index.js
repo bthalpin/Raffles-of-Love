@@ -1,6 +1,8 @@
 import React,{useState} from 'react';
 import { useMutation } from '@apollo/client';
 import { LOGIN } from '../../utils/mutations';
+import { idbPromise } from '../../utils/helpers';
+
 import Auth from '../../utils/auth';
 import {Form,Button} from 'react-bootstrap';
 import './login.css';
@@ -13,27 +15,32 @@ function Login () {
 
 
 
-
-    // 
-    // 
-    // ADD ERROR FOR FAILED LOGIN
-    // 
-    const handleSubmit= async (e)=>{
-        e.preventDefault()
-
-        try {
-            const {data} = await login({
-                variables:{email,password}
-            })
-            setErrorMessage('')
-            Auth.login(data.login.token);
-        } catch (error) {
-            setErrorMessage('Unable to Log In')
-            console.error(error)
+    async function clearCart() {
+        const cart = await idbPromise('cart', 'get');
+          cart.forEach((item) => {
+            idbPromise('cart', 'delete', item);
+          });
         }
-        setEmail('')
-        setPassword('')
-    }
+  //
+  //
+  // ADD ERROR FOR FAILED LOGIN
+  //
+  const handleSubmit= async (e)=>{
+      e.preventDefault()
+      try {
+          const {data} = await login({
+              variables:{email,password}
+          })
+          setErrorMessage('')
+          clearCart()
+          Auth.login(data.login.token);
+      } catch (error) {
+          setErrorMessage('Unable to Log In')
+          console.error(error)
+      }
+      setEmail('')
+      setPassword('')
+  }
     return (
             <Form className="loginContainer" onSubmit={handleSubmit}>
                 <Form.Group className="py-2" controlId="formEmail">

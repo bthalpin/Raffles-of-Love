@@ -26,16 +26,18 @@
 }
 
 .cardHeader {
-    background: linear-gradient( to right top, var(--royal), 2%, var(--lightblue), var(--alice), var(--lightblue)); 
+    background: linear-gradient( to top, var(--royal), 2%, var(--lightblue), var(--alice)); 
+    border:1px solid var(--lightblue)
+    /* background-color: var(--lightblue) !important; */
 }
 
 .link {
-    color: blue;
+    color: rgb(0, 54, 126);
     /* text-shadow: 1px 1px var(--alice); */
 }
 
 .link:hover {
-    color: rgb(168, 0, 168);
+    color: rgb(165, 26, 26);
 
 }
 

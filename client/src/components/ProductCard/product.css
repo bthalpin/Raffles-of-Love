@@ -6,7 +6,7 @@
 
 .productCard{
     width:20rem;
-    height:20rem;
+    height:25rem;
     margin:0.5rem;
     box-shadow:0.5rem 0.5rem 1rem #bbc4cf;
     transition:all 0.2s ease-in-out;
@@ -19,7 +19,8 @@
 }
 
 .productImage{
-    width:5rem;
+    max-height:10rem;
+    max-width: 15rem;
     margin:auto;
     color: var(--royal) !important;
 }
