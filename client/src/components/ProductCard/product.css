@@ -9,17 +9,17 @@
     height:25rem;
     margin:0.5rem;
     box-shadow:0.5rem 0.5rem 1rem #bbc4cf;
-    transition:all 0.2s ease-in-out;
+    transition:transform 0.2s ease-in-out;
     cursor: pointer;
     background-color: var(--mint) !important;
     color: var(--royal);
 }
 .productCard:hover{
-    transform: scale(1.02);
+    transform: scale(1.03);
 }
 
 .productImage{
-    max-height:10rem;
+    max-height:9.5rem;
     max-width: 15rem;
     margin:auto;
     color: var(--royal) !important;
@@ -33,9 +33,7 @@
 }
 
 @media screen and (max-width:410px) {
-    /* .productContainer{
-        display:block !important;
-    } */
+    
     .productCard,.productLink{
       width:100vw !important;
       padding:0 !important;

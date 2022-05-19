@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState,useEffect } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import { useLazyQuery } from '@apollo/client';
 import { QUERY_CHECKOUT } from '../../utils/queries';
@@ -13,7 +13,7 @@ const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 function Checkout() {
   const [state, dispatch] = useStoreContext();
   const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT)
-
+  const [checkedOut,setCheckedOut] = useState('Checkout')
   useEffect(() => {
     if (data) {
       stripePromise.then((res) => {
@@ -42,17 +42,18 @@ function Checkout() {
     return sum.toFixed(2);
   }
 
-  function submitCheckout() {
+  async function submitCheckout() {
     const productIds = [];
-
+    setCheckedOut('Loading...')
     state.cart.forEach((item) => {
       for (let i = 0; i < item.quantity; i++) {
         productIds.push(item._id);
       }
     });
-    getCheckout({
+    await getCheckout({
       variables: { products: productIds },
     });
+    getCheckout()
   }
   return (
     <>
@@ -73,7 +74,7 @@ function Checkout() {
         <p>Total</p>
         <p>${getTotal()}</p>
       </div>
-      <Button onClick={submitCheckout}>Checkout</Button>
+      <Button onClick={submitCheckout}>{checkedOut}</Button>
     </>
 
   )

@@ -87,9 +87,8 @@ const resolvers = {
         const product = await stripe.products.create({
           name: products[i].name,
           description: products[i].description,
-          // images: [`${products[i].image}`]
+          images: [`${products[i].image}`]
         });
-        console.log(products[i])
         const price = await stripe.prices.create({
           product: product.id,
           unit_amount: products[i].price * 100,
@@ -101,7 +100,6 @@ const resolvers = {
           quantity: 1
         });
       }
-
       const session = await stripe.checkout.sessions.create({
         payment_method_types: ['card'],
         line_items,
@@ -109,6 +107,9 @@ const resolvers = {
         success_url: `${url}/success/{CHECKOUT_SESSION_ID}`,
         cancel_url: `${url}/`
       });
+      
+      line_items.pop()
+      
 
       return { session: session.id };
     }

@@ -29,8 +29,8 @@ function ProductCard({ productData,myProducts }) {
                                     <Card.Header className="cardHeader">Brought to you by {product?.charity?.name}</Card.Header>
                                     : <></>
                             }
-                            <br></br>
-                            <Card.Title>{product.name}</Card.Title>
+                            {/* <br></br> */}
+                            <Card.Title className="my-2">{product.name}</Card.Title>
                             <Card.Body>
                                 <img className="productImage" src={product.image} alt='logo'></img>
                                 <br></br>
