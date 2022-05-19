@@ -4,6 +4,8 @@ import { LOGIN } from '../../utils/mutations';
 import { idbPromise } from '../../utils/helpers';
 
 import Auth from '../../utils/auth';
+import { idbPromise } from '../../utils/helpers';
+
 import {Form,Button} from 'react-bootstrap';
 import './login.css';
 
