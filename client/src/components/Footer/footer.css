@@ -21,21 +21,10 @@
     .footer{
         display:block !important;
         text-align: center;
-        /* width: 105%; */
         height: auto;
     }
     .footerLinkContainer{
         display:block !important;
     }
-    
-}
-
-@media screen and (max-width:398px) {
-    
-    /* .footer{
-        width: 109%;
-        height: auto;
-    } */
-
     
 }

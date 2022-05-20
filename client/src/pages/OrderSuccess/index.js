@@ -1,7 +1,4 @@
 import React, { useState,useEffect } from 'react';
-import {useParams} from 'react-router-dom';
-import { useQuery } from '@apollo/client';
-import {QUERY_SUCCESS} from '../../utils/queries';
 import { ADD_ORDER } from '../../utils/mutations';
 import { idbPromise } from '../../utils/helpers';
 import { useMutation } from '@apollo/client';
@@ -12,11 +9,9 @@ import {Link} from 'react-router-dom';
 import './order.css';
 
 function OrderSuccess () {
-    const [addOrder,results] = useMutation(ADD_ORDER)
+    const [addOrder] = useMutation(ADD_ORDER)
     const [state, dispatch] = useStoreContext();
-    const [loaded,setLoaded] = useState(false)
     const [summary,setSummary] = useState([])
-    const {sessionId} = useParams()
     useEffect(() => {
         async function saveOrder() {
           const cart = await idbPromise('cart', 'get');
@@ -32,7 +27,6 @@ function OrderSuccess () {
             return multipleItems
           });
           if (products.length) {
-            // setstate.orderSummary(cart)
             const { data } = await addOrder({ variables: { products } });
             const productData = data.addOrder.products;
             
@@ -46,7 +40,8 @@ function OrderSuccess () {
         }
     
         saveOrder();
-      }, [addOrder]);
+    }, [addOrder,dispatch]);
+
     useEffect(()=>{
       if (summary){
         dispatch({
@@ -55,12 +50,12 @@ function OrderSuccess () {
         })
 
       }
-    },[summary])
+    },[summary,dispatch])
 
     
     return (
         <Container className="my-3 " >
-                {state.orderSummary.length?
+          {state.orderSummary.length?
             <Card className="orderCard m-auto">
               <Card.Header>
                 <Card.Title>Order Summary</Card.Title>
@@ -80,20 +75,20 @@ function OrderSuccess () {
               <Card.Footer className="d-flex justify-content-center"><Button as={Link} to="/Profile">Check out your profile to see the tickets you've purchased</Button></Card.Footer>
 
             </Card>
-              :
-              <>
+          :
+            <>
               <Card className="orderCard m-auto">
-              <Card.Header>
-              <Card.Title className="text-center">Order Information Expired</Card.Title>
-            </Card.Header>
+                <Card.Header>
+                  <Card.Title className="text-center">Order Information Expired</Card.Title>
+                </Card.Header>
               
-            <Card.Body>
-              
-              <Card.Text className="text-center">Thank you for your generosity!</Card.Text>
-            </Card.Body>
-              <Card.Footer className="d-flex justify-content-center"><Button as={Link} to="/Profile">Check out your profile to see the tickets you've purchased</Button></Card.Footer>
+                <Card.Body>
+                  <Card.Text className="text-center">Thank you for your generosity!</Card.Text>
+                </Card.Body>
+
+                <Card.Footer className="d-flex justify-content-center"><Button as={Link} to="/Profile">Check out your profile to see the tickets you've purchased</Button></Card.Footer>
               </Card>
-              </>}
+            </>}
         </Container>
     )
 }

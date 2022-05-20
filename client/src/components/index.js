@@ -12,4 +12,17 @@ import RaffleTicket from './RaffleTicket';
 import MyCharity from './MyCharity';
 import AddProduct from './AddProduct';
 
-export {Login,Navigation,Register,ProductCard,Footer,EditProduct,EditCharity,Cart,EditUser,RaffleTicket,MyCharity,AddProduct,MyProductCard}
+export {Login,
+        Navigation,
+        Register,
+        ProductCard,
+        Footer,
+        EditProduct,
+        EditCharity,
+        Cart,
+        EditUser,
+        RaffleTicket,
+        MyCharity,
+        AddProduct,
+        MyProductCard
+    }

@@ -11,7 +11,7 @@ import './single.css';
 function Charity () {
     const {charityId} = useParams()
     const [state, dispatch] = useStoreContext();
-    const { loading, data } = useQuery(SINGLE_CHARITY,{
+    const { data } = useQuery(SINGLE_CHARITY,{
         variables:{charityId:charityId},
     });
 
@@ -27,7 +27,7 @@ function Charity () {
               })
 
         }
-    },[data])
+    },[data,dispatch])
     useEffect(()=>{
         if(results.data){
             dispatch({
@@ -36,7 +36,7 @@ function Charity () {
               })
 
         }
-    },[results])
+    },[results,dispatch])
     
     
     return (
@@ -47,24 +47,22 @@ function Charity () {
                 <img alt="" className="charityImage1" src={state.currentCharity.logo}></img>
             </Card>
             <Container className="singleCharityContainer d-flex flex-wrap justify-content-around my-5 mx-auto">
-                        <Card className="singleCharityCard frontCard1 m-2 p-3 text-center col-lg">
-                            <Card.Title className="title1 m-2">{state.currentCharity.name}</Card.Title>
-                            <img className="singleCharityImage" src={state.currentCharity.image} alt=""/>
-                            <Card.Body>
-                                <p>Their Mission: </p>{state.currentCharity.mission}
-                            </Card.Body>
-                            <Card.Body>
-                                <p className="Link">For more information, visit: <a href = {state.currentCharity.website}>{state.currentCharity.website}</a></p>
-                            </Card.Body>
-                        </Card>
+                <Card className="singleCharityCard frontCard1 m-2 p-3 text-center col-lg">
+                    <Card.Title className="title1 m-2">{state.currentCharity.name}</Card.Title>
+                    <img className="singleCharityImage" src={state.currentCharity.image} alt=""/>
+                    <Card.Body>
+                        <p>Their Mission: </p>{state.currentCharity.mission}
+                    </Card.Body>
+                    <Card.Body>
+                        <p className="Link">For more information, visit: <a href = {state.currentCharity.website}>{state.currentCharity.website}</a></p>
+                    </Card.Body>
+                </Card>
                         
-                        <Card className="singleCharityCard2 m-2 p-3 col-lg">
-                            <iframe width="420" height="315" src={state.currentCharity.youtube} frameBorder="0" allowFullScreen="" title="youtube"></iframe>
-                        </Card>
+                <Card className="singleCharityCard2 m-2 p-3 col-lg">
+                    <iframe width="420" height="315" src={state.currentCharity.youtube} frameBorder="0" allowFullScreen="" title="youtube"></iframe>
+                </Card>
                        
             </Container>
-
-            {/* <AddProduct charityId={state.user.charity._id} handleModalClose={()=>setShowEdit(false)}/> */}
 
             <ProductCard productData={state.charityProducts} />
             </>

@@ -20,21 +20,12 @@ const CartItem = ({ item }) => {
 
   const onChange = (e) => {
     const value = e.target.value;
-    // if (value === '0') {
-    //   dispatch({
-    //     type: REMOVE_FROM_CART,
-    //     _id: item._id
-    //   });
-    //   idbPromise('cart', 'delete', { ...item });
-    // } else {
-      dispatch({
-        type: UPDATE_CART_QUANTITY,
-        _id: item._id,
-        quantity: parseInt(value)
-      });
-      idbPromise('cart', 'put', { ...item, quantity: parseInt(value) });
-
-    // }
+    dispatch({
+      type: UPDATE_CART_QUANTITY,
+      _id: item._id,
+      quantity: parseInt(value)
+    });
+    idbPromise('cart', 'put', { ...item, quantity: parseInt(value) });
   }
 
   return (
@@ -48,7 +39,7 @@ const CartItem = ({ item }) => {
       </div>
       <div>
         <div>
-        <label htmlFor="quantity">Qty:</label>
+          <label htmlFor="quantity">Qty:</label>
           <input
             className="m-1 rounded"
             name="quantity"

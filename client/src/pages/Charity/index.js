@@ -9,7 +9,7 @@ import './charity.css';
 
 function Charity () {
     const [state, dispatch] = useStoreContext();
-    const { loading, data } = useQuery(CHARITIES);
+    const { data } = useQuery(CHARITIES);
     useEffect(()=>{
         if(data){
             dispatch({
@@ -17,8 +17,8 @@ function Charity () {
                 charities: data.charities,
               });
         }
-    },[data])
-    const tempCharities = state.charities
+    },[data,dispatch])
+    const allCharities = state.charities
     
     return (
             <Container className="charityPage d-flex flex-wrap justify-content-around mx-auto">
@@ -45,10 +45,7 @@ function Charity () {
                         <ModalHeader className="display-2 charityAnim">Charities</ModalHeader>
                     </div>
                 </div>
-                {tempCharities.map((charity,index)=>{
-                    if(charity.name==='New-Charity-Change-Name'){
-                        return 
-                    }
+                {allCharities.filter(charity=>charity.name!=='New-Charity-Change-Name').map((charity,index)=>{
                     return (
                         <Link className="charityLink" to={`/Charity/${charity._id}`} key={index}>
                             <Card className="charityCard p-3 text-center">

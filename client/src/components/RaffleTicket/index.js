@@ -1,15 +1,9 @@
-import React,{useEffect} from 'react';
-import {useQuery} from '@apollo/client';
-import {PRODUCTS} from '../../utils/queries';
+import React from 'react';
 import {Link} from 'react-router-dom';
 import {Container,Card} from 'react-bootstrap';
 import './raffleTicket.css';
 
-function RaffleTicket ({tickets}) {
-    let myProducts=[];
-    let myIds=[];
-
-    
+function RaffleTicket ({tickets}) {    
     
     const checkWinner = (ticket) => {
         if (ticket.product.winningNumber==='000000000000000000000000'){
@@ -29,10 +23,10 @@ function RaffleTicket ({tickets}) {
             return 'Better Luck Next Time'
         }
     }
+
     return (
             <Container className="d-flex flex-wrap justify-content-around m-auto">
-                {tickets?.map((ticket,index)=>{
-                    
+                {tickets?.map((ticket,index)=>{                    
                     return(
                         <Link className="ticketLink m-2" to={`/Product/${ticket.product._id}`} key={index}>
                             <Card className={checkWinner(ticket)}>

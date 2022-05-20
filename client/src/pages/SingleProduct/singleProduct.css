@@ -9,7 +9,8 @@
 }
 
 .singleProductImage {
-    width: 10rem;
+    width: 30rem;
+    max-width: 80vw;
     margin: auto;
 }
 
@@ -28,14 +29,12 @@
 .cardHeader {
     background: linear-gradient( to top,var(--lightblue), var(--alice)); 
     border:1px solid var(--lightblue)
-    /* background-color: var(--lightblue) !important; */
-}
+    }
 .cardHeader *,.cardHeader{
     font-size:1.1rem;
 }
 .link {
     color: rgb(0, 54, 126);
-    /* text-shadow: 1px 1px var(--alice); */
 }
 
 .link:hover {

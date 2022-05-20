@@ -13,10 +13,6 @@ import {Navigation,Footer} from './components/';
 import {Charity,SingleCharity,Profile,SingleProduct,Raffles,OrderSuccess} from './pages';
 import { StoreProvider } from './utils/GlobalState';
 import './App.css';
-
-import { idbPromise } from './utils/helpers';
-import { useStoreContext } from "./utils/GlobalState";
-import { ADD_MULTIPLE_TO_CART } from './utils/actions';
   
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -42,59 +38,59 @@ const client = new ApolloClient({
 });
 
 function App() {
- 
+  useEffect(()=>{
+  let token = localStorage.getItem('id_token');
+  if (token&&decode(token).exp<Date.now()/1000) {
+    token = ''
+  }
+  },[])
 
 
  
   
   return (
     <ApolloProvider client={client}>
-    <Router className="router">
-          <StoreProvider>
-      <Navigation />
+      <Router className="router">
+        <StoreProvider>
+          <Navigation />
 
-      <Routes>
-        <Route
-          path='/'
-          element={<Charity />}
-          />
-        <Route
-          path='/Charity/:charityId'
-          element={<SingleCharity />}
-          />
+          <Routes>
+            <Route
+              path='/'
+              element={<Charity />}
+              />
+            <Route
+              path='/Charity/:charityId'
+              element={<SingleCharity />}
+              />
 
-        <Route
-          path='/Product'
-          element={<Raffles />}
-          />
+            <Route
+              path='/Product'
+              element={<Raffles />}
+              />
 
-        <Route
-          path='/Product/:productId'
-          element={<SingleProduct />}
-          />
-        <Route
-          path='/Profile'
-          element={<Profile />}
-          />
-        {/* <Route
-          path='/Checkout'
-          element={<Checkout />}
-          /> */}
+            <Route
+              path='/Product/:productId'
+              element={<SingleProduct />}
+              />
+            <Route
+              path='/Profile'
+              element={<Profile />}
+              />
+            <Route
+              path='/Logout'
+              element={<Profile />}
+              />
+            <Route
+              path='/success/:sessionId'
+              element={<OrderSuccess />}
+              />
 
-        <Route
-          path='/Logout'
-          element={<Profile />}
-          />
-        <Route
-          path='/success/:sessionId'
-          element={<OrderSuccess />}
-          />
-
-      </Routes>
-      <Footer />
-                </StoreProvider>
-    </ Router>
- </ApolloProvider>
+          </Routes>
+          <Footer />
+        </StoreProvider>
+      </ Router>
+    </ApolloProvider>
   );
 }
 

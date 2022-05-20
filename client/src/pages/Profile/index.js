@@ -24,9 +24,9 @@ function Profile () {
         setShowEdit(true)
     };
 
-    const {loading,data} = useQuery(USER)
-    const [updateUser, results] = useMutation(UPDATE_USER)
-    const [removeUser, result] = useMutation(REMOVE_USER)
+    const {data} = useQuery(USER)
+    const [updateUser] = useMutation(UPDATE_USER)
+    const [removeUser] = useMutation(REMOVE_USER)
 
     useEffect(()=>{
       if (data) {
@@ -35,7 +35,7 @@ function Profile () {
           user:data.user
         })
       }
-    },[data])
+    },[data,dispatch])
 
     const deleteUser = async () => {
       await removeUser()
@@ -43,10 +43,8 @@ function Profile () {
 
     }
 
-   
     const [street,city,states,zip] = state.user.location.split('|')
    
-
     return (
             <div className="profilePage">
               <h1 className='display-2 text-center'>Hello {state.user.userName}</h1>
@@ -94,61 +92,58 @@ function Profile () {
                 <p className="text-center">No Raffle Tickets Yet</p>}
                 {state.user.charity?
                 <Container className="my-5 border-top">
-                <h3 className="text-center">My Charity</h3>
-                <MyCharity charityInfo={state.user.charity} handleEditShow={handleEditShow}/>
+                  <h3 className="text-center">My Charity</h3>
+                  <MyCharity charityInfo={state.user.charity} handleEditShow={handleEditShow}/>
                 
 
-                <AddProduct charityId={state.user.charity._id} handleModalClose={()=>setShowEdit(false)}/>
+                  <AddProduct charityId={state.user.charity._id} handleModalClose={()=>setShowEdit(false)}/>
                 
                
                 
-                <Modal show={showEdit} onHide={handleEditClose} size="lg">
-                <Modal.Header closeButton >
-                  Raffles of Love
-                </Modal.Header>
-                <Modal.Body>
+                  <Modal show={showEdit} onHide={handleEditClose} size="lg">
+                    <Modal.Header closeButton >
+                      Raffles of Love
+                    </Modal.Header>
+                    <Modal.Body>
       
                 
       
-                <Tabs
-                    id="charity-tab"
-                    activeKey={editKey}
-                    onSelect={(k) => setEditKey(k)}
-                    className="mb-3 d-flex"
-                  > 
+                      <Tabs
+                        id="charity-tab"
+                        activeKey={editKey}
+                        onSelect={(k) => setEditKey(k)}
+                        className="mb-3 d-flex"
+                      > 
                   
-      
-                    <Tab.Pane eventKey="charity" title="Charity Information">
-                      <EditCharity charityInfo={state.user.charity} handleModalClose={()=>setShowEdit(false)} />
-                    </Tab.Pane>
+                        <Tab.Pane eventKey="charity" title="Charity Information">
+                          <EditCharity charityInfo={state.user.charity} handleModalClose={()=>setShowEdit(false)} />
+                        </Tab.Pane>
+
                     {/* 
                     FUTURE DEVELOPMENT - ADD EDIT PRODUCT TAB
                     <Tab.Pane eventKey="product" title="Charity Products">
-                      
                     </Tab.Pane> */}
                   
                   
-                  </Tabs>
+                      </Tabs>
                 
-                </Modal.Body>
+                    </Modal.Body>
                   
-              </Modal>
+                  </Modal>
 
-              </Container>
+                </Container>
                 :<></>
                 }
 
                 <Modal show={confirmDelete} onHide={handleDeleteClose} size="sm">
-                <Modal.Header closeButton >
-                  Confirm Delete
-                </Modal.Header>
-                <Modal.Body>
-      
-                <div>Are you sure you want to delete?</div>
-                <Button className="btn-danger" onClick={deleteUser}>Confirm</Button><Button onClick={handleDeleteClose} className="btn-secondary">Cancel</Button>
-                </Modal.Body>
-                  
-              </Modal>
+                  <Modal.Header closeButton >
+                    Confirm Delete
+                  </Modal.Header>
+                  <Modal.Body>
+                    <div>Are you sure you want to delete?</div>
+                    <Button className="btn-danger" onClick={deleteUser}>Confirm</Button><Button onClick={handleDeleteClose} className="btn-secondary">Cancel</Button>
+                  </Modal.Body>
+                </Modal>
               
             </div>
             

@@ -12,9 +12,7 @@ function Login () {
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
     const [errorMessage,setErrorMessage] = useState('')
-    const [login, {error,data}] = useMutation(LOGIN);
-
-
+    const [login] = useMutation(LOGIN);
 
     async function clearCart() {
         const cart = await idbPromise('cart', 'get');
@@ -22,11 +20,8 @@ function Login () {
             idbPromise('cart', 'delete', item);
           });
         }
-  //
-  //
-  // ADD ERROR FOR FAILED LOGIN
-  //
-  const handleSubmit= async (e)=>{
+  
+    const handleSubmit= async (e)=>{
       e.preventDefault()
       try {
           const {data} = await login({
@@ -41,28 +36,26 @@ function Login () {
       }
       setEmail('')
       setPassword('')
-  }
+    }
+
     return (
             <Form className="loginContainer" onSubmit={handleSubmit}>
                 <Form.Group className="py-2" controlId="formEmail">
                     <Form.Label>Email</Form.Label>
                     <Form.Control onChange={(e)=>setEmail(e.target.value)} type="email" placeholder="Enter Email" value={email} autoFocus />
-                    {/* <Form.Text className="text-muted">
-                        We won't share your email
-                    </Form.Text> */}
                 </Form.Group>
+
                 <Form.Group className="py-2" controlId="formPassword">
                     <Form.Label>Password</Form.Label>
                     <Form.Control onChange={(e)=>setPassword(e.target.value)} type="password" placeholder="Enter Password" value={password} />
-                    {/* <Form.Text className="text-muted">
-                        We won't share your name
-                    </Form.Text> */}
                 </Form.Group>
+
                 <Button className="mt-4" variat="primary" type="submit">
                     Submit
                 </Button>
                 
                 <div className="text-danger">{errorMessage}</div>
+
             </Form>
     )
 }

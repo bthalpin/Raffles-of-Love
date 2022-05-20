@@ -32,7 +32,7 @@ function Checkout() {
     if (!state.cart.length) {
       getCart();
     }
-  }, [state.cart.length]);
+  }, [state.cart.length,dispatch]);
 
   function getTotal() {
     let sum = 0;
@@ -55,6 +55,7 @@ function Checkout() {
     });
     getCheckout()
   }
+
   return (
     <>
       <div>

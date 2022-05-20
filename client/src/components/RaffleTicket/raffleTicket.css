@@ -13,7 +13,17 @@
 }
 .won{
     background-color: #fffff7 !important;
-    box-shadow: 0 0 1rem rgb(255, 194, 114);
+    box-shadow: 0 0 3rem rgb(255, 217, 0);
+}
+.won:after{
+    content: '';
+    background-color: rgb(251, 255, 0) !important;
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    opacity: 0.3;
 }
 .lost{
     position: relative;
@@ -33,5 +43,6 @@
 }
 
 .raffleTop {
-    background-color: var(--skyblue) !important;
+    background: linear-gradient( to top,var(--lightblue), var(--alice)); 
+    border:1px solid var(--lightblue)
 }

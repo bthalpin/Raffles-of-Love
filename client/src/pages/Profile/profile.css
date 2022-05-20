@@ -6,11 +6,6 @@
     width:35rem !important; 
     background-color: var(--alice);
 }
-.charityButton{
-    /* position:absolute;
-    top:0;
-    right:1rem; */
-}
 
 .profileCardTitle {
     text-align: center;
@@ -23,8 +18,8 @@
 }
 
 .profileCard {
-    background: linear-gradient( to right bottom, var(--deepblue), 2%, var(--skyblue), var(--lightblue), var(--alice), var(--lightblue), var(--skyblue) ), var(--deepblue) !important;
-
+    background: linear-gradient( to top,var(--lightblue), var(--alice)); 
+    border:1px solid var(--lightblue)
 }
 
 .helloProfile {

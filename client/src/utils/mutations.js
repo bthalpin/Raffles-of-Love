@@ -123,16 +123,6 @@ export const REMOVE_CHARITY = gql`
   }
 `;
 
-export const ADD_TICKET = gql`
-mutation addTicket($id: ID!, $userId: ID!, $productId: ID!) {
-  addTicket(_id: $id, user_id: $userId, product_id: $productId) {
-    _id
-    purchaseDate
-    ticketNumber
-  }
-}
-`;
-
 export const LOGIN = gql`
   mutation Login($email: String!, $password: String!) {
     login(email: $email, password: $password) {

@@ -23,23 +23,25 @@ function Navigation() {
       dispatch({ type: ADD_MULTIPLE_TO_CART, products: [...cart] });
     }
   
-    // if (!state.cart.length) {
-      getCart();
-    // }
-  }, []);
+    getCart();
+   
+  }, [dispatch]);
 
   const logout = (e) => {
     e.preventDefault()
     setExpanded(false)
     Auth.logout()
   }
+
   const handleCartClose = () => {
     setShowCart(false)
   };
+
   const handleCartShow = () => {
     setExpanded(false);
     setShowCart(true);
   }
+
   const handleClose = () => setShow(false);
   const handleShow = () => {
     setExpanded(false)
@@ -57,31 +59,32 @@ function Navigation() {
           </a>
           <Navbar.Brand className="brandName display-1" href="/">Raffles of Love</Navbar.Brand>
         </div>
+
         <div className="menuContainer"> 
+
           <div className="menuButton">
-
-          <Navbar.Toggle aria-controls="navbar" onClick={() => setExpanded(expanded ? false : "expanded")} />
+            <Navbar.Toggle aria-controls="navbar" onClick={() => setExpanded(expanded ? false : "expanded")} />
           </div>
+
           <div>
+            <Navbar.Collapse id="navbar">
+              <Nav className="navRight">
+                <Nav className="navLink fs-3 homeLink" as={Link} to='/' onClick={() => setExpanded(false)}>Home</Nav>
+                <Nav className="navLink fs-3" as={Link} to='/Product' onClick={() => setExpanded(false)}>Raffles</Nav>
+                {Auth.loggedIn() ?
+                  <>
+                    <Nav className="navLink fs-3" as={Link} to='/Profile' onClick={() => setExpanded(false)}>My Profile</Nav>
+                    <Nav onClick={handleCartShow} className="navLink fs-3 navCheckout">Cart<span className="cartCount">{state.cart.length ? state.cart.reduce((acc, item) => {
+                      return acc + parseInt(item.quantity)
+                    }, 0) : <></>}</span></Nav>
 
-          <Navbar.Collapse id="navbar">
-            <Nav className="navRight">
-              <Nav className="navLink fs-3 homeLink" as={Link} to='/' onClick={() => setExpanded(false)}>Home</Nav>
-              <Nav className="navLink fs-3" as={Link} to='/Product' onClick={() => setExpanded(false)}>Raffles</Nav>
-              {Auth.loggedIn() ?
-                <>
-                  <Nav className="navLink fs-3" as={Link} to='/Profile' onClick={() => setExpanded(false)}>My Profile</Nav>
-                  <Nav onClick={handleCartShow} className="navLink fs-3 navCheckout">Cart<span className="cartCount">{state.cart.length ? state.cart.reduce((acc, item) => {
-                    return acc + parseInt(item.quantity)
-                  }, 0) : <></>}</span></Nav>
-
-                  <Nav onClick={logout} className="navLink fs-3" as={Link} to='#'> Logout</Nav>
-                </>
-                :
-                <Nav onClick={handleShow} className="navLink fs-3" as={Link} to='#'> Login</Nav>
-              }
-            </Nav>
-          </Navbar.Collapse>
+                    <Nav onClick={logout} className="navLink fs-3" as={Link} to='#'> Logout</Nav>
+                  </>
+                  :
+                  <Nav onClick={handleShow} className="navLink fs-3" as={Link} to='#'> Login</Nav>
+                }
+              </Nav>
+            </Navbar.Collapse>
           </div>
         </div>
       </Navbar>
@@ -91,43 +94,38 @@ function Navigation() {
           Raffles of Love
         </Modal.Header>
         <Modal.Body>
-
-          {/* <Tab.Container> */}
-
           <Tabs
             id="login-tab"
             activeKey={key}
             onSelect={(k) => setKey(k)}
             className="mb-3 d-flex"
           >
-            {/* <Tab.Content> */}
-
+            
             <Tab.Pane eventKey="login" title="Login">
               <Login handleModalClose={() => setShow(false)} />
             </Tab.Pane>
+
             <Tab.Pane eventKey="Register" title="Register">
               <Register handleModalClose={() => setShow(false)} />
             </Tab.Pane>
-            {/* </Tab.Content> */}
-
+            
           </Tabs>
-          {/* </Tab.Container> */}
+          
         </Modal.Body>
-        {/* <Modal.Title>Login</Modal.Title>
-          <Login handleModalClose={()=>setShow(false)} /> */}
+        
       </Modal>
 
       <Modal show={showCart} onHide={handleCartClose} size="lg">
+
         <Modal.Header closeButton >
           <Modal.Title>Raffles of Love</Modal.Title>
         </Modal.Header>
+
         <Modal.Body>
           <Cart handleModalClose={() => setShowCart(false)} />
-
         </Modal.Body>
 
       </Modal>
-
     </>
   );
 }

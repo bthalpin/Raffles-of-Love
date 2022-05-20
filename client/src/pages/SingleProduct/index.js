@@ -1,7 +1,5 @@
-import React, { useState } from 'react';
-// import {ProductCard} from '../../components';
+import React from 'react';
 import { Card, Container, Button } from 'react-bootstrap';
-// import { tempProductData } from '../../tempProductData';
 import { SINGLE_PRODUCT } from '../../utils/queries';
 import { useQuery } from '@apollo/client';
 import { useParams, Link } from 'react-router-dom';
@@ -9,9 +7,7 @@ import { useStoreContext } from "../../utils/GlobalState";
 import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
 import Auth from '../../utils/auth';
-
 import './singleProduct.css';
-
 
 function ticketsLeft(product) {
   var num1 = product.ticketCount
@@ -23,13 +19,9 @@ function ticketsLeft(product) {
 
 
 function SingleProduct() {
-  const [inCart, setInCart] = useState(false)
-
   const { productId } = useParams()
   const [state, dispatch] = useStoreContext();
-  // const tempProductData = state.products;
-  const { loading, data } = useQuery(SINGLE_PRODUCT,
-
+  const { data } = useQuery(SINGLE_PRODUCT,
     {
       variables: {
         productId: productId
@@ -38,7 +30,6 @@ function SingleProduct() {
   )
 
   const addToCart = (product) => {
-    setInCart(true)
     const itemInCart = state.cart.find(item => item._id === productId)
     if (itemInCart) {
       dispatch({
@@ -58,6 +49,7 @@ function SingleProduct() {
       idbPromise('cart', 'put', { ...product, quantity: 1 });
     }
   }
+
   const displayButton = () => {
     if (!Auth.loggedIn()) {
 
@@ -70,7 +62,7 @@ function SingleProduct() {
       return <div><Button className="buyBtn" onClick={() => addToCart(data.product)}>Buy Ticket</Button></div>
     }
   }
-  console.log(Auth.loggedIn())
+
   return (
     <>
       {data ?
@@ -84,20 +76,12 @@ function SingleProduct() {
             <footer>
               {data.product.ticketCount === data.product.tickets?.length ? 'Sold' : <>Tickets left: {ticketsLeft(data.product)}</>}
             </footer>
-            {/* {Auth.loggedIn()?data.product.winningNumber!=='000000000000000000000000'?
-                            'RAFFLE OVER':
-                            <Button className="buyBtn" onClick={()=>addToCart(data.product)}>Buy Ticket</Button>
-                            :
-                            <Button disabled>Must Log In to Buy A Ticket</Button>
-                            } */}
+            
           </Card>
         </Container>
 
         : <></>}
     </>
-
-
-
 
   )
 }
