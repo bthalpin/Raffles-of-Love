@@ -70,7 +70,7 @@ function SingleProduct() {
       return <div><Button className="buyBtn" onClick={() => addToCart(data.product)}>Buy Ticket</Button></div>
     }
   }
-
+  console.log(Auth.loggedIn())
   return (
     <>
       {data ?

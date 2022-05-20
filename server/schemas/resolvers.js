@@ -186,23 +186,23 @@ const resolvers = {
       return Charity.findOneAndDelete({ _id: charityId });
     },
 
-    addTicket: async (parent, { products }, context) => {
-      if (context.user) {
-        const ticket = Ticket.create(products.tickets.length + 1);
+    // addTicket: async (parent, { products }, context) => {
+    //   if (context.user) {
+    //     const ticket = Ticket.create(products.tickets.length + 1);
 
-        await User.findByIdAndUpdate(context.user._id, { $push: { tickets: ticket } });
+    //     await User.findByIdAndUpdate(context.user._id, { $push: { tickets: ticket } });
 
-        const newTicket = await Product.findByIdAndUpdate(products._id, { $push: { tickets: ticket } });
-        if(newTicket.tickets.length === newTicket.ticketCount){
-          const winningTicket = newTicket.tickets[Math.floor(Math.random()*newTicket.tickets.length)]
-          const newTicket = await Product.findByIdAndUpdate(products._id, {winningNumber:winningTicket} );
+    //     const newTicket = await Product.findByIdAndUpdate(products._id, { $push: { tickets: ticket } });
+    //     if(newTicket.tickets.length === newTicket.ticketCount){
+    //       const winningTicket = newTicket.tickets[Math.floor(Math.random()*newTicket.tickets.length)]
+    //       const newTicket = await Product.findByIdAndUpdate(products._id, {winningNumber:winningTicket} );
           
-        }
-        return ticket;
-      }
+    //     }
+    //     return ticket;
+    //   }
 
-      throw new AuthenticationError('Not Logged in');
-    },
+    //   throw new AuthenticationError('Not Logged in');
+    // },
 
     addOrder: async (parent, { products }, context) => {
       if (context.user) {
@@ -210,13 +210,17 @@ const resolvers = {
 
         await User.findByIdAndUpdate(context.user._id, { $push: { orders: order } });
         products.map(async(productId)=>{
-          const product = await Product.findById(productId); 
+
+          // Creates ticket for each product
           const ticket = await Ticket.create({ticketNumber:Math.floor(Math.random()*1000000), product: productId});
 
+          // Adds ticket id to user ticket array
           await User.findByIdAndUpdate(context.user._id, { $push: { tickets: ticket } });
 
+          // Adds ticket id to product ticket array
           const newTicket = await Product.findByIdAndUpdate(productId, { $push: { tickets: ticket } },{new:true});
 
+          // Checks if all tickets are purchased and selects a winner
           if(newTicket.tickets.length >= newTicket.ticketCount){
               const winningTicket = newTicket.tickets[Math.floor(Math.random()*newTicket.tickets.length)]
               const winner = await Product.findByIdAndUpdate(productId, {winningNumber:winningTicket} );
