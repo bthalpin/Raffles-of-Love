@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
   ApolloClient,
   InMemoryCache,
@@ -14,7 +14,10 @@ import {Charity,SingleCharity,Profile,SingleProduct,Raffles,OrderSuccess} from '
 import { StoreProvider } from './utils/GlobalState';
 import './App.css';
 
-
+import { idbPromise } from './utils/helpers';
+import { useStoreContext } from "./utils/GlobalState";
+import { ADD_MULTIPLE_TO_CART } from './utils/actions';
+  
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
@@ -40,6 +43,10 @@ const client = new ApolloClient({
 
 function App() {
  
+
+
+ 
+  
   return (
     <ApolloProvider client={client}>
     <Router className="router">
