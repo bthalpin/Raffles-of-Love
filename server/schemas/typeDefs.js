@@ -85,7 +85,7 @@ const typeDefs = gql`
         addCharity(name: String!, website: String, image: String, logo: String, description: String, mission: String, youtube: String): Charity
         updateCharity(charityId: ID!, name: String!, website: String, image: String, logo: String, description: String, mission: String, youtube: String): Charity
         removeCharity(charityId: ID!): Charity
-        
+        deleteTicket(ticketId:ID!):User
         login(email: String!, password: String!): Auth
         addOrder(products: [ID]!): Order
     }

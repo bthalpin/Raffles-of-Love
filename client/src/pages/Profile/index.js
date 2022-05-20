@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {EditCharity,EditUser,RaffleTicket, MyCharity,AddProduct} from '../../components';
 import {USER} from '../../utils/queries';
 import Auth from '../../utils/auth';
-import { UPDATE_USER,REMOVE_USER } from '../../utils/mutations';
+import { UPDATE_USER,REMOVE_USER,REMOVE_TICKET } from '../../utils/mutations';
 import { useQuery,useMutation } from '@apollo/client';
 import { useStoreContext } from "../../utils/GlobalState";
 import {Card,Container,Button,Modal,Tabs,Tab} from 'react-bootstrap';
@@ -27,7 +27,7 @@ function Profile () {
     const {data} = useQuery(USER)
     const [updateUser] = useMutation(UPDATE_USER)
     const [removeUser] = useMutation(REMOVE_USER)
-
+    const [removeTicket] = useMutation(REMOVE_TICKET)
     useEffect(()=>{
       if (data) {
         dispatch({

@@ -140,5 +140,8 @@ p {
     .charityPage{
         margin-bottom: 10rem;
     }
+    .charityCard:hover{
+        transform:   scale(1);
+    }
 
 }

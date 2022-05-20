@@ -186,6 +186,12 @@ const resolvers = {
       return Charity.findOneAndDelete({ _id: charityId });
     },
 
+    deleteTicket: async (parent, {ticketId}, context) => {
+      if (context.user){
+        const user = await User.findByIdAndUpdate(context.user._id, {$pull: {tickets:ticketId}})
+        return user
+      }
+    },
     // addTicket: async (parent, { products }, context) => {
     //   if (context.user) {
     //     const ticket = Ticket.create(products.tickets.length + 1);

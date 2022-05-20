@@ -39,6 +39,14 @@ export const REMOVE_USER = gql`
   }
 `;
 
+export const REMOVE_TICKET = gql`
+  mutation deleteTicket($ticketId:ID!){
+    deleteTicket(ticketId:$ticketId){
+      _id
+      userName
+    }
+  }
+`
 export const ADD_PRODUCT = gql`
   mutation addProduct($name: String!, $image: String!, $price: Int!, $charity: ID!, $description: String, $ticketCount: Int) {
     addProduct(name: $name, image: $image, price: $price, charity: $charity, description: $description, ticketCount: $ticketCount) {
