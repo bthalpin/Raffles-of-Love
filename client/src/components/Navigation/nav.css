@@ -27,6 +27,7 @@
 }
 
 .navigation{
+    padding:1rem !important;
     background-color: var(--royal);
     border-bottom: 4px solid var(--orange);
 }
@@ -46,7 +47,13 @@
     width:4rem;
     margin:0 1rem 0;
 }
+.homeLink{
+    display:none !important;
+}
 @media screen and (max-width: 992px) {
+    .homeLink{
+        display:flex !important;
+    }
     .navLink{
         padding-right:0 !important;
     }
@@ -86,7 +93,9 @@
 }
 
 @media screen and (max-width:398px) {
-
+    .menuContainer{
+        padding:0 0.5rem;
+    }
     .brandName{
         font-size:larger !important;
     }
@@ -99,14 +108,18 @@
 }
 
 
-@media screen and (max-width:382px) {
-
+@media screen and (max-width:347px) {
+    .logoContainer img{
+        width:2rem;
+        margin:0 0.5rem;
+    }
     .brandName{
-        font-size:larger !important;
+        /* font-size:larger !important; */
     }
     
     .navigation{
-        /* width: 100vw; */
+        padding:1rem 0 !important;
+        height:4.7rem;
     }
 
 

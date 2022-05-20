@@ -15,6 +15,7 @@ function Navigation() {
   const [show, setShow] = useState(false);
   const [key, setKey] = useState('login');
   const [showCart, setShowCart] = useState(false);
+  const [expanded,setExpanded] = useState(false);
 
   useEffect(() => {
     async function getCart() {
@@ -29,14 +30,19 @@ function Navigation() {
 
   const logout = (e) => {
     e.preventDefault()
+    setExpanded(false)
     Auth.logout()
   }
   const handleCartClose = () => {
     setShowCart(false)
   };
-  const handleCartShow = () => setShowCart(true);
+  const handleCartShow = () => {
+    setExpanded(false);
+    setShowCart(true);
+  }
   const handleClose = () => setShow(false);
   const handleShow = () => {
+    setExpanded(false)
     setKey('login')
     setShow(true)
   };
@@ -44,7 +50,7 @@ function Navigation() {
 
   return (
     <>
-      <Navbar className="navigation p-3 d-flex justify-content-between" variant="dark" expand="lg">
+      <Navbar className="navigation  d-flex justify-content-between" variant="dark" expand="lg" expanded={expanded}>
         <div className="logoContainer">
           <a href="/">
             <img className='logo' src="/images/heart-logo.png" alt=""></img>
@@ -54,17 +60,18 @@ function Navigation() {
         <div className="menuContainer"> 
           <div className="menuButton">
 
-          <Navbar.Toggle aria-controls="navbar" />
+          <Navbar.Toggle aria-controls="navbar" onClick={() => setExpanded(expanded ? false : "expanded")} />
           </div>
           <div>
 
           <Navbar.Collapse id="navbar">
             <Nav className="navRight">
-              <Nav className="navLink fs-3" as={Link} to='/Product'>Raffles</Nav>
+              <Nav className="navLink fs-3 homeLink" as={Link} to='/' onClick={() => setExpanded(false)}>Home</Nav>
+              <Nav className="navLink fs-3" as={Link} to='/Product' onClick={() => setExpanded(false)}>Raffles</Nav>
               {Auth.loggedIn() ?
                 <>
-                  <Nav className="navLink fs-3" as={Link} to='/Profile'>My Profile</Nav>
-                  <Nav onClick={handleCartShow} className="navLink fs-3 navCheckout" >Cart<span className="cartCount">{state.cart.length ? state.cart.reduce((acc, item) => {
+                  <Nav className="navLink fs-3" as={Link} to='/Profile' onClick={() => setExpanded(false)}>My Profile</Nav>
+                  <Nav onClick={handleCartShow} className="navLink fs-3 navCheckout">Cart<span className="cartCount">{state.cart.length ? state.cart.reduce((acc, item) => {
                     return acc + parseInt(item.quantity)
                   }, 0) : <></>}</span></Nav>
 
