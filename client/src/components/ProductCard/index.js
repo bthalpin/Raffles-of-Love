@@ -27,14 +27,14 @@ function ProductCard({ productData,myProducts }) {
                                         : <></>
                                 }
                                 <Card.Title className="my-2">{product.name}</Card.Title>
-                                
+
                                 <Card.Body>
                                     <img className="productImage" src={product.image} alt='logo'></img>
                                     <br></br>
                                     <div className="proDesc">{product.description}</div>
                                 </Card.Body>
                             
-                                {product.ticketCount === product.tickets?.length ? 'Sold' : <>Tickets left: {ticketsLeft(product)}</>}
+                                {product.ticketCount <= product.tickets?.length ? 'RAFFLE OVER' : <>Tickets left: {ticketsLeft(product)}</>}
                                 
                             </Card>
                         </Link>

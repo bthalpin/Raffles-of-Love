@@ -74,7 +74,7 @@ function SingleProduct() {
             <Card.Body>{data.product.description}</Card.Body>
             {displayButton()}
             <footer>
-              {data.product.ticketCount === data.product.tickets?.length ? 'Sold' : <>Tickets left: {ticketsLeft(data.product)}</>}
+              {data.product.ticketCount <= data.product.tickets?.length ? '' : <>Tickets left: {ticketsLeft(data.product)}</>}
             </footer>
             
           </Card>
