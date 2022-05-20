@@ -7,7 +7,7 @@ import { idbPromise } from '../../utils/helpers';
 import { useMutation } from '@apollo/client';
 import { useStoreContext } from "../../utils/GlobalState";
 import { Card,Container,Button } from 'react-bootstrap';
-import { ORDER_SUMMARY } from '../../utils/actions';
+import { ORDER_SUMMARY,EMPTY_CART } from '../../utils/actions';
 import {Link} from 'react-router-dom';
 import './order.css';
 
@@ -39,7 +39,7 @@ function OrderSuccess () {
             productData.forEach((item) => {
               idbPromise('cart', 'delete', item);
             });
-          
+            dispatch({type:EMPTY_CART})
           }
 
     

@@ -8,7 +8,7 @@ import { useStoreContext } from "../../utils/GlobalState";
 import { Button, Card } from 'react-bootstrap';
 import CartItem from '../CartItem';
 
-const stripePromise = loadStripe(process.env.STRIPE_PUBLIC);
+const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC);
 
 function Checkout() {
   const [state, dispatch] = useStoreContext();

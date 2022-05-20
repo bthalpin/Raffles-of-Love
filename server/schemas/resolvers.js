@@ -1,5 +1,6 @@
 const { User, Ticket, Product, Charity, Order } = require('../models');                  // Require models folder.
 const { signToken } = require('../utils/auths');                                  // Require signToken (JWT) from auth.js folder to verify integrity of claims.
+require('dotenv').config()
 const stripe = require('stripe')(process.env.STRIPE_SECRET);             // Require stripe for payment functions.
 
 

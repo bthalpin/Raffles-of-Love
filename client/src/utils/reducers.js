@@ -5,6 +5,7 @@ import {
   UPDATE_CART_QUANTITY,
   REMOVE_FROM_CART,
   ADD_MULTIPLE_TO_CART,
+  EMPTY_CART,
   UPDATE_CURRENT_CHARITY,
   TOTAL,
   UPDATE_CHARITIES,
@@ -78,6 +79,13 @@ export const reducer = (state, action) => {
         ...state,
         cartOpen: newState.length > 0,
         cart: newState,
+      };
+
+    case EMPTY_CART:
+      return {
+        ...state,
+        // cartOpen: false,
+        cart: [],
       };
 
     
